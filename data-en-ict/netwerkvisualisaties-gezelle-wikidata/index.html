@@ -52,15 +52,8 @@
             padding: 0 40px;
         }
 
-        .project-meta {
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            color: #666;
-            margin-bottom: 10px;
-        }
-
         h1 { 
-            font-size: clamp(2.5rem, 8vw, 5.5rem); 
+            font-size: clamp(2.5rem, 8vw, 5rem); 
             font-weight: 900; 
             line-height: 0.85; 
             text-transform: uppercase;
@@ -68,9 +61,9 @@
             margin: 0;
         }
 
-        .hero-layout {
+        .intro-section {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 1fr 1fr;
             gap: 40px;
             margin-top: 40px;
         }
@@ -79,105 +72,135 @@
             background: #000;
             color: #fff;
             padding: 40px;
-            font-size: 1.2rem;
-            box-shadow: 15px 15px 0px var(--accent-color);
+            font-size: 1.1rem;
+            box-shadow: 12px 12px 0px var(--accent-color);
         }
 
-        /* Netwerk Visualisatie Style Blocks */
-        .node-container {
-            position: relative;
+        /* Documentation Cards Grid */
+        .docs-grid {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .doc-card {
+            border: 3px solid #000;
+            padding: 25px;
+            background: #fff;
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        .doc-card:hover {
+            background: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .doc-label {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 0.75rem;
+            display: block;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .doc-card h3 {
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+        }
+
+        /* Visualisation Sections */
+        .viz-container {
             max-width: 1100px;
             margin: 100px auto;
             padding: 0 40px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
         }
 
-        .node-card {
-            border: 3px solid #000;
-            padding: 30px;
+        .viz-window {
+            border: 4px solid #000;
             background: #fff;
+            margin-bottom: 80px;
             position: relative;
-            transition: 0.3s;
-            text-decoration: none;
-            color: inherit;
         }
 
-        .node-card:hover {
-            background: var(--accent-color);
-            transform: scale(1.02);
-        }
-
-        .node-card h3 {
-            text-transform: uppercase;
-            margin-top: 0;
-            font-size: 1.5rem;
-            border-bottom: 2px solid #000;
-            padding-bottom: 10px;
-        }
-
-        .node-card::before {
-            content: "";
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: #000;
-            border-radius: 50%;
-            top: -10px;
-            left: -10px;
-        }
-
-        /* Specifieke deeltjes */
-        .viz-box {
-            grid-column: span 2;
-            background: #f0f0f0;
-            border: 2px dashed #000;
-            padding: 50px;
-            text-align: center;
-        }
-
-        .viz-placeholder {
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
-            color: #888;
-        }
-
-        .btn-link {
-            display: inline-block;
-            margin-top: 20px;
+        .viz-header {
             background: #000;
             color: #fff;
             padding: 10px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .node-card:hover .btn-link {
+        .viz-title {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .viz-desc {
+            padding: 30px;
+            border-bottom: 2px solid #000;
+            background: #f9f9f9;
+        }
+
+        .viz-iframe-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .viz-iframe-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .viz-footer {
+            padding: 15px 30px;
+            background: var(--accent-color);
+            text-align: right;
+        }
+
+        .btn-small {
+            background: #000;
+            color: #fff;
+            padding: 5px 15px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .btn-small:hover {
             background: #fff;
             color: #000;
         }
 
-        .github-link-box {
-            background: var(--accent-color);
-            padding: 60px;
-            text-align: center;
-            border-top: 5px solid #000;
-            margin-top: 100px;
-        }
-
         footer { 
-            padding: 40px; 
+            padding: 60px; 
             text-align: center; 
+            background: #000;
+            color: #fff;
             font-family: 'Courier New', monospace;
-            font-size: 0.8rem;
         }
 
         @media (max-width: 768px) {
-            .hero-layout, .node-container { grid-template-columns: 1fr; }
-            .viz-box { grid-column: 1; }
+            .intro-section { grid-template-columns: 1fr; }
+            .docs-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -190,66 +213,15 @@
     </nav>
 
     <header>
-        <div class="project-meta">PROJECT: GEZELLE_LOD // PARTNER: MEEMOO</div>
-        <h1>Guido Gezelle &<br>Linked Data</h1>
+        <span style="font-family: 'Courier New', monospace; color: var(--accent-color); font-weight: bold;">[ CASE_STUDY: GEZELLE_LOD ]</span>
+        <h1>Gezelle & Wikidata</h1>
         
-        <div class="hero-layout">
+        <div class="intro-section">
             <div class="intro-text">
-                Hoe maak je de onzichtbare netwerken van een 19e-eeuwse dichter zichtbaar met moderne webtechnologie? 
-                Door archiefdata te mappen naar Wikidata en te ontsluiten via SPARQL, transformeren we statische informatie naar dynamische kennisnetwerken.
+                Dit project, uitgevoerd voor <strong>meemoo</strong>, onderzoekt hoe we de rijke correspondentie en netwerken van Guido Gezelle kunnen ontsluiten als Linked Open Data. Door data te mappen naar Wikidata maken we complexe 19e-eeuwse relaties bevragbaar en visueel inzichtelijk.
             </div>
-            <div style="border: 4px solid #000; padding: 20px; display: flex; align-items: center; justify-content: center; background: var(--accent-color);">
-                <span style="font-weight: 900; font-size: 1.5rem; text-align: center; text-transform: uppercase; transform: rotate(-5deg);">Data is de<br>nieuwe poëzie</span>
-            </div>
-        </div>
-    </header>
-
-    <main class="node-container">
-        
-        <div class="viz-box">
-            <h2 style="text-transform: uppercase;">Interactieve Netwerken</h2>
-            <p>De kern van het project: netwerkvisualisaties van Gezelle's correspondenten en thema's.</p>
-            <div class="viz-placeholder">
-                [ IMAGE / IFRAME: GEZELLE_NETWERK_VIZ ]
-            </div>
-        </div>
-
-        <a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/" target="_blank" class="node-card">
-            <span class="step-num">DOCS_01</span>
-            <h3>Projectwebsite</h3>
-            <p>De volledige documentatiehub waar alle stappen van het project worden uitgelegd voor erfgoedprofessionals.</p>
-            <span class="btn-link">Visit Docs →</span>
-        </a>
-
-        <div class="node-card">
-            <span class="step-num">DOCS_02</span>
-            <h3>Handleidingen</h3>
-            <p>Stapsgewijze gidsen over het mappen van metadata, het gebruik van OpenRefine en het bevragen van de Wikidata Query Service (SPARQL).</p>
-        </div>
-
-        <div class="node-card">
-            <span class="step-num">PUB_01</span>
-            <h3>Artikel Kennisbank</h3>
-            <p>Een reflectie op het project, gepubliceerd in de meemoo kennisbank, over de waarde van Linked Open Data voor kleinere archieven.</p>
-        </div>
-
-        <div class="node-card">
-            <span class="step-num">TECH_01</span>
-            <h3>Queries & Data</h3>
-            <p>Directe links naar de SPARQL-queries die de basis vormen voor de visualisaties. Raw data meets research.</p>
-        </div>
-
-    </main>
-
-    <section class="github-link-box">
-        <h2 style="text-transform: uppercase; font-size: 2.5rem; margin: 0;">Code & Repositories</h2>
-        <p>Alle broncode van de visualisaties en documentatie is open source beschikbaar.</p>
-        <a href="https://github.com/guacamolekoala/DocumentationVisualisationsGuidoGezelle" class="btn-link" style="font-size: 1.2rem; padding: 15px 40px;">View on GitHub</a>
-    </section>
-
-    <footer>
-        JENSKE VERHAMME // GEZELLE_CASE_STUDY // 2026
-    </footer>
-
-</body>
-</html>
+            <div style="border: 4px solid #000; padding: 30px; background: #fff;">
+                <h4 style="margin-top: 0; text-transform: uppercase;">Project Doelen</h4>
+                <ul style="padding-left: 20px; font-size: 0.9rem;">
+                    <li>Mappen van metadata naar Wikidata-entiteiten.</li>
+                    <li>Ontwikkelen van herbruikbare SPARQL
