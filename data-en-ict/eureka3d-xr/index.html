@@ -35,7 +35,7 @@
         }
 
         header {
-            max-width: 1100px; margin: 80px auto; padding: 0 40px;
+            max-width: 1100px; margin: 80px auto 40px auto; padding: 0 40px;
         }
 
         .tag {
@@ -50,9 +50,10 @@
             margin: 20px 0; line-height: 0.9;
         }
 
-        /* 3D Layered Sections */
+        .intro-lead { font-size: 1.3rem; max-width: 850px; margin-top: 30px; font-weight: 500; }
+
         .xr-grid {
-            max-width: 1100px; margin: 60px auto; padding: 0 40px;
+            max-width: 1100px; margin: 0 auto 60px auto; padding: 0 40px;
             display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;
         }
 
@@ -67,6 +68,21 @@
         .xr-card:hover { transform: translate(-5px, -5px); box-shadow: 20px 20px 0px var(--dark); }
 
         .card-number { font-family: 'Courier New', monospace; font-weight: bold; color: #aaa; }
+
+        /* MOOC Section */
+        .mooc-section {
+            max-width: 1100px; margin: 80px auto; padding: 0 40px;
+        }
+        .mooc-header { 
+            font-size: 1.5rem; font-weight: 900; text-transform: uppercase; 
+            margin-bottom: 30px; display: flex; align-items: center; gap: 20px;
+        }
+        .mooc-header::after { content: ""; flex: 1; height: 5px; background: var(--dark); }
+        
+        .mooc-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .mooc-card { border: 3px solid var(--dark); padding: 30px; background: #fff; }
+        .mooc-card.highlight { background: var(--accent-color); }
+        .mooc-card h4 { margin-top: 0; text-transform: uppercase; }
 
         .scenario-box {
             grid-column: 1 / 3;
@@ -94,7 +110,7 @@
         footer { padding: 60px; text-align: center; font-family: 'Courier New', monospace; font-size: 0.8rem; }
 
         @media (max-width: 800px) {
-            .xr-grid { grid-template-columns: 1fr; }
+            .xr-grid, .mooc-container { grid-template-columns: 1fr; }
             .scenario-box { grid-column: 1 / 2; }
         }
     </style>
@@ -108,45 +124,64 @@
     </nav>
 
     <header>
-        <span class="tag">EU_PROJECT // MEEMOO_PARTNER</span>
+        <span class="tag">EU_PROJECT // MEEMOO_PROJECT_WORK</span>
         <h1>Eureka3D<br>Extended Reality</h1>
-        <p style="font-size: 1.3rem; max-width: 800px; margin-top: 30px;">
-            Hoe blazen we 3D-modellen nieuw leven in? Binnen het Europese <strong>EUreka3D-XR</strong> project onderzoeken we de transitie van statische scans naar immersieve verhalen in de <strong>European Data Space</strong>.
-        </p>
+        <div class="intro-lead">
+            Binnen het Europese project <strong>EUreka3D-XR</strong> focus ik op de vraag hoe we statische 3D-modellen kunnen transformeren naar betekenisvolle, immersieve ervaringen. Mijn werk bij meemoo richt zich specifiek op het empoweren van erfgoedprofessionals om deze sprong te wagen.
+        </div>
     </header>
 
     <main class="xr-grid">
         <section class="xr-card">
-            <span class="card-number">01_CAPACITY_BUILDING</span>
-            <h3>Kennisdeling</h3>
-            <p>Meemoo trekt het werkpakket rond capacity building. We ontwikkelen handleidingen en workshops om erfgoedprofessionals de skills te geven om zelf met XR-tools aan de slag te gaan.</p>
+            <span class="card-number">01_MY_ROLE</span>
+            <h3>Capacity Building</h3>
+            <p>Samen met het meemoo-team trek ik het werkpakket rond kennisdeling. Ik ontwikkel handleidingen en organiseer workshops die erfgoedbeheerders de nodige handvaten bieden om XR-technologieën duurzaam in te zetten voor hun collecties.</p>
         </section>
 
         <section class="xr-card">
             <span class="card-number">02_THE_TOOLBOX</span>
-            <h3>Open-Source Tools</h3>
+            <h3>Innovatieve Tools</h3>
+            <p>We onderzoeken en testen open-source oplossingen die de drempel voor XR verlagen:</p>
             <div class="tool-list">
-                <div class="tool-item"><strong>AR Walk Tool</strong><br>Voor interactieve stadswandelingen.</div>
-                <div class="tool-item"><strong>AI 2D-to-3D</strong><br>Conversie van beelden naar modellen.</div>
-                <div class="tool-item"><strong>Digital Characters</strong><br>AI-interactie met bezoekers.</div>
+                <div class="tool-item"><strong>AR Walk Tool</strong><br>Interactieve stadsgidsen op basis van 3D-data.</div>
+                <div class="tool-item"><strong>AI Assistance</strong><br>Van 2D-archiefbeeld naar ruimtelijke modellen.</div>
+                <div class="tool-item"><strong>Immersieve Storytelling</strong><br>3D-modellen als basis voor nieuwe verhalen.</div>
+            </div>
+        </section>
+
+        <section class="mooc-section" style="grid-column: 1/3; margin: 0; padding: 0;">
+            <div class="mooc-header">Onderwijs & Training (MOOCs)</div>
+            <div class="mooc-container">
+                <div class="mooc-card">
+                    <span class="tag" style="background: #eee; color: #000; margin-bottom: 10px; display: inline-block;">Cursus 1 // Live</span>
+                    <h4>3D Digitisation for Cultural Heritage</h4>
+                    <p>Een uitgebreide introductie tot de basisprincipes van 3D-digitalisering in de erfgoedsector.</p>
+                    <a href="https://europeana.moocit.fr/courses/course-v1:europeana+EUreka3D01+2024_Q3/about" target="_blank" style="color: var(--dark); font-weight: bold; font-size: 0.8rem;">Bekijk cursus ↗</a>
+                </div>
+                <div class="mooc-card highlight">
+                    <span class="tag" style="margin-bottom: 10px; display: inline-block;">Cursus 2 // In Ontwikkeling</span>
+                    <h4>XR & Immersive Storytelling</h4>
+                    <p>Voor deze tweede MOOC ben ik verantwoordelijk voor de contentcreatie. Ik werk momenteel aan de modules die professionals leren hoe ze 3D-modellen effectief ontsluiten in XR-omgevingen.</p>
+                    <span style="font-family: 'Courier New', monospace; font-size: 0.8rem; font-weight: bold;">[COMING SOON]</span>
+                </div>
             </div>
         </section>
 
         <section class="scenario-box">
             <h2 style="text-transform: uppercase;">Showcase Scenarios</h2>
-            <p>Drie pilootprojecten die de grenzen van de toolbox verleggen:</p>
+            <p>Om de theorie aan de praktijk te toetsen, werken we aan drie Europese pilots waarbij ik de technische toolbox help vertalen naar concrete belevingen:</p>
             <div class="tool-list">
                 <div>
-                    <h4 style="color: var(--accent-color);">Girona Walls</h4>
-                    <p>Reconstructie van de verdwenen middeleeuwse stadsmuren in Catalonië.</p>
+                    <h4 style="color: var(--accent-color);">Girona Walls (ES)</h4>
+                    <p>Het virtueel reconstrueren van de historische stadsmuren.</p>
                 </div>
                 <div>
-                    <h4 style="color: var(--accent-color);">Bibracte</h4>
-                    <p>Een immersieve AR-ervaring op deze Keltische archeologische site in Frankrijk.</p>
+                    <h4 style="color: var(--accent-color);">Bibracte (FR)</h4>
+                    <p>AR-ontsluiting op een van de grootste Keltische archeologische sites.</p>
                 </div>
                 <div>
-                    <h4 style="color: var(--accent-color);">St. Neophytos</h4>
-                    <p>Het tot leven wekken van de Cypriotische kloostergeschiedenis in virtual space.</p>
+                    <h4 style="color: var(--accent-color);">St. Neophytos (CY)</h4>
+                    <p>Immersieve beleving van de unieke Cypriotische kloostergeschiedenis.</p>
                 </div>
             </div>
             <a href="https://meemoo.be/nl/projecten/eureka3d-xr-innovatief-aan-de-slag-met-3d" target="_blank" class="external-link">Project Details @ Meemoo ↗</a>
