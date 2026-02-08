@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wow Koala | Portfolio Jenske Verhamme</title>
+    <style>
+        /* Meemoo x Psych-Rock Fusion */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            line-height: 1.4;
+            /* Subtiele korrel-textuur overlay */
+            background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+        }
+
+        /* Hero Sectie - Vloeibaar maar strak */
+        header {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .header-image {
+            position: relative;
+        }
+
+        .header-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 3px solid #000;
+            /* De 'Lava-lamp' uitsnede binnen het grid */
+            border-radius: 50% 50% 0 0; 
+            filter: saturate(1.5) contrast(1.1);
+        }
+
+        /* De Meemoo-schaduw wordt hier een vloeibare blob */
+        .header-image::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            background-color: #AADDDD;
+            z-index: -1;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            animation: morph 10s linear infinite alternate;
+        }
+
+        @keyframes morph {
+            0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            100% { border-radius: 70% 30% 50% 50% / 50% 30% 80% 40%; }
+        }
+
+        h1 { 
+            font-size: clamp(4rem, 12vw, 9rem); 
+            font-weight: 900;
+            line-height: 0.7;
+            margin: 0;
+            letter-spacing: -8px;
+            text-transform: uppercase;
+            /* Tekst-overlap effect */
+            transform: translateX(-50px);
+        }
+
+        .role-label {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            padding: 5px 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        /* Content Sections */
+        .psych-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* De 'Stoner' Bio - Zwevende blokken */
+        .bio-float {
+            display: flex;
+            gap: 60px;
+            margin: 100px 0;
+        }
+
+        .bio-text {
+            flex: 1;
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: #AADDDD;
+            padding: 40px;
+            border: 3px solid #000;
+            box-shadow: 15px 15px 0px #000;
+        }
+
+        .bio-context {
+            flex: 1;
+            font-size: 1rem;
+            border-top: 10px solid #000;
+            padding-top: 20px;
+            font-style: italic;
+        }
+
+        /* Audio Sectie */
+        .audio-wrap {
+            background-color: #000;
+            color: #fff;
+            padding: 80px 40px;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .audio-wrap h2 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: -3px;
+            margin-bottom: 40px;
+            color: #AADDDD;
+        }
+
+        /* Merch Section - Polaroid Style */
+        .merch-flex {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 120px;
+        }
+
+        .merch-item {
+            flex: 1;
+            min-width: 280px;
+            background: #fff;
+            border: 2px solid #000;
+            padding: 15px 15px 40px 15px;
+            transform: rotate(-2deg);
+            transition: 0.3s;
+        }
+
+        .merch-item:nth-child(even) { transform: rotate(3deg); }
+        .merch-item:hover { transform: rotate(0deg) scale(1.05); }
+
+        .merch-item img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #000;
+            margin-bottom: 15px;
+        }
+
+        /* Visual Archive - Chaos Grid */
+        .visual-archive {
+            padding: 100px 0;
+            border-top: 3px solid #000;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: 100px;
+            gap: 15px;
+        }
+
+        .gallery-item {
+            background: #000;
+            border: 2px solid #000;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+            filter: contrast(1.2) sepia(0.2);
+        }
+
+        /* Random Span voor Psych-vibe */
+        .s-1 { grid-column: span 6; grid-row: span 4; }
+        .s-2 { grid-column: span 6; grid-row: span 2; }
+        .s-3 { grid-column: span 3; grid-row: span 3; }
+        .s-4 { grid-column: span 3; grid-row: span 2; }
+
+        footer {
+            text-align: center;
+            padding: 80px 20px;
+            background: #000;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: 900;
+        }
+
+        @media (max-width: 850px) {
+            header, .bio-float { grid-template-columns: 1fr; flex-direction: column; }
+            h1 { transform: none; font-size: 5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-image">
+            <img src="wow-koala-psych.jpg" alt="Wow Koala Psych Session">
+        </div>
+        <div class="header-content">
+            <div class="role-label">Psychedelic Rock // Bass</div>
+            <h1>Wow<br>Koala</h1>
+        </div>
+    </header>
+
+    <main class="psych-container">
+        
+        <div class="bio-float">
+            <div class="bio-text">
+                "Het geluid van een smeltende cassetteband in een Leuvense kelder." Wow Koala combineert stoner-grooves met psychedelische gelaagdheid.
+            </div>
+            <div class="bio-context">
+                In de Ban van De Depot was slechts de start. Van dromerige synth-passages tot fuzz-beladen baslijnen die de luisteraar meezuigen in een sonische trip. De bas is hier geen begeleiding, maar een hypnotische constante.
+            </div>
+        </div>
+
+        <section class="audio-wrap">
+            <h2>The Trip</h2>
+            <iframe style="border-radius:0px" src="http://googleusercontent.com/spotify.com/wowkoala-trip" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </section>
+
+        <div class="merch-flex">
+            <div class="merch-item">
+                <img src="wk-vinyl-psych.jpg" alt="Vinyl">
+                <div style="font-weight: 900; text-transform: uppercase;">Cloudy Marble Vinyl</div>
+            </div>
+            <div class="merch-item">
+                <img src="wk-shirt-psych.jpg" alt="Shirt">
+                <div style="font-weight: 900; text-transform: uppercase;">Tie-Dye Tour Tee</div>
+            </div>
+        </div>
+
+        <section class="visual-archive">
+            <h2 style="font-size: 3rem; font-weight: 900; text-transform: uppercase; margin-bottom: 40px; letter-spacing: -2px;">Visual Archive</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item s-1"><img src="psy1.jpg" alt="Live Trip"></div>
+                <div class="gallery-item s-2"><img src="psy2.jpg" alt="Studio Smoke"></div>
+                <div class="gallery-item s-3"><img src="psy3.jpg" alt="Pedalboard"></div>
+                <div class="gallery-item s-4"><img src="psy4.jpg" alt="Jenske Bass"></div>
+                <div class="gallery-item s-2"><img src="psy5.jpg" alt="Vibe"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        PortfolioWordpress // Wow Koala // Deep Psych // 2026
+    </footer>
+
+</body>
+</html>
