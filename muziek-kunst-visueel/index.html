@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muziek & Visueel | Jenske Verhamme</title>
+    <style>
+        body { 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            background-color: #ffffff; 
+            color: #000000; 
+            margin: 0; 
+            padding: 0; 
+            line-height: 1.4;
+            overflow-x: hidden;
+            background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+        }
+
+        /* De dynamische achtergrond blob */
+        .bg-blob {
+            position: fixed;
+            bottom: -10%;
+            right: -10%;
+            width: 80vw;
+            height: 80vw;
+            background-color: #AADDDD;
+            z-index: -1;
+            filter: blur(120px);
+            opacity: 0.25;
+            border-radius: 50%;
+            animation: moveAround 25s infinite alternate;
+        }
+
+        @keyframes moveAround {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-10%, -10%) scale(1.2); }
+        }
+
+        /* Navigatie (Hetzelfde als home voor consistentie) */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 4px solid #000;
+            padding: 20px 40px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #000;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .nav-link:hover { color: #AADDDD; transform: scale(1.1); }
+
+        /* Intro Sectie */
+        header {
+            max-width: 1100px;
+            margin: 80px auto 40px auto;
+            padding: 0 40px;
+            position: relative;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #000;
+            text-decoration: none;
+            border-bottom: 3px solid #AADDDD;
+        }
+
+        h1 { 
+            font-size: clamp(3rem, 8vw, 6rem); 
+            font-weight: 900; 
+            line-height: 0.85; 
+            text-transform: uppercase;
+            letter-spacing: -4px;
+            margin: 0;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: #000;
+            color: #fff;
+            display: inline-block;
+            padding: 5px 15px;
+            margin-top: 20px;
+            transform: rotate(-1deg);
+        }
+
+        .toelichting {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-top: 30px;
+            font-weight: 500;
+        }
+
+        /* Zwarte scheidingslijn - Rocket Power stijl (scheef!) */
+        .divider {
+            height: 12px;
+            background: #000;
+            width: 110%;
+            margin-left: -5%;
+            transform: rotate(2deg);
+            margin-top: 80px;
+        }
+
+        /* Muziek Sectie Grid */
+        .muziek-section {
+            padding: 100px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 60px;
+            text-align: right;
+        }
+
+        .blob-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* De unieke blobs voor de bands */
+        .music-blob {
+            position: relative;
+            aspect-ratio: 1/1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #000;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .blob-shape {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #AADDDD;
+            border: 6px solid #000;
+            z-index: 1;
+            transition: all 0.5s ease;
+        }
+
+        /* Verschillende vormen voor elke blob */
+        .blob-1 .blob-shape { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        .blob-2 .blob-shape { border-radius: 30% 60% 70% 30% / 50% 60% 30% 60%; transform: rotate(45deg); }
+        .blob-3 .blob-shape { border-radius: 50% 50% 20% 80% / 30% 80% 20% 70%; }
+        .blob-4 .blob-shape { border-radius: 80% 20% 50% 50% / 50% 30% 70% 50%; }
+
+        .blob-text {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1.8rem;
+            letter-spacing: -1px;
+            padding: 20px;
+            line-height: 1;
+        }
+
+        .music-blob:hover {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .music-blob:hover .blob-shape {
+            background: #000;
+            box-shadow: 20px 20px 0px #AADDDD;
+        }
+
+        .music-blob:hover .blob-text {
+            color: #AADDDD;
+        }
+
+        /* Visuele Experimenten Sectie */
+        .visual-section {
+            background: #000;
+            color: #fff;
+            padding: 100px 40px;
+            margin-top: 50px;
+        }
+
+        .visual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .exp-card {
+            border: 3px solid #fff;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .exp-card:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* Footer */
+        footer { 
+            padding: 60px 40px; 
+            text-align: center;
+            border-top: 8px solid #000;
+            background: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .visual-grid { grid-template-columns: 1fr; }
+            .section-title { text-align: center; font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-blob"></div>
+
+    <nav>
+        <a href="../index.html" class="nav-link">The Person</a>
+        <a href="../index.html#portfolio" class="nav-link">The Work</a>
+        <a href="../index.html#contact" class="nav-link">The Signal</a>
+    </nav>
+
+    <header>
+        <a href="../index.html" class="back-link">← Terug naar de basis</a>
+        <h1>Sonic &<br>Visual Arts</h1>
+        <div class="tagline">Lawaai, Licht & Bits</div>
+        <p class="toelichting">
+            Hier versmelten mijn passie voor klankkunst en visuele experimenten. 
+            Van stoner rock riffs en modulaire chaos tot generatieve beelden.
+        </p>
+    </header>
+
+    <div class="divider"></div>
+
+    <section class="muziek-section">
+        <h2 class="section-title">De Projecten</h2>
+        
+        <div class="blob-grid">
+            <a href="#" class="music-blob blob-1">
+                <div class="blob-shape"></div>
+                <div class="blob-text">Nona<br>Problemo</div>
+            </a>
+
+            <a href="#" class="music-blob blob-2">
+                <div class="blob-shape"></div>
+                <div class="blob-text">Melting<br>Mallows</div>
+            </a>
+
+            <a href="#" class="music-blob blob-3">
+                <div class="blob-shape"></div>
+                <div class="blob-text">Wow<br>Koala</div>
+            </a>
+
+            <a href="#" class="music-blob blob-4">
+                <div class="blob-shape"></div>
+                <div class="blob-text">Daidara<br>botchi</div>
+            </a>
+        </div>
+    </section>
+
+    <div class="divider" style="transform: rotate(-1deg); background: #AADDDD;"></div>
+
+    <section class="visual-section">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <h2 style="font-size: 3rem; text-transform: uppercase;">Visuele Experimenten</h2>
+            <div class="visual-grid">
+                <div class="exp-card">
+                    <h3>Generatieve Kunst</h3>
+                    <p>Onderzoek naar algoritmes die zichzelf tekenen. Gebaseerd op open data en archiefbeelden.</p>
+                </div>
+                <div class="exp-card">
+                    <h3>Video Synthese</h3>
+                    <p>Analoge signalen omgezet in digitale psychedelica. Een constante feedbackloop van kleur.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div style="font-weight: 900; text-transform: uppercase; letter-spacing: 2px;">
+            © Jenske Verhamme 2026
+        </div>
+        <div style="margin-top: 10px; font-size: 0.7rem; color: #888;">
+            // Gebouwd met passie, pixels en een snuifje Rocket Power
+        </div>
+    </footer>
+
+</body>
+</html>
