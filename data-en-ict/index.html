@@ -48,7 +48,7 @@
         }
 
         header {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 80px auto 40px auto;
             padding: 0 40px;
         }
@@ -82,33 +82,33 @@
         }
 
         .intro-box p {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             margin: 0;
             font-weight: 500;
             line-height: 1.6;
         }
 
-        /* Project Grid */
+        /* Project Grid - Aangepast naar 3 kolommen voor compactheid */
         .project-grid {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 80px auto 100px auto;
             padding: 0 40px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
         }
 
         .ict-card {
             background: #fff;
             color: #000;
-            padding: 40px;
+            padding: 30px;
             text-decoration: none;
             border: 4px solid #000;
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 320px;
+            min-height: 350px;
         }
 
         /* Hoover effect: vak wordt groen/cyaan */
@@ -121,37 +121,40 @@
         .card-number {
             font-family: 'Courier New', monospace;
             font-weight: 900;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             margin-bottom: 20px;
             display: block;
+            opacity: 0.7;
         }
 
         .ict-card h2 {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             text-transform: uppercase;
-            line-height: 0.9;
-            margin: 0 0 20px 0;
+            line-height: 0.95;
+            margin: 0 0 15px 0;
             letter-spacing: -1px;
         }
 
         .ict-card p {
-            font-size: 1rem;
+            font-size: 0.95rem;
             margin-bottom: 25px;
             color: #333;
+            line-height: 1.4;
         }
 
         .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
+            margin-top: auto;
         }
 
         .tag {
             font-family: 'Courier New', monospace;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             background: #000;
             color: #fff;
-            padding: 4px 10px;
+            padding: 3px 8px;
             text-transform: lowercase;
         }
 
@@ -169,7 +172,11 @@
             align-items: center;
         }
 
-        @media (max-width: 850px) {
+        @media (max-width: 1100px) {
+            .project-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 750px) {
             .project-grid { grid-template-columns: 1fr; }
             .intro-box { box-shadow: 10px 10px 0px var(--accent-color); }
         }
@@ -192,7 +199,7 @@
             <p>
                 Digitale architectuur en data-management in de erfgoedsector. 
                 Focus op de implementatie van 3D-standaarden voor meemoo, 
-                Linked Open Data visualisaties en community-tools voor muzikanten.
+                Linked Open Data visualisaties en digitale transformatie van onderzoek en subculturen.
             </p>
         </div>
     </header>
@@ -207,7 +214,7 @@
             </div>
             <div class="tags">
                 <span class="tag">#3d-standards</span>
-                <span class="tag">#capacity-building</span>
+                <span class="tag">#meemoo</span>
             </div>
         </a>
 
@@ -223,9 +230,33 @@
             </div>
         </a>
 
+        <a href="virtual-rave-culture/index.html" class="ict-card">
+            <div>
+                <span class="card-number">[ 03_VR_FIELDWORK ]</span>
+                <h2>Virtual Rave Culture</h2>
+                <p>Digitale etnografie en veldwerk in VRChat. Onderzoek naar belichaming en identiteit binnen virtuele subculturen.</p>
+            </div>
+            <div class="tags">
+                <span class="tag">#digital-ethnography</span>
+                <span class="tag">#vrchat</span>
+            </div>
+        </a>
+
+        <a href="fotonovel-kbr-kul/index.html" class="ict-card">
+            <div>
+                <span class="card-number">[ 04_PHOTOLIT_RE ]</span>
+                <h2>Fotonovel Re-enactment</h2>
+                <p>Project Photolit: digitale transformatie van historisch erfgoed (KBR) naar een moderne artistieke productie.</p>
+            </div>
+            <div class="tags">
+                <span class="tag">#post-production</span>
+                <span class="tag">#heritage-re-enactment</span>
+            </div>
+        </a>
+
         <a href="datavisualisaties-theepotten-europeana/index.html" class="ict-card">
             <div>
-                <span class="card-number">[ 03_EUROPEANA_API ]</span>
+                <span class="card-number">[ 05_EUROPEANA_API ]</span>
                 <h2>API & Tableau</h2>
                 <p>Experimenten met de Europeana API en IIIF-viewers. Data-exploratie van objectcollecties gevisualiseerd in Tableau.</p>
             </div>
@@ -237,13 +268,13 @@
 
         <a href="digital-crowdfunding-platform-consouling/index.html" class="ict-card">
             <div>
-                <span class="card-number">[ 04_COMMUNITY_WEB ]</span>
+                <span class="card-number">[ 06_COMMUNITY_WEB ]</span>
                 <h2>Consouling Auction</h2>
                 <p>Digital community building: veiling- en crowdfunding-platform voor vinylplaten ten voordele van het Deeplistening Festival.</p>
             </div>
             <div class="tags">
                 <span class="tag">#web-dev</span>
-                <span class="tag">#crowdfunding</span>
+                <span class="tag">#community</span>
             </div>
         </a>
 
