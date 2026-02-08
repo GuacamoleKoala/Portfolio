@@ -1,1 +1,305 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consouling Sounds | Jenske Verhamme</title>
+    <style>
+        :root {
+            --bg-color: #000000;
+            --accent-color: #AADDDD;
+            --text-color: #ffffff;
+            --grid-color: rgba(170, 221, 221, 0.1);
+        }
 
+        body { 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            margin: 0; 
+            padding: 0; 
+            line-height: 1.4;
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 2px solid var(--accent-color);
+            padding: 20px 40px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--accent-color);
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+        }
+
+        header {
+            max-width: 1200px;
+            margin: 80px auto 40px auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            align-items: end;
+            gap: 40px;
+        }
+
+        .project-id {
+            font-family: 'Courier New', monospace;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        h1 { 
+            font-size: clamp(3rem, 10vw, 7rem); 
+            font-weight: 900; 
+            line-height: 0.8; 
+            text-transform: uppercase;
+            letter-spacing: -4px;
+            margin: 0;
+        }
+
+        .hero-desc {
+            border-left: 5px solid var(--accent-color);
+            padding-left: 30px;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        /* Brutalist Layout Sections */
+        .content-grid {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+        }
+
+        .box {
+            background: #111;
+            border: 1px solid #333;
+            padding: 30px;
+            position: relative;
+        }
+
+        .box-title {
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            display: block;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        /* Area 1: The Why */
+        .about-label {
+            grid-column: 1 / 8;
+            background: #fff;
+            color: #000;
+        }
+
+        /* Area 2: Crowdfunding Platform */
+        .campaign-stats {
+            grid-column: 8 / 13;
+            background: var(--accent-color);
+            color: #000;
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 900;
+            display: block;
+            line-height: 1;
+        }
+
+        /* Area 3: The Archive */
+        .archive-list {
+            grid-column: 1 / 6;
+            font-size: 0.9rem;
+        }
+
+        .archive-list ul { list-style: none; padding: 0; }
+        .archive-list li { 
+            padding: 8px 0; 
+            border-bottom: 1px solid #222;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Area 4: Technology/Immersive */
+        .immersive-tech {
+            grid-column: 6 / 13;
+            background: url('https://consouling.be/wp-content/uploads/2021/09/24HDL-Visual-2021-1.jpg') center/cover;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        
+        .immersive-tech .overlay {
+            background: rgba(0,0,0,0.85);
+            padding: 20px;
+        }
+
+        /* Docs Cards */
+        .docs-section {
+            grid-column: 1 / 13;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .doc-card {
+            border: 1px solid var(--accent-color);
+            padding: 20px;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        .doc-card:hover {
+            background: var(--accent-color);
+            color: #000;
+        }
+
+        /* Visualisation Section */
+        .viz-section {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 0 40px;
+        }
+
+        .viz-frame {
+            border: 2px solid var(--accent-color);
+            aspect-ratio: 16/9;
+            width: 100%;
+            background: #111;
+        }
+
+        footer {
+            padding: 80px 40px;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            border-top: 1px solid #222;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 900px) {
+            header { grid-template-columns: 1fr; }
+            .about-label, .campaign-stats, .archive-list, .immersive-tech { grid-column: 1 / 13; }
+            .docs-section { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="../../index.html" class="nav-link">The Person</a>
+        <a href="../index.html" class="nav-link">Data & ICT</a>
+        <a href="../../index.html#contact" class="nav-link">The Signal</a>
+    </nav>
+
+    <header>
+        <div>
+            <div class="project-id">// CORE_PROJECT: CONSOULING_SOUNDS</div>
+            <h1>The Hybrid<br>Label</h1>
+        </div>
+        <div class="hero-desc">
+            Onderzoek naar de symbiose tussen niche-muziek, immersieve technologie en community building via data-gedreven crowdfunding.
+        </div>
+    </header>
+
+    <main class="content-grid">
+        
+        <section class="box about-label">
+            <span class="box-title" style="color: #000; border-color: #000;">Concept & Visie</span>
+            <p><strong>Consouling Sounds</strong> is meer dan een platenlabel; het is een Gentse hub waar post-metal, ambient en doom samenkomen met innovatieve distributievormen. Voor dit project lag de focus op het transformeren van de fysieke schatkamer — het archief — naar een digitale beleving die de toekomst van het <strong>Deep Listening Festival</strong> veiligstelt.</p>
+        </section>
+
+        <section class="box campaign-stats">
+            <span class="box-title" style="color: #000; border-color: #000;">Crowdfunding Status</span>
+            <span class="stat-value">RALLY_UP</span>
+            <p>Het inzetten van een interactief platform voor veilingen en raffles om de grenzen tussen artiest en fan te vervagen.</p>
+            <a href="https://consouling.rallyup.com/consoulingsounds/Campaign/Details" target="_blank" style="color: #000; font-weight: bold; text-decoration: underline;">Bekijk Live Campagne →</a>
+        </section>
+
+        <section class="box archive-list">
+            <span class="box-title">Dismantling the Archive</span>
+            <p>Selectie van zeldzame test-pressings die als 'artefacten' werden ontsloten voor de community:</p>
+            <ul>
+                <li><span>Amenra - Mass I (Repress)</span> <span>[SOLD]</span></li>
+                <li><span>Alkerdeel - Morinde</span> <span>[AUCTION]</span></li>
+                <li><span>CHVE - 10910</span> <span>[RAFFLE]</span></li>
+                <li><span>Mother - I</span> <span>[DONATION]</span></li>
+                <li><span>Battle of Mice - All Your Sympathy's Gone</span> <span>[SOLD]</span></li>
+            </ul>
+        </section>
+
+        <section class="box immersive-tech">
+            <div class="overlay">
+                <span class="box-title">Deep Listening & ICT</span>
+                <p>Onderzoek naar de rol van immersieve audio (VR/AR/XR) in de entertainmentsector. Hoe brengen we mensen in verschillende realiteiten samen? Het <strong>HacXathon</strong> project nodigde developers uit om de toekomst van muziekbeleving te programmeren.</p>
+            </div>
+        </section>
+
+        <div class="docs-section">
+            <a href="https://consouling.be/de-console" target="_blank" class="doc-card">
+                <span style="font-family: 'Courier New'; font-size: 0.7rem;">DOCS_01</span>
+                <h3>De Console VZW</h3>
+                <p>De non-profit structuur achter het label en de onderzoeksdoelen.</p>
+            </a>
+            <a href="https://consouling.be/news/consouling-crowdfunding-test-press-vinyl" target="_blank" class="doc-card">
+                <span style="font-family: 'Courier New'; font-size: 0.7rem;">DOCS_02</span>
+                <h3>Archief Dossier</h3>
+                <p>Achtergrond over de waarde en verhalen van de vinyl artefacten.</p>
+            </a>
+            <a href="https://consouling.be/news/24-hours-of-deep-listening" target="_blank" class="doc-card">
+                <span style="font-family: 'Courier New'; font-size: 0.7rem;">DOCS_03</span>
+                <h3>Hybrid Festival</h3>
+                <p>Documentatie over de versmelting van live events en digitale platformen.</p>
+            </a>
+            <a href="https://consouling.be/news/hacxathon-2021" target="_blank" class="doc-card">
+                <span style="font-family: 'Courier New'; font-size: 0.7rem;">DOCS_04</span>
+                <h3>HacXathon '21</h3>
+                <p>De resultaten van de marathon tussen artiesten en developers.</p>
+            </a>
+        </div>
+
+    </main>
+
+    <section class="viz-section">
+        <div style="margin-bottom: 30px;">
+            <h2 style="text-transform: uppercase; letter-spacing: 2px;">Campaign Interface</h2>
+            <p style="color: #888;">Directe toegang tot de digitale fundraising-omgeving.</p>
+        </div>
+        <iframe 
+            src="https://consouling.rallyup.com/consoulingsounds/Campaign/Details" 
+            class="viz-frame" 
+            title="Consouling RallyUp">
+        </iframe>
+    </section>
+
+    <footer>
+        JENSKE VERHAMME // CONSOULING_CASE // DATA_ICT_SERIES // 2026
+    </footer>
+
+</body>
+</html>
