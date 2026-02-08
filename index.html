@@ -99,7 +99,6 @@
             box-shadow: 20px 20px 0px #000;
         }
 
-        /* Naamweergave */
         h1 { 
             font-size: clamp(3rem, 8vw, 6rem); 
             font-weight: 900; 
@@ -139,7 +138,7 @@
             padding: 0 20px;
         }
 
-        /* De Kaarten: Met de perfecte 'Wow Koala' tilt-hover */
+        /* De Kaarten */
         .card { 
             background: #ffffff; 
             padding: 40px; 
@@ -161,17 +160,38 @@
         .card:nth-child(even):hover { transform: translateY(-10px) rotate(-3deg); }
 
         .card h3 { margin: 0 0 20px 0; font-size: 1.6rem; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; }
-        .category-tag { background: #000; color: #fff; padding: 4px 12px; font-size: 0.7rem; font-weight: 900; text-transform: uppercase; width: fit-content; margin-bottom: 20px; letter-spacing: 1px; }
 
-        /* Persoonlijke Contact Sectie */
+        /* Zwarte knoppen die wit worden bij hover */
+        .category-tag { 
+            background: #000; 
+            color: #fff; 
+            padding: 8px 16px; 
+            font-size: 0.75rem; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            width: fit-content; 
+            margin-bottom: 20px; 
+            letter-spacing: 1.5px; 
+            border: 2px solid #000;
+            transition: 0.3s ease;
+        }
+
+        .card:hover .category-tag {
+            background: #fff;
+            color: #000;
+        }
+
+        /* Contact Sectie - Kleurwissel (Zwart/Groen) */
         .contact-area {
             max-width: 1100px;
             margin: 100px auto;
             padding: 80px 40px;
             text-align: center;
-            border: 10px solid #000;
-            background: #fff;
+            border: 5px solid #000;
+            background: #000; /* Zwarte achtergrond */
+            color: #fff; /* Witte tekst */
             position: relative;
+            transition: 0.3s ease;
         }
 
         .contact-area p {
@@ -183,8 +203,8 @@
 
         .contact-btn {
             display: inline-block;
-            background: #000;
-            color: #fff;
+            background: #AADDDD; /* Meemoo groen */
+            color: #000;
             padding: 20px 50px;
             font-size: 2rem;
             font-weight: 900;
@@ -192,21 +212,64 @@
             text-transform: uppercase;
             letter-spacing: -1px;
             transition: 0.3s;
+            border: 4px solid #AADDDD;
         }
 
         .contact-btn:hover {
-            background: #AADDDD;
-            color: #000;
+            background: transparent;
+            color: #AADDDD;
             transform: scale(1.05);
         }
 
-        footer { padding: 60px 40px; border-top: 3px solid #000; text-align: center; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; }
+        /* Footer - Guido Gezelle Stijl */
+        footer { 
+            background-color: #f4f4f4; 
+            color: #666; 
+            padding: 60px 40px; 
+            border-top: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-info h4 {
+            color: #000;
+            text-transform: uppercase;
+            font-weight: 900;
+            margin: 0 0 15px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-info p {
+            font-size: 0.85rem;
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+
+        .copyright-bar {
+            max-width: 1100px;
+            margin: 40px auto 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            color: #999;
+        }
 
         @media (max-width: 768px) { 
             h1 { font-size: 3.5rem; letter-spacing: -2px; }
             .header-layout { justify-content: center; text-align: center; }
-            .profile-frame { width: 220px; height: 220px; }
-            .intro-text { border-left: none; border-top: 10px solid #AADDDD; padding-top: 20px; padding-left: 0; }
+            .footer-container { flex-direction: column; text-align: center; }
+            .copyright-bar { flex-direction: column; gap: 10px; text-align: center; }
         }
     </style>
 </head>
@@ -254,8 +317,8 @@
             </a>
 
             <a href="technologie-data/index.html" class="card">
-                <h3>Data & Technologie</h3>
                 <div class="category-tag">Data</div>
+                <h3>Data & Technologie</h3>
                 <p>Projecten over Linked Open Data, Wikidata en archiefontsluiting voor meemoo en meer.</p>
             </a>
         </div>
@@ -267,7 +330,24 @@
     </section>
 
     <footer>
-        JV // 2026 // MEEMOO-STYLE PORTFOLIO
+        <div class="footer-container">
+            <div class="footer-info">
+                <h4>Contact</h4>
+                <p>Jenske Verhamme</p>
+                <p>Leuven, België</p>
+                <p>E-mail: jouw@email.com</p>
+            </div>
+            <div class="footer-info">
+                <h4>Navigation</h4>
+                <p><a href="#about" style="color: inherit; text-decoration: none;">About Me</a></p>
+                <p><a href="#portfolio" style="color: inherit; text-decoration: none;">Portfolio Index</a></p>
+                <p><a href="#contact" style="color: inherit; text-decoration: none;">Get in touch</a></p>
+            </div>
+        </div>
+        <div class="copyright-bar">
+            <span>© 2026 Jenske Verhamme. Alle rechten voorbehouden.</span>
+            <span>Built with a hint of experimentation on GitHub</span>
+        </div>
     </footer>
 
 </body>
