@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daidarabotchi | Portfolio Jenske Verhamme</title>
+    <style>
+        /* Meemoo-stijl: Strak, hoog contrast en minimalistisch */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Sectie met overlappende elementen */
+        header {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 40px;
+            position: relative;
+        }
+
+        .hero-layout {
+            display: flex;
+            align-items: flex-start;
+            gap: 60px;
+        }
+
+        .header-content {
+            flex: 1.5;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .header-image img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #000;
+            filter: grayscale(100%) contrast(1.2);
+        }
+
+        /* De Meemoo 'Shadow' voor Daidarabotchi: Solid Cyan Block */
+        .header-image::after {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 100%;
+            height: 100%;
+            background-color: #AADDDD;
+            z-index: -1;
+        }
+
+        h1 { 
+            font-size: clamp(3rem, 12vw, 7rem); 
+            font-weight: 900;
+            line-height: 0.8;
+            margin: 0 0 40px 0;
+            letter-spacing: -6px;
+            text-transform: uppercase;
+            word-break: break-all;
+        }
+
+        .kanji {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 10px;
+            color: #AADDDD;
+            font-weight: 400;
+        }
+
+        .role-label {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
+
+        .intro-text { 
+            font-size: 1.3rem; 
+            color: #000; 
+            margin-bottom: 40px;
+            border-left: 10px solid #000;
+            padding-left: 30px;
+            font-weight: 600;
+            max-width: 600px;
+        }
+
+        /* Main Content Section */
+        .main-content {
+            background-color: #fafafa;
+            padding: 120px 0;
+            border-top: 1px solid #000;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Bio / Concept Block */
+        .concept-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 120px;
+        }
+
+        .concept-grid h2 {
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+        }
+
+        .concept-grid p {
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        /* Sound Section (Spotify) */
+        .sound-section {
+            background-color: #000;
+            color: #fff;
+            padding: 80px 40px;
+            margin-bottom: 120px;
+            text-align: center;
+        }
+
+        .ffo-list {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #AADDDD;
+            opacity: 0.8;
+        }
+
+        /* Merch / Artifacts Section */
+        .artifacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .artifact-card {
+            border-bottom: 5px solid #000;
+            padding-bottom: 30px;
+        }
+
+        .artifact-card img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            filter: grayscale(100%);
+        }
+
+        .artifact-card h3 {
+            text-transform: uppercase;
+            font-weight: 900;
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        /* Visual Gallery - Random aspect ratios */
+        .visual-gallery {
+            padding: 100px 20px;
+        }
+
+        .gallery-wrap {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-auto-rows: 150px;
+            gap: 15px;
+            grid-auto-flow: dense;
+        }
+
+        .gallery-item {
+            background: #eee;
+            border: 1px solid #000;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .large { grid-column: span 3; grid-row: span 3; }
+        .wide { grid-column: span 3; grid-row: span 2; }
+        .tall { grid-column: span 2; grid-row: span 3; }
+
+        footer {
+            padding: 80px 40px;
+            text-align: center;
+            background: #fff;
+            border-top: 1px solid #000;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        @media (max-width: 900px) {
+            .hero-layout, .concept-grid { flex-direction: column; grid-template-columns: 1fr; }
+            h1 { font-size: 4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="hero-layout">
+            <div class="header-content">
+                <span class="kanji">ダイダラボッチ</span>
+                <div class="role-label">Bass // Sampler // Soundscapes</div>
+                <h1>Daidara<br>botchi</h1>
+                <div class="intro-text">
+                    "Gigantesque wezens die de aarde vormgeven met hun voetstappen." Post-rock die de grens opzoekt tussen verstilling en een sonische muur.
+                </div>
+            </div>
+            <div class="header-image">
+                <img src="daidarabotchi-myth.jpg" alt="Daidarabotchi Concept">
+            </div>
+        </div>
+    </header>
+
+    <section class="main-content">
+        <div class="container">
+            
+            <div class="concept-grid">
+                <div>
+                    <h2>The Giant's Breath</h2>
+                    <p>Daidarabotchi is een cinematografisch project uit Leuven. Onze muziek bouwt voort op de dynamiek van bands als <strong>Mogwai</strong> en <strong>Godspeed You! Black Emperor</strong>. Het draait om lang uitgesponnen composities die traag opbouwen tot een overweldigende climax.</p>
+                </div>
+                <div>
+                    <p style="margin-top: 55px;">Binnen dit collectief balanceer ik op de grens tussen ritme en atmosfeer. Met de <strong>basgitaar als fundament</strong> en een arsenaal aan <strong>samplers</strong> creëren we texturen die een verhaal vertellen zonder woorden. Sound moving mountains.</p>
+                </div>
+            </div>
+
+            <div class="sound-section">
+                <div class="section-header">
+                    <h2 style="color:#AADDDD; margin-bottom: 40px;">Listen to the mountains</h2>
+                </div>
+                <iframe style="border-radius:0px" src="http://googleusercontent.com/spotify.com/daidarabotchi" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                
+                <div class="ffo-list">
+                    FFO: Explosions in the sky // MONO // God is an Astronaut // This Will Destroy You
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h2>Limited Artifacts</h2>
+            </div>
+            <div class="artifacts-grid">
+                <div class="artifact-card">
+                    <img src="daidara-tape.jpg" alt="Cassette Tape">
+                    <h3>Hand-numbered Cassette</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="daidara-print.jpg" alt="Art Print">
+                    <h3>Mythology Screenprint</h3>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="visual-gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Visual archive</h2>
+            </div>
+            <div class="gallery-wrap">
+                <div class="gallery-item large"><img src="live1.jpg" alt="Live"></div>
+                <div class="gallery-item tall"><img src="mountains.jpg" alt="Mountains"></div>
+                <div class="gallery-item wide"><img src="pedals.jpg" alt="Effects"></div>
+                <div class="gallery-item"><img src="studio.jpg" alt="Studio"></div>
+                <div class="gallery-item"><img src="lights.jpg" alt="Visuals"></div>
+                <div class="gallery-item wide"><img src="band.jpg" alt="The Band"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        Daidarabotchi // PortfolioWordpress // 2026
+    </footer>
+
+</body>
+</html>
