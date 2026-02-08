@@ -80,7 +80,6 @@
 
         .intro-text p { margin-bottom: 15px; }
 
-        /* Documentation Cards */
         .docs-grid {
             max-width: 1100px;
             margin: 80px auto;
@@ -121,17 +120,37 @@
             padding-bottom: 5px;
         }
 
-        /* Visualisation Console */
+        /* Visualisation Section */
         .viz-container {
-            max-width: 1100px;
+            max-width: 1000px; /* Iets smaller voor compactheid */
             margin: 100px auto;
             padding: 0 40px;
+        }
+
+        .viz-block {
+            margin-bottom: 100px;
+        }
+
+        .viz-info {
+            margin-bottom: 20px;
+        }
+
+        .viz-info h3 {
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            margin: 0 0 10px 0;
+            font-weight: 900;
+        }
+
+        .viz-info p {
+            margin: 0;
+            color: #444;
+            max-width: 800px;
         }
 
         .viz-window {
             border: 4px solid #000;
             background: #fff;
-            margin-bottom: 80px;
             position: relative;
             box-shadow: 10px 10px 0px rgba(0,0,0,0.05);
         }
@@ -139,28 +158,22 @@
         .viz-header {
             background: #000;
             color: #fff;
-            padding: 10px 20px;
+            padding: 8px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .viz-title {
+        .viz-title-tag {
             font-family: 'Courier New', monospace;
             font-weight: bold;
             text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
-        .viz-desc {
-            padding: 30px;
-            border-bottom: 2px solid #000;
-            background: #f9f9f9;
+            font-size: 0.8rem;
         }
 
         .viz-iframe-wrapper {
             position: relative;
-            padding-bottom: 56.25%; 
+            padding-bottom: 50%; /* Compactere ratio dan 56.25% */
             height: 0;
             overflow: hidden;
             background: #eee;
@@ -176,7 +189,7 @@
         }
 
         .viz-footer {
-            padding: 15px 30px;
+            padding: 10px 20px;
             background: var(--accent-color);
             text-align: right;
         }
@@ -186,7 +199,7 @@
             color: #fff;
             padding: 5px 15px;
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: bold;
             text-transform: uppercase;
         }
@@ -253,104 +266,125 @@
     </section>
 
     <main class="viz-container">
-        <h2 style="text-transform: uppercase; font-size: 2rem; margin-bottom: 40px; border-left: 10px solid var(--accent-color); padding-left: 20px;">Interactieve Visualisaties</h2>
+        <h2 style="text-transform: uppercase; font-size: 2.2rem; margin-bottom: 60px; border-left: 10px solid var(--accent-color); padding-left: 20px; font-weight: 900;">Interactieve Visualisaties</h2>
 
-        <div class="viz-window">
-            <div class="viz-header">
-                <span class="viz-title">VIZ_01: Correspondentie Netwerk</span>
-                <span style="font-size: 0.7rem; opacity: 0.7;">STATUS: LIVE_DATA</span>
+        <div class="viz-block">
+            <div class="viz-info">
+                <h3>Visualisatie 1: Correspondentie Netwerk</h3>
+                <p>Deze visualisatie toont het netwerk van de correspondentie van Guido Gezelle. De lijnen tussen de nodes verbinden de zenders en ontvangers van de brieven.</p>
             </div>
-            <div class="viz-desc">
-                Deze visualisatie toont het netwerk van de correspondentie van Guido Gezelle. De lijnen tussen de nodes verbinden de zenders en ontvangers van de brieven.
+            <div class="viz-window">
+                <div class="viz-header">
+                    <span class="viz-title-tag">VIZ_01 // NETWORK_GRAPH</span>
+                    <span style="font-size: 0.7rem; opacity: 0.7;">STATUS: LIVE</span>
+                </div>
+                <div class="viz-iframe-wrapper">
+                    <iframe src="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie1/" loading="lazy"></iframe>
+                </div>
+                <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie1/" target="_blank" class="btn-small">Full View ↗</a></div>
             </div>
-            <div class="viz-iframe-wrapper">
-                <iframe src="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie1/" loading="lazy"></iframe>
-            </div>
-            <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie1/" target="_blank" class="btn-small">Full View ↗</a></div>
         </div>
 
-        <div class="viz-window">
-            <div class="viz-header">
-                <span class="viz-title">VIZ_02: Geografische Spreiding</span>
-                <span style="font-size: 0.7rem; opacity: 0.7;">STATUS: LIVE_DATA</span>
+        <div class="viz-block">
+            <div class="viz-info">
+                <h3>Visualisatie 2: Geografische Spreiding</h3>
+                <p>Een interactieve kaart die de geografische spreiding van de correspondenten weergeeft, gebaseerd op hun geboorte- of verblijfplaats in Wikidata.</p>
             </div>
-            <div class="viz-desc">
-                Een interactieve kaart die de geografische spreiding van de correspondenten weergeeft, gebaseerd op hun geboorte- of verblijfplaats in Wikidata.
+            <div class="viz-window">
+                <div class="viz-header">
+                    <span class="viz-title-tag">VIZ_02 // GEOMAP</span>
+                    <span style="font-size: 0.7rem; opacity: 0.7;">STATUS: LIVE</span>
+                </div>
+                <div class="viz-iframe-wrapper">
+                    <iframe src="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie2/" loading="lazy"></iframe>
+                </div>
+                <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie2/" target="_blank" class="btn-small">Full View ↗</a></div>
             </div>
-            <div class="viz-iframe-wrapper">
-                <iframe src="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie2/" loading="lazy"></iframe>
-            </div>
-            <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie2/" target="_blank" class="btn-small">Full View ↗</a></div>
         </div>
 
-        <div class="viz-window">
-            <div class="viz-header">
-                <span class="viz-title">VIZ_03A: Chronologische Spreiding (Leven)</span>
-                <span style="font-size: 0.7rem; opacity: 0.7;">STATUS: LIVE_DATA</span>
+        <div class="viz-block">
+            <div class="viz-info">
+                <h3>Visualisatie 3A: Chronologische Spreiding (Leven)</h3>
+                <p>Spreiding van de correspondenten in functie van de levensloop van Guido Gezelle. Deze tijdlijn toont wanneer specifieke contacten actief waren.</p>
             </div>
-            <div class="viz-desc">
-                Spreiding van de correspondenten in functie van de levensloop van Guido Gezelle. Deze tijdlijn toont wanneer specifieke contacten actief waren.
+            <div class="viz-window">
+                <div class="viz-header">
+                    <span class="viz-title-tag">VIZ_03A // TIMELINE_LIFE</span>
+                    <span style="font-size: 0.7rem; opacity: 0.7;">STATUS: LIVE</span>
+                </div>
+                <div class="viz-iframe-wrapper">
+                    <iframe src="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie3A/" loading="lazy"></iframe>
+                </div>
+                <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie3A/" target="_blank" class="btn-small">Full View ↗</a></div>
             </div>
-            <div class="viz-iframe-wrapper">
-                <iframe src="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie3A/" loading="lazy"></iframe>
-            </div>
-            <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie3A/" target="_blank" class="btn-small">Full View ↗</a></div>
         </div>
 
-        <div class="viz-window">
-            <div class="viz-header">
-                <span class="viz-title">VIZ_03B: Chronologische Spreiding (Data)</span>
-                <span style="font-size: 0.7rem; opacity: 0.7;">STATUS: LIVE_DATA</span>
+        <div class="viz-block">
+            <div class="viz-info">
+                <h3>Visualisatie 3B: Chronologische Spreiding (Data)</h3>
+                <p>Spreiding van de correspondenten in functie van hun geboorte- en sterftejaar, wat de generatie-overlap binnen het netwerk blootlegt.</p>
             </div>
-            <div class="viz-desc">
-                Spreiding van de correspondenten in functie van hun geboorte- en sterftejaar, wat de generatie-overlap binnen het netwerk blootlegt.
+            <div class="viz-window">
+                <div class="viz-header">
+                    <span class="viz-title-tag">VIZ_03B // TIMELINE_DATA</span>
+                    <span style="font-size: 0.7rem; opacity: 0.7;">STATUS: LIVE</span>
+                </div>
+                <div class="viz-iframe-wrapper">
+                    <iframe src="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie3B/" loading="lazy"></iframe>
+                </div>
+                <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie3B/" target="_blank" class="btn-small">Full View ↗</a></div>
             </div>
-            <div class="viz-iframe-wrapper">
-                <iframe src="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie3B/" loading="lazy"></iframe>
-            </div>
-            <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie3B/" target="_blank" class="btn-small">Full View ↗</a></div>
         </div>
 
-        <div class="viz-window">
-            <div class="viz-header">
-                <span class="viz-title">VIZ_04A: Genderbalans</span>
-                <span style="font-size: 0.7rem; opacity: 0.7;">STATUS: LIVE_DATA</span>
+        <div class="viz-block">
+            <div class="viz-info">
+                <h3>Visualisatie 4A: Genderbalans</h3>
+                <p>Genderbalans binnen het netwerk van Guido Gezelle. Deze visualisatie analyseert de verhouding tussen mannelijke en vrouwelijke correspondenten in de data.</p>
             </div>
-            <div class="viz-desc">
-                Genderbalans binnen het netwerk van Guido Gezelle. Deze visualisatie analyseert de verhouding tussen mannelijke en vrouwelijke correspondenten in de data.
+            <div class="viz-window">
+                <div class="viz-header">
+                    <span class="viz-title-tag">VIZ_04A // DEMOGRAPHICS_GENDER</span>
+                    <span style="font-size: 0.7rem; opacity: 0.7;">STATUS: LIVE</span>
+                </div>
+                <div class="viz-iframe-wrapper">
+                    <iframe src="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie4A/" loading="lazy"></iframe>
+                </div>
+                <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie4A/" target="_blank" class="btn-small">Full View ↗</a></div>
             </div>
-            <div class="viz-iframe-wrapper">
-                <iframe src="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie4A/" loading="lazy"></iframe>
-            </div>
-            <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie4A/" target="_blank" class="btn-small">Full View ↗</a></div>
         </div>
 
-        <div class="viz-window">
-            <div class="viz-header">
-                <span class="viz-title">VIZ_04B: Beroepen & Occupations</span>
-                <span style="font-size: 0.7rem; opacity: 0.7;">STATUS: LIVE_DATA</span>
+        <div class="viz-block">
+            <div class="viz-info">
+                <h3>Visualisatie 4B: Beroepen & Occupations</h3>
+                <p>Spreiding van de beroepen van de correspondenten. Hierdoor wordt de maatschappelijke diversiteit van Gezelle's netwerk inzichtelijk gemaakt.</p>
             </div>
-            <div class="viz-desc">
-                Spreiding van de beroepen van de correspondenten. Hierdoor wordt de maatschappelijke diversiteit van Gezelle's netwerk inzichtelijk gemaakt.
+            <div class="viz-window">
+                <div class="viz-header">
+                    <span class="viz-title-tag">VIZ_04B // DEMOGRAPHICS_JOBS</span>
+                    <span style="font-size: 0.7rem; opacity: 0.7;">STATUS: LIVE</span>
+                </div>
+                <div class="viz-iframe-wrapper">
+                    <iframe src="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie4B/" loading="lazy"></iframe>
+                </div>
+                <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie4B/" target="_blank" class="btn-small">Full View ↗</a></div>
             </div>
-            <div class="viz-iframe-wrapper">
-                <iframe src="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie4B/" loading="lazy"></iframe>
-            </div>
-            <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie4B/" target="_blank" class="btn-small">Full View ↗</a></div>
         </div>
 
-        <div class="viz-window">
-            <div class="viz-header">
-                <span class="viz-title">VIZ_05: Kaart en Netwerk Integratie</span>
-                <span style="font-size: 0.7rem; opacity: 0.7;">STATUS: LIVE_DATA</span>
+        <div class="viz-block">
+            <div class="viz-info">
+                <h3>Visualisatie 5: Kaart en Netwerk Integratie</h3>
+                <p>De overkoepelende visualisatie: een integratie van het correspondentienetwerk met de geografische data. Dit biedt een totaaloverzicht van de relationele en ruimtelijke dimensies.</p>
             </div>
-            <div class="viz-desc">
-                De overkoepelende visualisatie: een integratie van het correspondentienetwerk met de geografische data. Dit biedt een totaaloverzicht van de relationele en ruimtelijke dimensies.
+            <div class="viz-window">
+                <div class="viz-header">
+                    <span class="viz-title-tag">VIZ_05 // INTEGRATED_MAP_NETWORK</span>
+                    <span style="font-size: 0.7rem; opacity: 0.7;">STATUS: LIVE</span>
+                </div>
+                <div class="viz-iframe-wrapper">
+                    <iframe src="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie5/" loading="lazy"></iframe>
+                </div>
+                <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie5/" target="_blank" class="btn-small">Full View ↗</a></div>
             </div>
-            <div class="viz-iframe-wrapper">
-                <iframe src="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie5/" loading="lazy"></iframe>
-            </div>
-            <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie5/" target="_blank" class="btn-small">Full View ↗</a></div>
         </div>
 
     </main>
