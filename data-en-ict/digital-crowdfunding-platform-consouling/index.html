@@ -107,7 +107,7 @@
             padding-bottom: 10px;
         }
 
-        /* Area 1: The Why */
+        /* Area 1: Concept */
         .about-label {
             grid-column: 1 / 8;
             background: #fff;
@@ -128,7 +128,7 @@
             line-height: 1;
         }
 
-        /* Area 3: The Archive */
+        /* Area 3: Archive List */
         .archive-list {
             grid-column: 1 / 6;
             font-size: 0.9rem;
@@ -142,7 +142,7 @@
             justify-content: space-between;
         }
 
-        /* Area 4: Technology/Immersive */
+        /* Area 4: Technology */
         .immersive-tech {
             grid-column: 6 / 13;
             background: url('https://consouling.be/wp-content/uploads/2021/09/24HDL-Visual-2021-1.jpg') center/cover;
@@ -186,11 +186,28 @@
             padding: 0 40px;
         }
 
+        .viz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+        }
+
         .viz-frame {
             border: 2px solid var(--accent-color);
             aspect-ratio: 16/9;
             width: 100%;
             background: #111;
+        }
+
+        .external-btn {
+            background: var(--accent-color);
+            color: #000;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.8rem;
         }
 
         footer {
@@ -206,6 +223,7 @@
             header { grid-template-columns: 1fr; }
             .about-label, .campaign-stats, .archive-list, .immersive-tech { grid-column: 1 / 13; }
             .docs-section { grid-template-columns: 1fr; }
+            .viz-header { flex-direction: column; align-items: flex-start; gap: 20px; }
         }
     </style>
 </head>
@@ -238,7 +256,7 @@
             <span class="box-title" style="color: #000; border-color: #000;">Crowdfunding Status</span>
             <span class="stat-value">RALLY_UP</span>
             <p>Het inzetten van een interactief platform voor veilingen en raffles om de grenzen tussen artiest en fan te vervagen.</p>
-            <a href="https://consouling.rallyup.com/consoulingsounds/Campaign/Details" target="_blank" style="color: #000; font-weight: bold; text-decoration: underline;">Bekijk Live Campagne →</a>
+            <a href="https://consouling.rallyup.com/consoulingsounds/Campaign/Details" target="_blank" style="color: #000; font-weight: bold; text-decoration: underline;">Open Campagne in nieuw venster →</a>
         </section>
 
         <section class="box archive-list">
@@ -286,14 +304,20 @@
     </main>
 
     <section class="viz-section">
-        <div style="margin-bottom: 30px;">
-            <h2 style="text-transform: uppercase; letter-spacing: 2px;">Campaign Interface</h2>
-            <p style="color: #888;">Directe toegang tot de digitale fundraising-omgeving.</p>
+        <div class="viz-header">
+            <div>
+                <h2 style="text-transform: uppercase; letter-spacing: 2px; margin: 0;">Campaign Interface</h2>
+                <p style="color: #888; margin: 5px 0 0 0;">Interactieve fundraising-omgeving (sessie-beveiligd).</p>
+            </div>
+            <a href="https://consouling.rallyup.com/consoulingsounds/Campaign/Details" target="_blank" class="external-btn">Open Full Campaign ↗</a>
         </div>
+        
         <iframe 
             src="https://consouling.rallyup.com/consoulingsounds/Campaign/Details" 
             class="viz-frame" 
-            title="Consouling RallyUp">
+            title="Consouling RallyUp"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+            loading="lazy">
         </iframe>
     </section>
 
