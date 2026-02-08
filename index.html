@@ -3,141 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jenske Verhamme | About & Portfolio</title>
+    <title>Jenske Verhamme | Research & Art</title>
     <style>
-        /* De meemoo-geïnspireerde stijl die je hebt aangeleverd */
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #ffffff; color: #000000; margin: 0; padding: 0; line-height: 1.6; }
+        /* Meemoo x Psych Hybrid Stijl */
+        body { 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            background-color: #ffffff; 
+            color: #000000; 
+            margin: 0; 
+            padding: 0; 
+            line-height: 1.4;
+            overflow-x: hidden;
+            background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+        }
         
-        header { 
-            max-width: 1000px; 
-            margin: 60px auto 40px auto; 
-            padding: 0 20px; 
-            display: flex; 
-            gap: 40px; 
-            align-items: flex-start; 
-            flex-wrap: wrap; 
+        /* De morfende blob op de achtergrond */
+        .bg-blob {
+            position: fixed;
+            top: -10%;
+            right: -10%;
+            width: 60vw;
+            height: 60vw;
+            background-color: #AADDDD;
+            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.4;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            animation: morph 15s linear infinite alternate;
         }
 
-        .header-content { flex: 2; min-width: 300px; }
-        
+        @keyframes morph {
+            0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            100% { border-radius: 70% 30% 50% 50% / 50% 30% 80% 40%; }
+        }
+
+        header { 
+            max-width: 1100px; 
+            margin: 100px auto 60px auto; 
+            padding: 0 40px; 
+            position: relative;
+        }
+
         h1 { 
-            font-size: 3.5rem; 
+            font-size: clamp(3.5rem, 10vw, 7rem); 
             font-weight: 900; 
-            line-height: 1; 
-            margin-bottom: 25px; 
-            letter-spacing: -3px; 
+            line-height: 0.8; 
+            margin-bottom: 40px; 
+            letter-spacing: -5px; 
             text-transform: uppercase; 
+            position: relative;
+        }
+
+        h1::after {
+            content: "PORTFOLIO";
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            color: transparent;
+            -webkit-text-stroke: 1px #000;
+            z-index: -1;
+            opacity: 0.3;
         }
 
         .intro-text { 
-            font-size: 1.15rem; 
-            color: #1a1a1a; 
+            font-size: 1.4rem; 
+            color: #000; 
             margin-bottom: 30px; 
-            border-left: 5px solid #AADDDD; 
-            padding-left: 20px; 
-            max-width: 700px;
+            border-left: 12px solid #000; 
+            padding-left: 30px; 
+            max-width: 800px;
+            font-weight: 700;
         }
 
         /* Overview Sectie */
-        .main-content { background-color: #fafafa; padding: 80px 20px; border-top: 1px solid #e0e0e0; }
-        .section-header { max-width: 1200px; margin: 0 auto 50px auto; }
-        .section-header h2 { font-size: 2.2rem; font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; }
+        .main-content { 
+            padding: 100px 20px; 
+            border-top: 3px solid #000;
+            background-color: rgba(250, 250, 250, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .section-header { max-width: 1100px; margin: 0 auto 60px auto; padding: 0 20px; }
+        .section-header h2 { 
+            font-size: 3rem; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            letter-spacing: -3px;
+            margin: 0;
+        }
         
         .container { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-            gap: 30px; 
-            max-width: 1200px; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 40px; 
+            max-width: 1100px; 
             margin: 0 auto; 
+            padding: 0 20px;
         }
 
-        /* Kaart stijl */
+        /* Smooth Kaart stijl (Wow Koala vibe) */
         .card { 
             background: #ffffff; 
             padding: 40px; 
-            border: 1px solid #e0e0e0; 
+            border: 3px solid #000; 
             display: flex; 
             flex-direction: column; 
-            transition: transform 0.3s ease, border-color 0.3s ease; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
             text-decoration: none; 
             color: inherit; 
+            position: relative;
+            box-shadow: 0px 0px 0px #000;
         }
         
-        .card:hover { border-color: #AADDDD; transform: translateY(-5px); }
-        .card h3 { margin: 0 0 20px 0; font-size: 1.4rem; font-weight: 800; text-transform: uppercase; }
+        .card:hover { 
+            transform: translateY(-10px) rotate(2deg); 
+            box-shadow: 15px 15px 0px #AADDDD;
+            border-color: #000;
+        }
+
+        .card:nth-child(even):hover {
+            transform: translateY(-10px) rotate(-2deg);
+        }
+
+        .card h3 { 
+            margin: 0 0 20px 0; 
+            font-size: 1.6rem; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            line-height: 1;
+            letter-spacing: -1px;
+        }
         
-        .category-link { 
-            background-color: #AADDDD; 
-            color: #000000; 
+        .category-tag { 
+            display: inline-block;
+            background-color: #000; 
+            color: #ffffff; 
             text-align: center; 
-            padding: 15px; 
+            padding: 5px 15px; 
             text-decoration: none; 
-            font-weight: bold; 
+            font-weight: 900; 
             margin-bottom: 25px; 
             text-transform: uppercase; 
-            font-size: 0.85rem;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            width: fit-content;
         }
 
-        .description { font-size: 0.95rem; color: #444; flex-grow: 1; }
+        .description { font-size: 1rem; color: #000; flex-grow: 1; font-weight: 500; }
 
-        footer { max-width: 1200px; margin: 60px auto; padding: 40px 20px; border-top: 1px solid #e0e0e0; text-align: center; font-size: 0.85rem; color: #666; }
+        footer { 
+            max-width: 1100px; 
+            margin: 80px auto; 
+            padding: 40px 20px; 
+            border-top: 3px solid #000; 
+            text-align: right; 
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
         
-        @media (max-width: 768px) { h1 { font-size: 2.5rem; } }
+        @media (max-width: 768px) { 
+            h1 { font-size: 3.5rem; letter-spacing: -2px; } 
+            header { margin-top: 40px; }
+        }
     </style>
 </head>
 <body>
 
+    <div class="bg-blob"></div>
+
     <header>
         <div class="header-content">
-            <h1>Jenske Verhamme</h1>
+            <h1>Jenske<br>Verhamme</h1>
             <div class="intro-text">
-                <strong>About Me:</strong> Ik ben een onderzoeker en kunstenaar met een focus op de wisselwerking tussen mens, cultuur en digitale transformatie. 
-                Vanuit een achtergrond in de wijsbegeerte en culturele studies verken ik hoe we erfgoed en artistieke expressie kunnen ontsluiten met moderne technologieën. 
-                Momenteel werk ik aan het snijvlak van Linked Open Data en audiovisuele archivering.
+                Onderzoeker en kunstenaar op het snijvlak van cultuur, data en digitale transformatie. 
+                Gedreven door de ontsluiting van erfgoed via Linked Open Data en artistieke expressie.
             </div>
         </div>
     </header>
 
     <section class="main-content">
         <div class="section-header">
-            <h2>Portfolio Overview</h2>
+            <h2>Index</h2>
         </div>
 
         <div class="container">
             <a href="muziek-kunst-visueel/index.html" class="card">
+                <div class="category-tag">Creative</div>
                 <h3>Muziek, Kunsten & Visueel</h3>
-                <div class="category-link">Ontdek Projecten</div>
                 <p class="description">
-                    Een verkenning van klankkunst, compositie en visuele media. 
-                    Deze sectie bevat werk variërend van artistieke performances tot audiovisuele installaties, 
-                    waarbij de zintuiglijke ervaring centraal staat.
+                    Klankkunst, yacht rock op speed en stoner-psych. Een archief van bands, performances en audiovisuele experimenten.
                 </p>
             </a>
 
             <a href="academisch-onderzoek/index.html" class="card">
+                <div class="category-tag">Research</div>
                 <h3>Academisch Onderzoek</h3>
-                <div class="category-link">Bekijk Onderzoek</div>
                 <p class="description">
-                    Theoretische reflecties en geschriften over filosofie en culturele studies. 
-                    Hier vind je papers over digitale transformatie in de erfgoedsector en analyses 
-                    van sociaal-culturele fenomenen.
+                    Theoretische reflecties over filosofie en digitale transformatie in de erfgoedsector.
                 </p>
             </a>
 
             <a href="technologie-data/index.html" class="card">
+                <div class="category-tag">Data</div>
                 <h3>Website, Data & Technologie</h3>
-                <div class="category-link">Verken Data</div>
                 <p class="description">
-                    Projecten over Linked Open Data, Wikidata en netwerkvisualisaties. 
-                    Inclusief mijn werk voor meemoo en de digitale ontsluiting van het Guido Gezelle archief 
-                    via interactieve technologieën.
+                    Projecten over Linked Open Data, Wikidata en het digitaal ontsluiten van archieven zoals meemoo en Guido Gezelle.
                 </p>
             </a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 <strong>Jenske Verhamme</strong> | Gebouwd in de meemoo-stijl</p>
+        JV // PORTFOLIO // 2026
     </footer>
 
 </body>
