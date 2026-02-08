@@ -17,7 +17,7 @@
             background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
         }
         
-        /* De subtiele morfende blob blijft voor de diepte */
+        /* De subtiele morfende blob op de achtergrond */
         .bg-blob {
             position: fixed;
             top: -10%;
@@ -68,24 +68,55 @@
             padding: 0 40px; 
         }
 
-        /* Naamweergave: Weer vol zwart en krachtig */
+        /* Layout voor header met profielfoto */
+        .header-layout {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .profile-frame {
+            width: 280px;
+            height: 280px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .profile-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 4px solid #000;
+            border-radius: 48% 52% 50% 50% / 55% 48% 52% 45%; 
+            box-shadow: 12px 12px 0px #AADDDD;
+            transition: 0.4s ease;
+        }
+
+        .profile-frame:hover img {
+            border-radius: 50%;
+            transform: translate(-5px, -5px);
+            box-shadow: 20px 20px 0px #000;
+        }
+
+        /* Naamweergave */
         h1 { 
-            font-size: clamp(3.5rem, 10vw, 7.5rem); 
+            font-size: clamp(3rem, 8vw, 6rem); 
             font-weight: 900; 
             line-height: 0.8; 
-            margin-bottom: 40px; 
-            letter-spacing: -5px; 
+            margin-bottom: 30px; 
+            letter-spacing: -4px; 
             text-transform: uppercase; 
             color: #000;
         }
 
         .intro-text { 
-            font-size: 1.4rem; 
+            font-size: 1.3rem; 
             color: #000; 
             margin-bottom: 30px; 
             border-left: 12px solid #AADDDD; 
             padding-left: 30px; 
-            max-width: 800px;
+            max-width: 700px;
             font-weight: 700;
         }
 
@@ -146,7 +177,7 @@
         .contact-area p {
             font-size: 1.5rem;
             font-weight: 700;
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto 40px auto;
         }
 
@@ -171,7 +202,12 @@
 
         footer { padding: 60px 40px; border-top: 3px solid #000; text-align: center; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; }
 
-        @media (max-width: 768px) { h1 { font-size: 3.5rem; letter-spacing: -2px; } }
+        @media (max-width: 768px) { 
+            h1 { font-size: 3.5rem; letter-spacing: -2px; }
+            .header-layout { justify-content: center; text-align: center; }
+            .profile-frame { width: 220px; height: 220px; }
+            .intro-text { border-left: none; border-top: 10px solid #AADDDD; padding-top: 20px; padding-left: 0; }
+        }
     </style>
 </head>
 <body>
@@ -185,11 +221,16 @@
     </nav>
 
     <header id="about">
-        <div class="header-content">
-            <h1>Jenske<br>Verhamme</h1>
-            <div class="intro-text">
-                Onderzoeker en kunstenaar met een passie voor cultuur en digitale transformatie. 
-                Ik werk op het snijvlak van Linked Open Data, audiovisuele archieven en artistieke expressie.
+        <div class="header-layout">
+            <div class="profile-frame">
+                <img src="assets/DSC00461.jpg" alt="Jenske Verhamme">
+            </div>
+            <div class="header-content">
+                <h1>Jenske<br>Verhamme</h1>
+                <div class="intro-text">
+                    Onderzoeker en kunstenaar met een passie voor cultuur en digitale transformatie. 
+                    Ik werk op het snijvlak van Linked Open Data, audiovisuele archieven en artistieke expressie.
+                </div>
             </div>
         </div>
     </header>
@@ -213,8 +254,8 @@
             </a>
 
             <a href="technologie-data/index.html" class="card">
-                <div class="category-tag">Data</div>
                 <h3>Data & Technologie</h3>
+                <div class="category-tag">Data</div>
                 <p>Projecten over Linked Open Data, Wikidata en archiefontsluiting voor meemoo en meer.</p>
             </a>
         </div>
