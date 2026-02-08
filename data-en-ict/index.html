@@ -7,9 +7,9 @@
     <style>
         :root {
             --bg-color: #ffffff;
-            --box-bg: #000000;
+            --accent-color: #AADDDD; /* Je groen/cyaan */
             --text-color: #000000;
-            --accent-color: #AADDDD;
+            --grid-color: rgba(0, 0, 0, 0.08);
         }
 
         body { 
@@ -19,13 +19,18 @@
             margin: 0; 
             padding: 0; 
             line-height: 1.4;
+            /* Het subtiele Meemoo-stijl raster */
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
 
         nav {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
             border-bottom: 5px solid #000;
             padding: 20px 40px;
@@ -48,6 +53,14 @@
             padding: 0 40px;
         }
 
+        /* Groen achtergrondvak bij hoofdtitel */
+        .title-block {
+            display: inline-block;
+            background: var(--accent-color);
+            padding: 10px 20px;
+            margin-bottom: 10px;
+        }
+
         h1 { 
             font-size: clamp(3rem, 10vw, 6rem); 
             font-weight: 900; 
@@ -55,124 +68,110 @@
             text-transform: uppercase;
             letter-spacing: -3px;
             margin: 0;
-        }
-
-        .intro-container {
-            margin-top: 30px;
-            display: flex;
-            gap: 40px;
-            align-items: flex-start;
+            display: block;
         }
 
         .intro-box {
-            background: var(--box-bg);
+            margin-top: 30px;
+            background: #000;
             color: #fff;
-            padding: 30px;
-            flex: 1;
+            padding: 40px;
+            max-width: 800px;
+            position: relative;
+            box-shadow: 15px 15px 0px var(--accent-color);
         }
 
         .intro-box p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             margin: 0;
             font-weight: 500;
-        }
-
-        .tech-stack {
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            color: var(--accent-color);
-            text-transform: uppercase;
-            writing-mode: vertical-rl;
-            margin-top: 10px;
+            line-height: 1.6;
         }
 
         /* Project Grid */
         .project-grid {
             max-width: 1100px;
-            margin: 60px auto 100px auto;
+            margin: 80px auto 100px auto;
             padding: 0 40px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 40px;
         }
 
         .ict-card {
-            background: var(--box-bg);
-            color: #fff;
+            background: #fff;
+            color: #000;
             padding: 40px;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 4px solid #000;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 300px;
-            border: 1px solid #000;
+            min-height: 320px;
         }
 
+        /* Hoover effect: vak wordt groen/cyaan */
         .ict-card:hover {
-            background: var(--bg-color);
-            color: var(--text-color);
-            box-shadow: 15px 15px 0px var(--accent-color);
-        }
-
-        .card-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+            background: var(--accent-color);
+            transform: translate(-5px, -5px);
+            box-shadow: 10px 10px 0px #000;
         }
 
         .card-number {
             font-family: 'Courier New', monospace;
-            font-size: 1rem;
-            color: var(--accent-color);
+            font-weight: 900;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            display: block;
         }
 
         .ict-card h2 {
             font-size: 2.2rem;
             text-transform: uppercase;
             line-height: 0.9;
-            margin: 20px 0;
+            margin: 0 0 20px 0;
             letter-spacing: -1px;
         }
 
         .ict-card p {
-            font-size: 0.95rem;
-            opacity: 0.8;
-            margin-bottom: 20px;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            color: #333;
         }
 
         .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
         }
 
         .tag {
             font-family: 'Courier New', monospace;
-            font-size: 0.7rem;
-            border: 1px solid currentColor;
-            padding: 2px 8px;
+            font-size: 0.75rem;
+            background: #000;
+            color: #fff;
+            padding: 4px 10px;
             text-transform: lowercase;
         }
 
+        .ict-card:hover .tag {
+            background: #fff;
+            color: #000;
+        }
+
         footer { 
-            padding: 80px 40px; 
-            background: #f4f4f4;
+            padding: 60px 40px; 
+            border-top: 5px solid #000;
+            background: #fff;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .footer-logo {
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 1.2rem;
-        }
-
         @media (max-width: 850px) {
             .project-grid { grid-template-columns: 1fr; }
-            .intro-container { flex-direction: column; }
-            .tech-stack { writing-mode: horizontal-tb; margin-bottom: 20px; }
+            .intro-box { box-shadow: 10px 10px 0px var(--accent-color); }
         }
     </style>
 </head>
@@ -185,87 +184,75 @@
     </nav>
 
     <header>
+        <div class="title-block">
+            <span style="font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.9rem;">PATH: root/data_ict</span>
+        </div>
         <h1>Data & ICT</h1>
-        <div class="intro-container">
-            <div class="tech-stack">// SPARQL / IIIF / MOOC / API / WEB</div>
-            <div class="intro-box">
-                <p>
-                    Een overzicht van mijn digitale architectuur-projecten. 
-                    Van de implementatie van 3D-standaarden voor meemoo tot het bouwen van 
-                    open data visualisaties en community-tools voor de muzieksector.
-                </p>
-            </div>
+        <div class="intro-box">
+            <p>
+                Digitale architectuur en data-management in de erfgoedsector. 
+                Focus op de implementatie van 3D-standaarden voor meemoo, 
+                Linked Open Data visualisaties en community-tools voor muzikanten.
+            </p>
         </div>
     </header>
 
     <main class="project-grid">
         
         <a href="eureka3dxr/index.html" class="ict-card">
-            <div class="card-top">
-                <span class="card-number">PROJECT_01</span>
-                <span class="tag">meemoo</span>
-            </div>
             <div>
+                <span class="card-number">[ 01_EUREKA_3DXR ]</span>
                 <h2>eureka3DXR</h2>
-                <p>Europa-breed project rond 3D-erfgoed. Focus op capacity building en de creatie van een MOOC voor digitale transformatie.</p>
-                <div class="tags">
-                    <span class="tag">#3d-standards</span>
-                    <span class="tag">#reporting</span>
-                </div>
+                <p>Capaciteitsopbouw voor 3D-erfgoed binnen een Europees kader. Ontwikkeling van MOOC's en strategische rapportage voor meemoo.</p>
+            </div>
+            <div class="tags">
+                <span class="tag">#3d-standards</span>
+                <span class="tag">#capacity-building</span>
             </div>
         </a>
 
         <a href="guido-gezelle/index.html" class="ict-card">
-            <div class="card-top">
-                <span class="card-number">PROJECT_02</span>
-                <span class="tag">wikidata</span>
-            </div>
             <div>
-                <h2>Gezelle & Linked Data</h2>
-                <p>Netwerkvisualisaties op basis van open data. Handleidingen voor het mappen van erfgoeddata naar wikidata-entiteiten.</p>
-                <div class="tags">
-                    <span class="tag">#lod</span>
-                    <span class="tag">#sparql</span>
-                </div>
+                <span class="card-number">[ 02_GEZELLE_LOD ]</span>
+                <h2>Gezelle & Netwerken</h2>
+                <p>Linked Open Data visualisaties op Wikidata. Mappen van complexe archiefdata naar herbruikbare netwerkstructuren.</p>
+            </div>
+            <div class="tags">
+                <span class="tag">#sparql</span>
+                <span class="tag">#wikidata</span>
             </div>
         </a>
 
         <a href="europeana-theepotten/index.html" class="ict-card">
-            <div class="card-top">
-                <span class="card-number">PROJECT_03</span>
-                <span class="tag">github</span>
-            </div>
             <div>
-                <h2>Theepotten & Tableau</h2>
-                <p>Technisch onderzoek naar de Europeana API en IIIF-viewers. Data visualisatie experimenten gedocumenteerd op GitHub.</p>
-                <div class="tags">
-                    <span class="tag">#api</span>
-                    <span class="tag">#analysis</span>
-                </div>
+                <span class="card-number">[ 03_EUROPEANA_API ]</span>
+                <h2>API & Tableau</h2>
+                <p>Experimenten met de Europeana API en IIIF-viewers. Data-exploratie van objectcollecties gevisualiseerd in Tableau.</p>
+            </div>
+            <div class="tags">
+                <span class="tag">#python</span>
+                <span class="tag">#visualisatie</span>
             </div>
         </a>
 
         <a href="consouling-sounds/index.html" class="ict-card">
-            <div class="card-top">
-                <span class="card-number">PROJECT_04</span>
-                <span class="tag">community</span>
-            </div>
             <div>
+                <span class="card-number">[ 04_COMMUNITY_WEB ]</span>
                 <h2>Consouling Auction</h2>
-                <p>Website voor crowdfunding en veiling van exclusieve vinylplaten ten voordele van het Deeplistening Festival.</p>
-                <div class="tags">
-                    <span class="tag">#webdev</span>
-                    <span class="tag">#ux</span>
-                </div>
+                <p>Digital community building: veiling- en crowdfunding-platform voor vinylplaten ten voordele van het Deeplistening Festival.</p>
+            </div>
+            <div class="tags">
+                <span class="tag">#web-dev</span>
+                <span class="tag">#crowdfunding</span>
             </div>
         </a>
 
     </main>
 
     <footer>
-        <div class="footer-logo">Jenske Verhamme</div>
-        <div style="font-family: 'Courier New', monospace; font-size: 0.8rem;">
-            DATA_ICT_MODULE // 2026
+        <div style="font-weight: 900; text-transform: uppercase; letter-spacing: 2px;">Jenske Verhamme</div>
+        <div style="font-family: 'Courier New', monospace; font-size: 0.75rem; color: #666;">
+            BUILD: 2026.02_ICT
         </div>
     </footer>
 
