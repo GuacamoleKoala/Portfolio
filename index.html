@@ -2,41 +2,65 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Portfolio | GuacamoleKoala</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jenske Verhamme | Portfolio</title>
+    <style>
+        /* Hier de stijl die je stuurde, aangepast voor het hoofdportaal */
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #ffffff; color: #000000; margin: 0; padding: 0; line-height: 1.6; }
+        header { max-width: 1000px; margin: 60px auto 40px auto; padding: 0 20px; display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
+        .header-content { flex: 2; min-width: 300px; }
+        h1 { font-size: 3rem; font-weight: 900; line-height: 1.1; margin-bottom: 25px; letter-spacing: -2px; text-transform: uppercase; }
+        .intro-text { font-size: 1.15rem; color: #1a1a1a; margin-bottom: 30px; border-left: 5px solid #AADDDD; padding-left: 20px; }
+        
+        .main-content { background-color: #fafafa; padding: 80px 20px; }
+        .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        
+        /* Kaart stijl van je voorbeeld */
+        .card { background: #ffffff; padding: 40px; border: 1px solid #e0e0e0; display: flex; flex-direction: column; transition: transform 0.3s ease, border-color 0.3s ease; text-decoration: none; color: inherit; }
+        .card:hover { border-color: #AADDDD; transform: translateY(-5px); }
+        .card h3 { margin: 0 0 20px 0; font-size: 1.4rem; font-weight: 800; text-transform: uppercase; }
+        .category-link { background-color: #AADDDD; color: #000000; text-align: center; padding: 15px; text-decoration: none; font-weight: bold; margin-bottom: 25px; text-transform: uppercase; }
+        .description { font-size: 0.95rem; color: #444; flex-grow: 1; }
+
+        footer { max-width: 1200px; margin: 60px auto; padding: 40px 20px; border-top: 1px solid #e0e0e0; text-align: center; font-size: 0.85rem; color: #666; }
+    </style>
 </head>
 <body>
-    <nav>
-        <h2>Portfolio</h2>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="muziek-kunst-visueel/">Muziek & Kunst</a></li>
-            <li><a href="academisch-onderzoek/">Onderzoek</a></li>
-            <li><a href="technologie-data/">Tech & Data</a></li>
-        </ul>
-    </nav>
 
-    <main>
-        <h1>Mijn Portfolio</h1>
-        <p>Welkom. Hieronder vind je mijn werk onderverdeeld in drie kerngebieden:</p>
+    <header>
+        <div class="header-content">
+            <h1>Jenske Verhamme: Portfolio</h1>
+            <div class="intro-text">
+                Welkom op mijn portfolio. Hier breng ik mijn werk samen op het snijvlak van <strong>kunst, onderzoek en technologie</strong>. Gecureerd en gestructureerd zonder WordPress voor maximale helderheid.
+            </div>
+        </div>
+    </header>
 
-        <section class="category-card">
-            <h2>Muziek, Kunsten & Visueel</h2>
-            <p>Creatieve projecten op het snijvlak van beeld en geluid.</p>
-            <a href="muziek-kunst-visueel/">Bekijk projecten →</a>
-        </section>
+    <section class="main-content">
+        <div class="container">
+            <a href="muziek-kunst-visueel/index.html" class="card">
+                <h3>Muziek, Kunsten & Visueel</h3>
+                <div class="category-link">Ontdek Kunst</div>
+                <p class="description">Composities, visuele projecten en artistieke performances. Een overzicht van creatief werk en audiovisuele exploraties.</p>
+            </a>
 
-        <section class="category-card">
-            <h2>Academisch Onderzoek</h2>
-            <p>Publicaties, papers en lopend onderzoek.</p>
-            <a href="academisch-onderzoek/">Lees meer →</a>
-        </section>
+            <a href="academisch-onderzoek/index.html" class="card">
+                <h3>Academisch Onderzoek</h3>
+                <div class="category-link">Bekijk Onderzoek</div>
+                <p class="description">Artikels, papers en presentaties over filosofie, culturele studies en cultureel erfgoed. </p>
+            </a>
 
-        <section class="category-card">
-            <h2>Website, Data & Technologie</h2>
-            <p>Code, visualisaties en technische implementaties.</p>
-            <a href="technologie-data/">Bekijk code →</a>
-        </section>
-    </main>
+            <a href="technologie-data/index.html" class="card">
+                <h3>Website, Data & Technologie</h3>
+                <div class="category-link">Verken Data</div>
+                <p class="description">Linked Open Data, data-analyse en interactieve visualisaties.</p>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 <strong>Jenske Verhamme</strong></p>
+    </footer>
+
 </body>
 </html>
