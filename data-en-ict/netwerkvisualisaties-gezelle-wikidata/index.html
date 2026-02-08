@@ -52,7 +52,7 @@
 
         .intro-text {
             background: #000; color: #fff;
-            padding: 40px; font-size: 1.1rem;
+            padding: 40px; font-size: 1.15rem;
             box-shadow: 15px 15px 0px var(--accent-color);
             max-width: 950px; margin-top: 40px;
         }
@@ -74,56 +74,94 @@
         .doc-card h3 { margin: 0 0 10px 0; text-transform: uppercase; font-size: 1.1rem; border-bottom: 2px solid #000; padding-bottom: 5px; }
 
         /* Visualisation Section */
-        .viz-container { max-width: 1000px; margin: 100px auto; padding: 0 40px; }
+        .viz-container { max-width: 1100px; margin: 100px auto; padding: 0 40px; }
 
-        .viz-block { margin-bottom: 120px; }
+        .viz-block { margin-bottom: 150px; }
 
-        .viz-info { margin-bottom: 25px; }
+        .viz-info { margin-bottom: 35px; }
 
-        .viz-info h3 { text-transform: uppercase; font-size: 1.6rem; margin: 0 0 12px 0; font-weight: 900; border-left: 8px solid var(--accent-color); padding-left: 15px; }
+        .viz-info h3 { 
+            text-transform: uppercase; 
+            font-size: 2rem; 
+            margin: 0 0 20px 0; 
+            font-weight: 900; 
+            border-left: 12px solid var(--accent-color); 
+            padding-left: 20px; 
+        }
 
-        .viz-info p { margin: 0; color: #333; font-size: 1rem; }
+        .viz-description { 
+            font-size: 1.25rem; 
+            color: #000; 
+            margin-bottom: 25px; 
+            line-height: 1.5;
+            font-weight: 500;
+        }
 
-        .viz-window { border: 4px solid #000; background: #fff; position: relative; box-shadow: 10px 10px 0px rgba(0,0,0,0.05); }
+        .viz-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+            background: rgba(0,0,0,0.02);
+            padding: 20px;
+            border: 1px solid #eee;
+        }
 
-        .viz-header { background: #000; color: #fff; padding: 8px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .detail-item h4 { 
+            text-transform: uppercase; 
+            font-size: 0.85rem; 
+            margin: 0 0 10px 0; 
+            color: #666; 
+            font-family: 'Courier New', monospace;
+        }
 
-        .viz-title-tag { font-family: 'Courier New', monospace; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; }
+        .detail-item p { margin: 0; font-size: 0.95rem; color: #333; }
+
+        .viz-window { border: 5px solid #000; background: #fff; position: relative; box-shadow: 15px 15px 0px rgba(0,0,0,0.05); }
+
+        .viz-header { background: #000; color: #fff; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
+
+        .viz-title-tag { font-family: 'Courier New', monospace; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
 
         .viz-iframe-wrapper { position: relative; padding-bottom: 50%; height: 0; overflow: hidden; background: #eee; }
 
         .viz-iframe-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        .viz-footer { padding: 10px 20px; background: var(--accent-color); text-align: right; }
+        .viz-footer { padding: 12px 25px; background: var(--accent-color); text-align: right; }
 
-        .btn-small { background: #000; color: #fff; padding: 6px 18px; text-decoration: none; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; }
+        .btn-small { background: #000; color: #fff; padding: 8px 20px; text-decoration: none; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
 
         /* GitHub Hub Section */
         .github-hub {
-            max-width: 1100px; margin: 150px auto 100px auto; padding: 60px;
+            max-width: 1100px; margin: 150px auto 100px auto; padding: 80px 60px;
             background: #000; color: #fff; text-align: center;
             position: relative; overflow: hidden;
         }
 
         .github-hub::before {
             content: "CODE // DATA // OPEN_SOURCE";
-            position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
-            font-family: 'Courier New', monospace; font-size: 0.7rem; opacity: 0.4; letter-spacing: 5px;
+            position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
+            font-family: 'Courier New', monospace; font-size: 0.8rem; opacity: 0.4; letter-spacing: 5px;
         }
 
-        .hub-title { font-size: 3rem; font-weight: 900; text-transform: uppercase; margin: 0 0 20px 0; letter-spacing: -2px; }
+        .hub-title { font-size: 3.5rem; font-weight: 900; text-transform: uppercase; margin: 0 0 25px 0; letter-spacing: -2px; }
 
         .hub-btn {
             display: inline-block; background: var(--accent-color); color: #000;
-            padding: 20px 40px; text-decoration: none; font-weight: 900;
+            padding: 22px 45px; text-decoration: none; font-weight: 900;
             text-transform: uppercase; margin-top: 30px; transition: 0.3s;
+            font-size: 1.1rem;
         }
 
         .hub-btn:hover { transform: scale(1.05); background: #fff; }
 
-        footer { padding: 40px; text-align: center; font-family: 'Courier New', monospace; font-size: 0.8rem; opacity: 0.6; }
+        footer { padding: 60px; text-align: center; font-family: 'Courier New', monospace; font-size: 0.9rem; opacity: 0.6; }
 
-        @media (max-width: 850px) { .docs-grid { grid-template-columns: 1fr; } .github-hub { padding: 40px 20px; } }
+        @media (max-width: 850px) { 
+            .docs-grid { grid-template-columns: 1fr; } 
+            .github-hub { padding: 60px 20px; }
+            .viz-details { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -139,8 +177,8 @@
         <h1>Guido Gezelle &<br>Linked Data</h1>
         
         <div class="intro-text">
-            <p>In dit traject richtten we ons op het transformeren van abstracte Linked Open Data op Wikidata naar concrete, visueel inzichtelijke en interactieve netwerkvisualisaties. Het resultaat zijn vijf exploratieve, unieke visualisaties die een gelaagde, dynamische blik bieden op Gezelles sociale, institutionele en geografische leefwereld.</p>
-            <p>De nadruk ligt op de open-source filosofie, DIY-mentaliteit en de duurzaamheid van de ontwikkelde middelen. Daarmee tonen we wat mogelijk is wanneer collectiebeherende instellingen de metadata van hun collecties ontsluiten op Wikidata.</p>
+            <p>Hoe maken we de onzichtbare netwerken van een 19e-eeuwse dichter zichtbaar? Voor <strong>meemoo</strong> heb ik onderzocht hoe we archiefdata kunnen transformeren naar dynamische kennisnetwerken door ze te mappen naar Wikidata en te ontsluiten via SPARQL.</p>
+            <p>Dit traject resulteerde in vijf unieke, interactieve visualisaties die een gelaagde blik bieden op Gezelles sociale, institutionele en geografische leefwereld, met een sterke focus op open-source filosofie en de duurzaamheid van erfgoeddata.</p>
         </div>
     </header>
 
@@ -172,24 +210,44 @@
         <div class="viz-block">
             <div class="viz-info">
                 <h3>Visualisatie 1: Het Persoonlijke Netwerk</h3>
-                <p>Deze visualisatie vormt het startpunt en fungeert als een interactieve 'Who's Who' van de wereld rond Guido Gezelle. We zien een klassiek 'ego-netwerk' met Gezelle in het centrum, waarbij personen gekleurd zijn op basis van hun relatietype (bv. familie, correspondent, student).</p>
+                <p class="viz-description">Deze visualisatie vormt het startpunt en fungeert als een interactieve 'Who's Who' van de wereld rond Guido Gezelle. We zien een klassiek 'ego-netwerk' met Gezelle in het centrum. Het maakt de stap van abstracte data naar biografie tastbaar.</p>
+                <div class="viz-details">
+                    <div class="detail-item">
+                        <h4>Vraagstelling</h4>
+                        <p>Wie zijn de personen die in Wikidata direct aan Guido Gezelle gekoppeld zijn, en wat is de aard van die relatie?</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>De Blik</h4>
+                        <p>Knooppunten zijn gekleurd op relatietype (familie, correspondent, student). Interactie via infovensters met links naar Wikipedia/Wikidata.</p>
+                    </div>
+                </div>
             </div>
             <div class="viz-window">
                 <div class="viz-header">
-                    <span class="viz-title-tag">VIZ_01 // EGO_NETWORK</span>
+                    <span class="viz-title-tag">VIZ_01 // WHO'S WHO</span>
                     <span style="font-size: 0.7rem; opacity: 0.7;">WIKIDATA_LIVE</span>
                 </div>
                 <div class="viz-iframe-wrapper">
                     <iframe src="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie1/" loading="lazy"></iframe>
                 </div>
-                <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie1/" target="_blank" class="btn-small">Interactieve Versie ↗</a></div>
+                <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie1/" target="_blank" class="btn-small">Full Interactivity ↗</a></div>
             </div>
         </div>
 
         <div class="viz-block">
             <div class="viz-info">
                 <h3>Visualisatie 2: Relaties onder Correspondenten</h3>
-                <p>Waar de eerste grafiek kijkt naar de relatie met Gezelle, focust deze op de relaties tussen de contacten onderling. Het toont clusters van schrijvers, priesters en intellectuelen die een gemeenschap vormden, en onthult Gezelle als spin in een web van kruisbestuivingen.</p>
+                <p class="viz-description">Waar de eerste visualisatie kijkt naar de relatie met Gezelle, focust V2 op het sociale weefsel tussen de contacten zelf. Het onthult clusters van schrijvers, priesters en intellectuelen die onderling een hechte gemeenschap vormden.</p>
+                <div class="viz-details">
+                    <div class="detail-item">
+                        <h4>Vraagstelling</h4>
+                        <p>Hoe zag het sociale weefsel van Gezelles netwerk eruit? Kenden zijn correspondenten elkaar en wie vormden sub-clusters?</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>De Blik</h4>
+                        <p>Toont 'triadische sluitingen' (A kent B, B kent C). Bewijst dat Gezelle een spin was in een web van religieuze en literaire kruisbestuivingen.</p>
+                    </div>
+                </div>
             </div>
             <div class="viz-window">
                 <div class="viz-header">
@@ -199,14 +257,24 @@
                 <div class="viz-iframe-wrapper">
                     <iframe src="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie2/" loading="lazy"></iframe>
                 </div>
-                <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie2/" target="_blank" class="btn-small">Interactieve Versie ↗</a></div>
+                <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie2/" target="_blank" class="btn-small">Full Interactivity ↗</a></div>
             </div>
         </div>
 
         <div class="viz-block">
             <div class="viz-info">
                 <h3>Visualisatie 3A: Het Institutionele Netwerk</h3>
-                <p>Dit bipartiet netwerk toont verbindingen tussen Personen en Organisaties. In één oogopslag wordt duidelijk welke instituten (zoals het Klein Seminarie in Roeselare) de centrale knooppunten waren waar talloze sociale contacten uit Gezelles netwerk samenkwamen.</p>
+                <p class="viz-description">Relaties ontstaan vaak op specifieke plekken. Deze visualisatie verlaat het persoonsniveau en analyseert de onderliggende structuren zoals scholen, verenigingen en tijdschriften die als 'hubs' fungeerden.</p>
+                <div class="viz-details">
+                    <div class="detail-item">
+                        <h4>Vraagstelling</h4>
+                        <p>Welke organisaties fungeerden als de belangrijkste knooppunten waar de leden van Gezelles netwerk samenkomen?</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>De Blik</h4>
+                        <p>Een bipartiet netwerk (Personen & Organisaties). Maakt de institutionele 'lijm' van de groep zichtbaar, zoals het Klein Seminarie in Roeselare.</p>
+                    </div>
+                </div>
             </div>
             <div class="viz-window">
                 <div class="viz-header">
@@ -216,58 +284,88 @@
                 <div class="viz-iframe-wrapper">
                     <iframe src="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie3A/" loading="lazy"></iframe>
                 </div>
-                <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie3A/" target="_blank" class="btn-small">Interactieve Versie ↗</a></div>
+                <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie3A/" target="_blank" class="btn-small">Full Interactivity ↗</a></div>
             </div>
         </div>
 
         <div class="viz-block">
             <div class="viz-info">
                 <h3>Visualisatie 3B: De Sociale Projectie</h3>
-                <p>Door gebruik van 'Multimode Network Projection' worden personen direct aan elkaar verbonden als zij lid waren van dezelfde organisatie. Kleurcoderingen via de 'Modularity Class' maken verborgen informele gemeenschappen en subgroepen binnen het netwerk zichtbaar.</p>
+                <p class="viz-description">Door gebruik van geavanceerde netwerkprojectie worden personen direct aan elkaar verbonden op basis van gedeelde organisatie-lidmaatschappen. Dit brengt informele subgroepen en sociale cohesie aan het licht.</p>
+                <div class="viz-details">
+                    <div class="detail-item">
+                        <h4>Vraagstelling</h4>
+                        <p>Welke informele gemeenschappen vormen zich op basis van gedeelde lidmaatschappen? Hoe sterk is deze institutionele cohesie?</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>De Blik</h4>
+                        <p>Gebruik van de 'Modularity Class' statistiek om automatisch verborgen communities te berekenen en in kleurcodes weer te geven.</p>
+                    </div>
+                </div>
             </div>
             <div class="viz-window">
                 <div class="viz-header">
-                    <span class="viz-title-tag">VIZ_03B // SOCIAL_COHESION</span>
+                    <span class="viz-title-tag">VIZ_03B // COMMUNITIES</span>
                     <span style="font-size: 0.7rem; opacity: 0.7;">WIKIDATA_LIVE</span>
                 </div>
                 <div class="viz-iframe-wrapper">
                     <iframe src="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie3B/" loading="lazy"></iframe>
                 </div>
-                <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie3B/" target="_blank" class="btn-small">Interactieve Versie ↗</a></div>
+                <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie3B/" target="_blank" class="btn-small">Full Interactivity ↗</a></div>
             </div>
         </div>
 
         <div class="viz-block">
             <div class="viz-info">
                 <h3>Visualisatie 4B: De Interactieve Cartografie</h3>
-                <p>Via Leaflet.js integratie wordt het netwerk topografisch ontsloten. De kaart doorbreekt de mythe van Gezelle als louter lokale dichter; een web van lijnen toont een breed Europees katholiek netwerk met opvallende concentraties richting Engeland.</p>
+                <p class="viz-description">Netwerken zijn geworteld in fysieke locaties. Deze visualisatie via Leaflet.js toont een web van lijnen die provinciegrenzen ver overstijgen, met een opvallende internationale concentratie richting Engeland.</p>
+                <div class="viz-details">
+                    <div class="detail-item">
+                        <h4>Vraagstelling</h4>
+                        <p>Hoe verspreidt het netwerk zich over de werkelijke wereldkaart? Hoe ver reikte de internationale blik van Gezelle?</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>De Blik</h4>
+                        <p>Dynamische kaartomgeving die de mythe van Gezelle als louter lokale dichter doorbreekt en zijn Europese katholieke netwerk bevestigt.</p>
+                    </div>
+                </div>
             </div>
             <div class="viz-window">
                 <div class="viz-header">
-                    <span class="viz-title-tag">VIZ_04B // GEOSPATIAL_NET</span>
+                    <span class="viz-title-tag">VIZ_04B // GEOMAPPING</span>
                     <span style="font-size: 0.7rem; opacity: 0.7;">WIKIDATA_LIVE</span>
                 </div>
                 <div class="viz-iframe-wrapper">
                     <iframe src="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie4B/" loading="lazy"></iframe>
                 </div>
-                <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie4B/" target="_blank" class="btn-small">Interactieve Versie ↗</a></div>
+                <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie4B/" target="_blank" class="btn-small">Full Interactivity ↗</a></div>
             </div>
         </div>
 
         <div class="viz-block">
             <div class="viz-info">
                 <h3>Visualisatie 5: Netwerken over de Tijd</h3>
-                <p>Technisch de meest complexe visualisatie. Via 'Time Interval' data en een tijdslider scroll je door de jaren heen. Je ziet het netwerk organisch groeien en veranderen naarmate Gezelle verhuist en zijn carrière evolueert, wat zijn levensloop tastbaar maakt.</p>
+                <p class="viz-description">Een statisch netwerk is slechts een momentopname. V5 voegt de vierde dimensie toe: tijd. Via een interactieve slider scroll je door Gezelles levensfasen en zie je relaties organisch ontstaan en verdwijnen.</p>
+                <div class="viz-details">
+                    <div class="detail-item">
+                        <h4>Vraagstelling</h4>
+                        <p>Hoe evolueerde het sociale netwerk van Gezelle over de tijd? Welke personen waren belangrijk in specifieke periodes?</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>De Blik</h4>
+                        <p>Gebruik van 'Time Interval' data. Maakt de levensloop visueel tastbaar op een manier die in tekst nauwelijks te vatten is.</p>
+                    </div>
+                </div>
             </div>
             <div class="viz-window">
                 <div class="viz-header">
-                    <span class="viz-title-tag">VIZ_05 // TEMPORAL_EVOLUTION</span>
+                    <span class="viz-title-tag">VIZ_05 // TEMPORAL_FLOW</span>
                     <span style="font-size: 0.7rem; opacity: 0.7;">WIKIDATA_LIVE</span>
                 </div>
                 <div class="viz-iframe-wrapper">
                     <iframe src="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie5/" loading="lazy"></iframe>
                 </div>
-                <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie5/" target="_blank" class="btn-small">Interactieve Versie ↗</a></div>
+                <div class="viz-footer"><a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/InteractieveVisualisaties/Visualisatie5/" target="_blank" class="btn-small">Full Interactivity ↗</a></div>
             </div>
         </div>
 
@@ -275,8 +373,8 @@
 
     <section class="github-hub">
         <h2 class="hub-title">Dismantle the Code</h2>
-        <p style="max-width: 700px; margin: 0 auto; opacity: 0.8;">Alle SPARQL-queries, opgeschoonde datasets en Gephi-projectbestanden zijn openbaar toegankelijk. Dit project is een blauwdruk voor herbruikbaarheid in de erfgoedsector.</p>
-        <a href="https://github.com/GuacamoleKoala/DocumentationVisualisationsGuidoGezelle" target="_blank" class="hub-btn">Explore the Repository ↗</a>
+        <p style="max-width: 800px; margin: 0 auto; opacity: 0.8; font-size: 1.2rem;">Alle SPARQL-queries, de volledige data-levenscyclus en de technische blauwdruk van dit project zijn openbaar beschikbaar. Duik in de repository en bouw voort op dit werk.</p>
+        <a href="https://github.com/GuacamoleKoala/DocumentationVisualisationsGuidoGezelle" target="_blank" class="hub-btn">Go to Repository ↗</a>
     </section>
 
     <footer>
