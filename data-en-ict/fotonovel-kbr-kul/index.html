@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotonovel Re-enactment | Jenske Verhamme</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --accent-color: #AADDDD;
+            --dark: #000000;
+            --grid-color: rgba(0, 0, 0, 0.05);
+        }
+
+        body { 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            background: var(--bg-color); 
+            color: var(--dark); 
+            margin: 0; padding: 0; 
+            background-image: linear-gradient(var(--grid-color) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        nav {
+            position: sticky; top: 0; z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 5px solid var(--dark);
+            padding: 20px 40px; display: flex; gap: 30px;
+        }
+
+        .nav-link {
+            text-decoration: none; color: var(--dark);
+            font-weight: 900; text-transform: uppercase; font-size: 0.8rem;
+        }
+
+        header {
+            max-width: 1100px; margin: 80px auto 40px auto; padding: 0 40px;
+        }
+
+        .tag {
+            background: var(--dark); color: #fff;
+            padding: 5px 15px; font-family: 'Courier New', monospace;
+            font-size: 0.8rem; text-transform: uppercase;
+        }
+
+        h1 { 
+            font-size: clamp(3rem, 10vw, 6rem); font-weight: 900;
+            text-transform: uppercase; letter-spacing: -4px;
+            margin: 20px 0; line-height: 0.9;
+        }
+
+        .intro-lead { font-size: 1.3rem; max-width: 850px; margin-top: 30px; font-weight: 500; }
+
+        /* Production Grid */
+        .prod-grid {
+            max-width: 1100px; margin: 60px auto; padding: 0 40px;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+        }
+
+        .prod-card {
+            border: 3px solid var(--dark);
+            padding: 30px;
+            background: #fff;
+            transition: 0.3s;
+        }
+
+        .prod-card:hover { background: var(--accent-color); transform: translateY(-5px); }
+
+        .prod-card h3 { text-transform: uppercase; font-size: 1rem; border-bottom: 2px solid var(--dark); padding-bottom: 10px; }
+
+        /* Novel Reader Section */
+        .novel-section {
+            background: var(--dark); color: #fff;
+            padding: 100px 40px; text-align: center;
+        }
+
+        .novel-viewer {
+            max-width: 900px; margin: 40px auto;
+            aspect-ratio: 1 / 1.4;
+            background: #333;
+            border: 10px solid #fff;
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+        }
+
+        .novel-viewer::after {
+            content: "PDF PREVIEW KOMT HIER";
+            font-family: 'Courier New', monospace; font-size: 1rem; opacity: 0.5;
+        }
+
+        .btn-download {
+            display: inline-block; background: var(--accent-color); color: #000;
+            padding: 15px 40px; text-decoration: none; font-weight: 900;
+            text-transform: uppercase; border: 3px solid #fff; margin-top: 20px;
+        }
+
+        /* Artistic Section */
+        .artistic-section {
+            max-width: 1100px; margin: 100px auto; padding: 0 40px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+            align-items: center;
+        }
+
+        .artistic-text h2 { text-transform: uppercase; font-size: 2.5rem; letter-spacing: -2px; }
+
+        footer { padding: 60px; text-align: center; font-family: 'Courier New', monospace; font-size: 0.8rem; }
+
+        @media (max-width: 800px) {
+            .prod-grid, .artistic-section { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="../../index.html" class="nav-link">The Person</a>
+        <a href="../index.html" class="nav-link">Data & ICT</a>
+        <a href="../../index.html#contact" class="nav-link">The Signal</a>
+    </nav>
+
+    <header>
+        <span class="tag">KUL x KBR // ARTISTIC DIRECTION</span>
+        <h1>Fotonovel<br>Re-enactment</h1>
+        <div class="intro-lead">
+            Als artistiek directeur en producent leidde ik de transformatie van een vergeten genre naar een moderne context. In samenwerking met de <strong>KU Leuven</strong> en <strong>KBR</strong> gaven we een oude fotonovel een nieuw jasje, van archiefonderzoek tot de uiteindelijke post-productie.
+        </div>
+    </header>
+
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 40px;">
+        <h2 style="text-transform: uppercase; border-left: 10px solid var(--accent-color); padding-left: 20px;">De Productieketen</h2>
+    </div>
+
+    <main class="prod-grid">
+        <section class="prod-card">
+            <h3>01. Research & KBR</h3>
+            <p>Het project begon in de archieven van de KBR. Door het inlezen in historische fotonovels begrepen we de beeldtaal, de dramatiek en de unieke opbouw van het genre.</p>
+        </section>
+
+        <section class="prod-card">
+            <h3>02. Storyboard & Script</h3>
+            <p>Ik vertaalde de klassieke elementen naar een unieke, eigentijdse story. Elke scène werd vooraf gedetailleerd uitgetekend in een storyboard om de filmploeg aan te sturen.</p>
+        </section>
+
+        <section class="prod-card">
+            <h3>03. De Set & Filmploeg</h3>
+            <p>Als producer stuurde ik de filmploeg aan tijdens de intensieve opnamedagen. De uitdaging? Beweging vangen in stilstaande, maar expressieve beelden.</p>
+        </section>
+
+        <section class="prod-card">
+            <h3>04. Photoshop & Edit</h3>
+            <p>In de post-productie voerden we kleurcorrecties en beeldmanipulaties uit in Photoshop om die specifieke, nostalgische maar scherpe 'fotonovel-look' te bereiken.</p>
+        </section>
+
+        <section class="prod-card">
+            <h3>05. InDesign Lay-out</h3>
+            <p>Het samenbrengen van beeld, tekstballonnen en typografie gebeurde in InDesign, waarbij de ritmiek van de pagina cruciaal was voor de leeservaring.</p>
+        </section>
+
+        <section class="prod-card">
+            <h3>06. Tekst & Dialoog</h3>
+            <p>Geen fotonovel zonder scherpe dialogen. De tekst-editing was een proces van schrappen en polijsten tot de perfecte balans tussen beeld en woord was gevonden.</p>
+        </section>
+    </main>
+
+    <section class="novel-section">
+        <h2 style="text-transform: uppercase; font-size: 2.5rem; margin-bottom: 0;">Lees de Novel</h2>
+        <p style="opacity: 0.8; margin-bottom: 40px;">Blader door het eindresultaat van deze unieke re-enactment.</p>
+        
+        <div class="novel-viewer">
+            </div>
+
+        <a href="#" class="btn-download">Download Full PDF (Soon)</a>
+    </section>
+
+    <section class="artistic-section">
+        <div class="artistic-text">
+            <h2>Artistieke Visie</h2>
+            <p>Mijn doel was niet om louter te kopiëren, maar om de <strong>esthetiek van het verleden</strong> te laten botsen met de <strong>techniek van nu</strong>. Het resultaat is een re-enactment die zowel een eerbetoon aan het erfgoed van de KBR is, als een modern autonoom kunstwerk.</p>
+            <p>De samenwerking tussen de academische blik van de KUL en de artistieke uitvoering zorgde voor een gelaagdheid die je zelden ziet in dit genre.</p>
+        </div>
+        <div style="background: var(--accent-color); height: 300px; border: 4px solid var(--dark); display: flex; align-items: center; justify-content: center; font-family: 'Courier New', monospace; font-weight: bold;">
+            [ BTS_IMAGE_PRODUCTION ]
+        </div>
+    </section>
+
+    <footer>JENSKE VERHAMME // ARTISTIC DIRECTION // 2026</footer>
+
+</body>
+</html>
