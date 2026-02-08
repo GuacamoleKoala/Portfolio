@@ -3,63 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jenske Verhamme | Portfolio</title>
+    <title>Jenske Verhamme | About & Portfolio</title>
     <style>
-        /* Hier de stijl die je stuurde, aangepast voor het hoofdportaal */
+        /* De meemoo-geïnspireerde stijl die je hebt aangeleverd */
         body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #ffffff; color: #000000; margin: 0; padding: 0; line-height: 1.6; }
-        header { max-width: 1000px; margin: 60px auto 40px auto; padding: 0 20px; display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
+        
+        header { 
+            max-width: 1000px; 
+            margin: 60px auto 40px auto; 
+            padding: 0 20px; 
+            display: flex; 
+            gap: 40px; 
+            align-items: flex-start; 
+            flex-wrap: wrap; 
+        }
+
         .header-content { flex: 2; min-width: 300px; }
-        h1 { font-size: 3rem; font-weight: 900; line-height: 1.1; margin-bottom: 25px; letter-spacing: -2px; text-transform: uppercase; }
-        .intro-text { font-size: 1.15rem; color: #1a1a1a; margin-bottom: 30px; border-left: 5px solid #AADDDD; padding-left: 20px; }
         
-        .main-content { background-color: #fafafa; padding: 80px 20px; }
-        .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        h1 { 
+            font-size: 3.5rem; 
+            font-weight: 900; 
+            line-height: 1; 
+            margin-bottom: 25px; 
+            letter-spacing: -3px; 
+            text-transform: uppercase; 
+        }
+
+        .intro-text { 
+            font-size: 1.15rem; 
+            color: #1a1a1a; 
+            margin-bottom: 30px; 
+            border-left: 5px solid #AADDDD; 
+            padding-left: 20px; 
+            max-width: 700px;
+        }
+
+        /* Overview Sectie */
+        .main-content { background-color: #fafafa; padding: 80px 20px; border-top: 1px solid #e0e0e0; }
+        .section-header { max-width: 1200px; margin: 0 auto 50px auto; }
+        .section-header h2 { font-size: 2.2rem; font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; }
         
-        /* Kaart stijl van je voorbeeld */
-        .card { background: #ffffff; padding: 40px; border: 1px solid #e0e0e0; display: flex; flex-direction: column; transition: transform 0.3s ease, border-color 0.3s ease; text-decoration: none; color: inherit; }
+        .container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+            gap: 30px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+
+        /* Kaart stijl */
+        .card { 
+            background: #ffffff; 
+            padding: 40px; 
+            border: 1px solid #e0e0e0; 
+            display: flex; 
+            flex-direction: column; 
+            transition: transform 0.3s ease, border-color 0.3s ease; 
+            text-decoration: none; 
+            color: inherit; 
+        }
+        
         .card:hover { border-color: #AADDDD; transform: translateY(-5px); }
         .card h3 { margin: 0 0 20px 0; font-size: 1.4rem; font-weight: 800; text-transform: uppercase; }
-        .category-link { background-color: #AADDDD; color: #000000; text-align: center; padding: 15px; text-decoration: none; font-weight: bold; margin-bottom: 25px; text-transform: uppercase; }
+        
+        .category-link { 
+            background-color: #AADDDD; 
+            color: #000000; 
+            text-align: center; 
+            padding: 15px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            margin-bottom: 25px; 
+            text-transform: uppercase; 
+            font-size: 0.85rem;
+        }
+
         .description { font-size: 0.95rem; color: #444; flex-grow: 1; }
 
         footer { max-width: 1200px; margin: 60px auto; padding: 40px 20px; border-top: 1px solid #e0e0e0; text-align: center; font-size: 0.85rem; color: #666; }
+        
+        @media (max-width: 768px) { h1 { font-size: 2.5rem; } }
     </style>
 </head>
 <body>
 
     <header>
         <div class="header-content">
-            <h1>Jenske Verhamme: Portfolio</h1>
+            <h1>Jenske Verhamme</h1>
             <div class="intro-text">
-                Welkom op mijn portfolio. Hier breng ik mijn werk samen op het snijvlak van <strong>kunst, onderzoek en technologie</strong>. Gecureerd en gestructureerd zonder WordPress voor maximale helderheid.
+                <strong>About Me:</strong> Ik ben een onderzoeker en kunstenaar met een focus op de wisselwerking tussen mens, cultuur en digitale transformatie. 
+                Vanuit een achtergrond in de wijsbegeerte en culturele studies verken ik hoe we erfgoed en artistieke expressie kunnen ontsluiten met moderne technologieën. 
+                Momenteel werk ik aan het snijvlak van Linked Open Data en audiovisuele archivering.
             </div>
         </div>
     </header>
 
     <section class="main-content">
+        <div class="section-header">
+            <h2>Portfolio Overview</h2>
+        </div>
+
         <div class="container">
             <a href="muziek-kunst-visueel/index.html" class="card">
                 <h3>Muziek, Kunsten & Visueel</h3>
-                <div class="category-link">Ontdek Kunst</div>
-                <p class="description">Composities, visuele projecten en artistieke performances. Een overzicht van creatief werk en audiovisuele exploraties.</p>
+                <div class="category-link">Ontdek Projecten</div>
+                <p class="description">
+                    Een verkenning van klankkunst, compositie en visuele media. 
+                    Deze sectie bevat werk variërend van artistieke performances tot audiovisuele installaties, 
+                    waarbij de zintuiglijke ervaring centraal staat.
+                </p>
             </a>
 
             <a href="academisch-onderzoek/index.html" class="card">
                 <h3>Academisch Onderzoek</h3>
                 <div class="category-link">Bekijk Onderzoek</div>
-                <p class="description">Artikels, papers en presentaties over filosofie, culturele studies en cultureel erfgoed. </p>
+                <p class="description">
+                    Theoretische reflecties en geschriften over filosofie en culturele studies. 
+                    Hier vind je papers over digitale transformatie in de erfgoedsector en analyses 
+                    van sociaal-culturele fenomenen.
+                </p>
             </a>
 
             <a href="technologie-data/index.html" class="card">
                 <h3>Website, Data & Technologie</h3>
                 <div class="category-link">Verken Data</div>
-                <p class="description">Linked Open Data, data-analyse en interactieve visualisaties.</p>
+                <p class="description">
+                    Projecten over Linked Open Data, Wikidata en netwerkvisualisaties. 
+                    Inclusief mijn werk voor meemoo en de digitale ontsluiting van het Guido Gezelle archief 
+                    via interactieve technologieën.
+                </p>
             </a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 <strong>Jenske Verhamme</strong></p>
+        <p>&copy; 2026 <strong>Jenske Verhamme</strong> | Gebouwd in de meemoo-stijl</p>
     </footer>
 
 </body>
