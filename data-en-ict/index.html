@@ -6,12 +6,10 @@
     <title>Data & ICT | Jenske Verhamme</title>
     <style>
         :root {
-            --bg-color: #f9f9f9; /* Lichtgrijs/wit voor meemoo-look */
-            --card-bg: #ffffff;
-            --text-color: #1a1a1a;
-            --accent-color: #AADDDD; /* Je signature cyaan */
-            --secondary-accent: #2c3e50; /* Donkerder voor ICT-contrast */
-            --grid-line: rgba(0, 0, 0, 0.05);
+            --bg-color: #ffffff;
+            --box-bg: #000000;
+            --text-color: #000000;
+            --accent-color: #AADDDD;
         }
 
         body { 
@@ -20,29 +18,16 @@
             color: var(--text-color); 
             margin: 0; 
             padding: 0; 
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Subtiel Meemoo-stijl raster */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: 
-                linear-gradient(var(--grid-line) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: -1;
+            line-height: 1.4;
         }
 
         nav {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 3px solid #000;
+            border-bottom: 5px solid #000;
             padding: 20px 40px;
             display: flex;
             gap: 30px;
@@ -59,127 +44,135 @@
 
         header {
             max-width: 1100px;
-            margin: 80px auto 60px auto;
+            margin: 80px auto 40px auto;
             padding: 0 40px;
-        }
-
-        .breadcrumb {
-            font-family: 'Courier New', monospace;
-            font-size: 0.8rem;
-            color: #888;
-            margin-bottom: 10px;
-            display: block;
         }
 
         h1 { 
-            font-size: clamp(2.5rem, 7vw, 5rem); 
+            font-size: clamp(3rem, 10vw, 6rem); 
             font-weight: 900; 
-            line-height: 1; 
+            line-height: 0.85; 
             text-transform: uppercase;
-            letter-spacing: -2px;
-            margin: 0 0 20px 0;
-        }
-
-        .intro-text {
-            font-size: 1.2rem;
-            max-width: 750px;
-            color: #444;
-            border-left: 6px solid var(--accent-color);
-            padding-left: 25px;
-        }
-
-        /* Project Lijst */
-        .project-list {
-            max-width: 1100px;
-            margin: 0 auto 100px auto;
-            padding: 0 40px;
-        }
-
-        .ict-item {
-            display: grid;
-            grid-template-columns: 80px 1fr auto;
-            align-items: center;
-            border-top: 1px solid #ddd;
-            padding: 40px 0;
-            text-decoration: none;
-            color: inherit;
-            transition: 0.3s;
-        }
-
-        .ict-item:last-child {
-            border-bottom: 1px solid #ddd;
-        }
-
-        .ict-item:hover {
-            background-color: #fff;
-            padding-left: 20px;
-            padding-right: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-top-color: transparent;
-        }
-
-        .index-number {
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
-            color: var(--accent-color);
-            font-size: 1.2rem;
-        }
-
-        .item-content h2 {
+            letter-spacing: -3px;
             margin: 0;
-            font-size: 1.8rem;
+        }
+
+        .intro-container {
+            margin-top: 30px;
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .intro-box {
+            background: var(--box-bg);
+            color: #fff;
+            padding: 30px;
+            flex: 1;
+        }
+
+        .intro-box p {
+            font-size: 1.2rem;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .tech-stack {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-color);
             text-transform: uppercase;
+            writing-mode: vertical-rl;
+            margin-top: 10px;
+        }
+
+        /* Project Grid */
+        .project-grid {
+            max-width: 1100px;
+            margin: 60px auto 100px auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .ict-card {
+            background: var(--box-bg);
+            color: #fff;
+            padding: 40px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 300px;
+            border: 1px solid #000;
+        }
+
+        .ict-card:hover {
+            background: var(--bg-color);
+            color: var(--text-color);
+            box-shadow: 15px 15px 0px var(--accent-color);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .card-number {
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            color: var(--accent-color);
+        }
+
+        .ict-card h2 {
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            line-height: 0.9;
+            margin: 20px 0;
             letter-spacing: -1px;
         }
 
+        .ict-card p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
         .tags {
-            margin-top: 8px;
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
         }
 
         .tag {
             font-family: 'Courier New', monospace;
             font-size: 0.7rem;
-            background: #eee;
-            padding: 3px 8px;
-            border-radius: 3px;
-            color: #666;
+            border: 1px solid currentColor;
+            padding: 2px 8px;
             text-transform: lowercase;
-        }
-
-        .arrow {
-            font-size: 2rem;
-            font-weight: 200;
-            color: #ddd;
-            transition: 0.3s;
-        }
-
-        .ict-item:hover .arrow {
-            color: var(--accent-color);
-            transform: translateX(10px);
-        }
-
-        .description {
-            grid-column: 2;
-            margin-top: 15px;
-            color: #666;
-            max-width: 650px;
-            font-size: 1rem;
         }
 
         footer { 
             padding: 80px 40px; 
-            text-align: center;
-            background: #000;
-            color: #fff;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        @media (max-width: 768px) {
-            .ict-item { grid-template-columns: 50px 1fr; }
-            .arrow { display: none; }
-            .description { grid-column: 1 / span 2; }
+        .footer-logo {
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 850px) {
+            .project-grid { grid-template-columns: 1fr; }
+            .intro-container { flex-direction: column; }
+            .tech-stack { writing-mode: horizontal-tb; margin-bottom: 20px; }
         }
     </style>
 </head>
@@ -192,79 +185,87 @@
     </nav>
 
     <header>
-        <span class="breadcrumb">root / portfolio / data_ict</span>
         <h1>Data & ICT</h1>
-        <div class="intro-text">
-            Mijn werk bij meemoo en onafhankelijke projecten op het snijvlak van erfgoed, technologie en data. Focus op Linked Open Data, 3D-standaarden en digitale community-building.
+        <div class="intro-container">
+            <div class="tech-stack">// SPARQL / IIIF / MOOC / API / WEB</div>
+            <div class="intro-box">
+                <p>
+                    Een overzicht van mijn digitale architectuur-projecten. 
+                    Van de implementatie van 3D-standaarden voor meemoo tot het bouwen van 
+                    open data visualisaties en community-tools voor de muzieksector.
+                </p>
+            </div>
         </div>
     </header>
 
-    <main class="project-list">
+    <main class="project-grid">
         
-        <a href="eureka3dxr/index.html" class="ict-item">
-            <div class="index-number">01</div>
-            <div class="item-content">
+        <a href="eureka3dxr/index.html" class="ict-card">
+            <div class="card-top">
+                <span class="card-number">PROJECT_01</span>
+                <span class="tag">meemoo</span>
+            </div>
+            <div>
                 <h2>eureka3DXR</h2>
+                <p>Europa-breed project rond 3D-erfgoed. Focus op capacity building en de creatie van een MOOC voor digitale transformatie.</p>
                 <div class="tags">
-                    <span class="tag">#capacity-building</span>
-                    <span class="tag">#mooc</span>
-                    <span class="tag">#3d-erfgoed</span>
+                    <span class="tag">#3d-standards</span>
+                    <span class="tag">#reporting</span>
                 </div>
             </div>
-            <div class="arrow">→</div>
-            <p class="description">Europees project voor meemoo gericht op de digitale transformatie van 3D-erfgoed. Verantwoordelijk voor de rapportage en de ontwikkeling van een MOOC.</p>
         </a>
 
-        <a href="guido-gezelle/index.html" class="ict-item">
-            <div class="index-number">02</div>
-            <div class="item-content">
-                <h2>Gezelle & Wikidata</h2>
+        <a href="guido-gezelle/index.html" class="ict-card">
+            <div class="card-top">
+                <span class="card-number">PROJECT_02</span>
+                <span class="tag">wikidata</span>
+            </div>
+            <div>
+                <h2>Gezelle & Linked Data</h2>
+                <p>Netwerkvisualisaties op basis van open data. Handleidingen voor het mappen van erfgoeddata naar wikidata-entiteiten.</p>
                 <div class="tags">
-                    <span class="tag">#linked-data</span>
+                    <span class="tag">#lod</span>
                     <span class="tag">#sparql</span>
-                    <span class="tag">#visualisatie</span>
                 </div>
             </div>
-            <div class="arrow">→</div>
-            <p class="description">Gebruik van Wikidata om netwerken rond Guido Gezelle te visualiseren. Inclusief handleidingen over hoe erfgoedinstellingen open data kunnen ontsluiten.</p>
         </a>
 
-        <a href="europeana-theepotten/index.html" class="ict-item">
-            <div class="index-number">03</div>
-            <div class="item-content">
-                <h2>Europeana & Tableau</h2>
+        <a href="europeana-theepotten/index.html" class="ict-card">
+            <div class="card-top">
+                <span class="card-number">PROJECT_03</span>
+                <span class="tag">github</span>
+            </div>
+            <div>
+                <h2>Theepotten & Tableau</h2>
+                <p>Technisch onderzoek naar de Europeana API en IIIF-viewers. Data visualisatie experimenten gedocumenteerd op GitHub.</p>
                 <div class="tags">
                     <span class="tag">#api</span>
-                    <span class="tag">#iiif</span>
-                    <span class="tag">#data-science</span>
+                    <span class="tag">#analysis</span>
                 </div>
             </div>
-            <div class="arrow">→</div>
-            <p class="description">Onderzoek naar de Europeana API aan de hand van theepotten-collecties. Visualisaties gemaakt in Tableau met volledige technische documentatie op GitHub.</p>
         </a>
 
-        <a href="consouling-sounds/index.html" class="ict-item">
-            <div class="index-number">04</div>
-            <div class="item-content">
-                <h2>Consouling Sounds</h2>
+        <a href="consouling-sounds/index.html" class="ict-card">
+            <div class="card-top">
+                <span class="card-number">PROJECT_04</span>
+                <span class="tag">community</span>
+            </div>
+            <div>
+                <h2>Consouling Auction</h2>
+                <p>Website voor crowdfunding en veiling van exclusieve vinylplaten ten voordele van het Deeplistening Festival.</p>
                 <div class="tags">
-                    <span class="tag">#web-dev</span>
-                    <span class="tag">#crowdfunding</span>
-                    <span class="tag">#community</span>
+                    <span class="tag">#webdev</span>
+                    <span class="tag">#ux</span>
                 </div>
             </div>
-            <div class="arrow">→</div>
-            <p class="description">Bouw van een veiling- en crowdfunding-platform voor het label achter Amenra. Focus op digitale ondersteuning van het Deeplistening Festival.</p>
         </a>
 
     </main>
 
     <footer>
-        <div style="font-weight: 900; text-transform: uppercase; letter-spacing: 2px;">
-            © Jenske Verhamme 2026
-        </div>
-        <div style="margin-top: 10px; font-family: 'Courier New', monospace; font-size: 0.7rem; color: #888;">
-            SYSTEM_OVERRIDE: DATA_DRIVEN_ERFGOED
+        <div class="footer-logo">Jenske Verhamme</div>
+        <div style="font-family: 'Courier New', monospace; font-size: 0.8rem;">
+            DATA_ICT_MODULE // 2026
         </div>
     </footer>
 
