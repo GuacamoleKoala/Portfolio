@@ -3,227 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muziek & Visuele Content| Jenske Verhamme</title>
+    <title>Muziek & Visuele Content | Jenske Verhamme</title>
     <style>
+        :root {
+            --meemoo-blue: #AADDDD;
+            --dark: #000000;
+        }
+
         body { 
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
             background-color: #ffffff; 
-            color: #000000; 
-            margin: 0; 
-            padding: 0; 
+            color: var(--dark); 
+            margin: 0; padding: 0; 
             line-height: 1.4;
             overflow-x: hidden;
             background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
         }
 
-        .bg-blob {
-            position: fixed;
-            bottom: -10%;
-            right: -10%;
-            width: 80vw;
-            height: 80vw;
-            background-color: #AADDDD;
-            z-index: -1;
-            filter: blur(120px);
-            opacity: 0.25;
-            border-radius: 50%;
-            animation: moveAround 25s infinite alternate;
-        }
-
-        @keyframes moveAround {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(-10%, -10%) scale(1.2); }
-        }
-
+        /* Navigatie */
         nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            position: sticky; top: 0; z-index: 1000;
             background: rgba(255,255,255,0.8);
             backdrop-filter: blur(15px);
-            border-bottom: 4px solid #000;
-            padding: 20px 40px;
-            display: flex;
-            gap: 30px;
+            border-bottom: 4px solid var(--dark);
+            padding: 20px 40px; display: flex; gap: 30px;
         }
 
         .nav-link {
-            text-decoration: none;
-            color: #000;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none; color: var(--dark);
+            font-weight: 900; text-transform: uppercase; font-size: 0.85rem;
+            letter-spacing: 2px; transition: 0.3s;
+        }
+        .nav-link:hover { color: var(--meemoo-blue); }
+
+        /* Hero Sectie met Foto */
+        .hero-container {
+            max-width: 1100px; margin: 60px auto; padding: 0 40px;
+            display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px;
+            align-items: center;
         }
 
-        .nav-link:hover { color: #AADDDD; transform: scale(1.1); }
-
-        header {
-            max-width: 1100px;
-            margin: 80px auto 40px auto;
-            padding: 0 40px;
+        .profile-frame {
             position: relative;
+            width: 100%; aspect-ratio: 1/1;
+            background: var(--meemoo-blue);
+            border: 6px solid var(--dark);
         }
 
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            font-weight: 900;
-            text-transform: uppercase;
-            color: #000;
-            text-decoration: none;
-            border-bottom: 3px solid #AADDDD;
+        .profile-img {
+            position: absolute;
+            top: -20px; left: -20px;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            border: 6px solid var(--dark);
+            background: #eee; /* placeholder */
+            filter: grayscale(100%) contrast(110%);
+            transition: 0.5s;
         }
 
-        h1 { 
-            font-size: clamp(3rem, 8vw, 6rem); 
-            font-weight: 900; 
-            line-height: 0.85; 
-            text-transform: uppercase;
-            letter-spacing: -4px;
-            margin: 0;
+        .profile-frame:hover .profile-img {
+            filter: grayscale(0%);
+            transform: translate(10px, 10px);
+        }
+
+        .header-content h1 { 
+            font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 900; 
+            line-height: 0.85; text-transform: uppercase; letter-spacing: -4px;
         }
 
         .tagline {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: #000;
-            color: #fff;
-            display: inline-block;
-            padding: 5px 15px;
-            margin-top: 20px;
+            font-size: 1.5rem; font-weight: 700; background: var(--dark); color: #fff;
+            display: inline-block; padding: 5px 15px; margin-top: 20px;
             transform: rotate(-1deg);
         }
 
         .toelichting {
-            font-size: 1.25rem;
-            max-width: 750px;
-            margin-top: 30px;
-            font-weight: 700;
-            border-left: 10px solid #000;
-            padding-left: 20px;
+            font-size: 1.1rem; max-width: 600px; margin-top: 30px;
+            font-weight: 600; border-left: 8px solid var(--dark); padding-left: 20px;
         }
 
-        .divider {
-            height: 12px;
-            background: #000;
-            width: 110%;
-            margin-left: -5%;
-            transform: rotate(2deg);
-            margin-top: 80px;
-        }
+        /* Muziek Blobs Grid */
+        .muziek-section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+        .section-title { font-size: 3rem; font-weight: 900; text-transform: uppercase; margin-bottom: 60px; }
 
-        .muziek-section {
-            padding: 100px 40px;
-            max-width: 1000px; /* Iets smaller voor de 2x2 grid */
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 3.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-            margin-bottom: 60px;
-            text-align: left;
-        }
-
-        /* 2x2 Grid Layout */
         .blob-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
         }
 
         .music-blob {
-            position: relative;
-            aspect-ratio: 1/1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: #000;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative; aspect-ratio: 1/1;
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none; color: var(--dark);
+            overflow: visible;
         }
 
         .blob-shape {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: #AADDDD;
-            border: 6px solid #000;
-            z-index: 1;
-            transition: all 0.5s ease;
+            position: absolute; width: 100%; height: 100%;
+            background-color: var(--meemoo-blue);
+            background-size: cover; background-position: center;
+            border: 6px solid var(--dark); z-index: 1;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
+        /* Blob vormen */
         .blob-1 .blob-shape { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-        .blob-2 .blob-shape { border-radius: 30% 60% 70% 30% / 50% 60% 30% 60%; transform: rotate(15deg); }
+        .blob-2 .blob-shape { border-radius: 30% 60% 70% 30% / 50% 60% 30% 60%; }
         .blob-3 .blob-shape { border-radius: 50% 50% 20% 80% / 30% 80% 20% 70%; }
         .blob-4 .blob-shape { border-radius: 80% 20% 50% 50% / 50% 30% 70% 50%; }
 
         .blob-text {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 2rem;
-            letter-spacing: -1px;
-            padding: 20px;
-            line-height: 1;
+            position: relative; z-index: 2;
+            font-weight: 900; text-transform: uppercase;
+            font-size: 2.2rem; text-align: center; line-height: 1;
+            transition: 0.4s;
         }
 
-        .music-blob:hover { transform: scale(1.1) rotate(-5deg); }
-        .music-blob:hover .blob-shape { background: #000; box-shadow: 20px 20px 0px #AADDDD; }
-        .music-blob:hover .blob-text { color: #AADDDD; }
+        /* Hover effecten: Foto verschijnt in de blob */
+        .music-blob:hover .blob-shape {
+            transform: scale(1.05) rotate(3deg);
+            background-blend-mode: multiply;
+            background-color: #ffffff;
+            box-shadow: 15px 15px 0px var(--dark);
+        }
 
-        .visual-section {
-            background: #000;
+        /* Voeg hier je eigen foto-paden toe */
+        .blob-1:hover .blob-shape { background-image: url('images/nonaproblemo.jpg'); }
+        .blob-2:hover .blob-shape { background-image: url('images/meltingmallows.jpg'); }
+        .blob-3:hover .blob-shape { background-image: url('images/wowkoala.jpg'); }
+        .blob-4:hover .blob-shape { background-image: url('images/daidarabotchi.jpg'); }
+
+        .music-blob:hover .blob-text {
             color: #fff;
-            padding: 100px 40px;
-            margin-top: 50px;
+            text-shadow: 2px 2px 0px var(--dark), -2px -2px 0px var(--dark);
         }
 
-        .visual-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
+        /* Divider */
+        .divider { height: 12px; background: var(--dark); width: 110%; margin-left: -5%; transform: rotate(1deg); margin: 60px 0; }
 
-        .exp-card {
-            border: 4px solid #fff;
-            padding: 40px;
-            transition: 0.3s;
+        /* De rest van de chaos */
+        .visual-section { background: var(--dark); color: #fff; padding: 100px 40px; }
+        .visual-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px; max-width: 1100px; margin: 0 auto; 
         }
+        .exp-card { border: 4px solid #fff; padding: 30px; transition: 0.3s; }
+        .exp-card:hover { background: var(--meemoo-blue); color: var(--dark); border-color: var(--meemoo-blue); }
 
-        .exp-card:hover {
-            background: #AADDDD;
-            color: #000;
-            border-color: #AADDDD;
-            transform: translateY(-10px);
-        }
+        footer { padding: 60px 40px; text-align: center; border-top: 8px solid var(--dark); background: #fff; }
 
-        footer { 
-            padding: 60px 40px; 
-            text-align: center;
-            border-top: 8px solid #000;
-            background: #fff;
-        }
-
-        @media (max-width: 768px) {
-            .blob-grid { grid-template-columns: 1fr; gap: 40px; }
-            .visual-grid { grid-template-columns: 1fr; }
-            .section-title { font-size: 2.5rem; }
+        @media (max-width: 850px) {
+            .hero-container { grid-template-columns: 1fr; }
+            .blob-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-
-    <div class="bg-blob"></div>
 
     <nav>
         <a href="../index.html" class="nav-link">The Person</a>
@@ -231,71 +165,72 @@
         <a href="../index.html#contact" class="nav-link">The Signal</a>
     </nav>
 
-    <header>
-        <a href="../index.html" class="back-link">← Terug naar start</a>
-        <h1>Herrie &<br>Maakwerk</h1>
-        <div class="tagline">DIY of niks</div>
-        <p class="toelichting">
-            "Muzikant, geluidstechnicus en maker met een scherp oog voor visuele cultuur. Van de studio en het podium tot de radio: muziek staat centraal, maar de uitwerking is multidisciplinair. Ik ontwerp videoclips, bouw websites en maak zeefdrukken die de identiteit van een project versterken. Mijn werk is een constante wisselwerking tussen de techniek van geluid en de kracht van het beeld."
-        </p>
-    </header>
+    <main>
+        <section class="hero-container">
+            <div class="profile-frame">
+                <img src="jouw-foto-muzikant.jpg" alt="Jenske Verhamme" class="profile-img">
+            </div>
+            <div class="header-content">
+                <a href="../index.html" style="text-decoration:none; color:black; font-weight:900; border-bottom:3px solid var(--meemoo-blue);">← TERUG</a>
+                <h1>Herrie &<br>Maakwerk</h1>
+                <div class="tagline">MUZIEK / TECH / VISUEEL</div>
+                <p class="toelichting">
+                    Muzikant, geluidstechnicus en maker. Van het podium tot de soldeerbout: muziek staat centraal, de uitwerking is multidisciplinair. Ik bouw aan geluid, beeld en alles wat daartussenin glitcht.
+                </p>
+            </div>
+        </section>
 
-    <div class="divider"></div>
+        <div class="divider"></div>
 
-    <section class="muziek-section">
-        <h2 class="section-title">Muzikale Experimenten</h2>
-        
-        <div class="blob-grid">
-            <a href="projecten/NonaProblemo/index.html" class="music-blob blob-1">
-                <div class="blob-shape"></div>
-                <div class="blob-text">Nona<br>Problemo</div>
-            </a>
+        <section class="muziek-section">
+            <h2 class="section-title">PROJECTEN</h2>
+            <div class="blob-grid">
+                <a href="projecten/NonaProblemo/index.html" class="music-blob blob-1">
+                    <div class="blob-shape"></div>
+                    <div class="blob-text">Nona<br>Problemo</div>
+                </a>
 
-            <a href="projecten/MeltingMallows/index.html" class="music-blob blob-2">
-                <div class="blob-shape"></div>
-                <div class="blob-text">Melting<br>Mallows</div>
-            </a>
+                <a href="projecten/MeltingMallows/index.html" class="music-blob blob-2">
+                    <div class="blob-shape"></div>
+                    <div class="blob-text">Melting<br>Mallows</div>
+                </a>
 
-            <a href="projecten/WowKoala/index.html" class="music-blob blob-3">
-                <div class="blob-shape"></div>
-                <div class="blob-text">Wow<br>Koala</div>
-            </a>
+                <a href="projecten/WowKoala/index.html" class="music-blob blob-3">
+                    <div class="blob-shape"></div>
+                    <div class="blob-text">Wow<br>Koala</div>
+                </a>
 
-            <a href="projecten/Daidarabotchi/index.html" class="music-blob blob-4">
-                <div class="blob-shape"></div>
-                <div class="blob-text">Daidara<br>botchi</div>
-            </a>
-        </div>
-    </section>
+                <a href="projecten/Daidarabotchi/index.html" class="music-blob blob-4">
+                    <div class="blob-shape"></div>
+                    <div class="blob-text">Daidara<br>botchi</div>
+                </a>
+            </div>
+        </section>
 
-    <div class="divider" style="transform: rotate(-1deg); background: #AADDDD;"></div>
-
-    <section class="visual-section">
-        <div style="max-width: 1100px; margin: 0 auto;">
-            <h2 style="font-size: 3rem; text-transform: uppercase; margin-bottom: 40px;">De rest van de chaos</h2>
-            <div class="visual-grid">
-                <div class="exp-card">
-                    <h3>Beeld & Clips</h3>
-                    <p>Videoclips, social media content en grafisch werk voor bands en artiesten.</p>
-                </div>
-                <div class="exp-card">
-                    <h3>Gear & Radio</h3>
-                    <p>Gitaarpedalen solderen, synths patchen en radio-uitzendingen vol herrie.</p>
-                </div>
-                <div class="exp-card">
-                    <h3>Design & Wear</h3>
-                    <p>Custom kleding en merchandise ontwerpen met een hoek af.</p>
+        <section class="visual-section">
+            <div style="max-width: 1100px; margin: 0 auto;">
+                <h2 style="font-size: 2.5rem; text-transform: uppercase; margin-bottom: 40px;">AUDIO-VISUELE CHAOS</h2>
+                <div class="visual-grid">
+                    <div class="exp-card">
+                        <h3>BEELD & CLIPS</h3>
+                        <p>Videoclips (regie & actie), social media content en grafisch banddesign.</p>
+                    </div>
+                    <div class="exp-card">
+                        <h3>GEAR & RADIO</h3>
+                        <p>Solderen van effectpedalen, synth-patches en cureren van radio-uitzendingen.</p>
+                    </div>
+                    <div class="exp-card">
+                        <h3>MERCH & WEAR</h3>
+                        <p>Zeefdrukken van merchandise en custom kledingontwerp met een DIY-mentaliteit.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
         <div style="font-weight: 900; text-transform: uppercase; letter-spacing: 2px;">
-            © Jenske Verhamme 2026
-        </div>
-        <div style="margin-top: 10px; font-size: 0.7rem; color: #888;">
-            // No fancy arts, just making stuff.
+            © Jenske Verhamme 2026 // DIY OR DIE
         </div>
     </footer>
 
