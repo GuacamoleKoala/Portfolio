@@ -12,6 +12,8 @@
             --bg-pattern: url("https://www.transparenttextures.com/patterns/stardust.png");
         }
 
+        html { scroll-behavior: smooth; }
+
         body { 
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
             background-color: var(--white); 
@@ -38,7 +40,7 @@
         }
         .nav-link:hover { color: var(--meemoo-blue); }
 
-        /* --- Hero Sectie (Intro) --- */
+        /* --- Hero Sectie --- */
         .hero-container {
             max-width: 1100px; margin: 80px auto; padding: 0 40px;
             display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px;
@@ -69,32 +71,30 @@
         .header-content h1 { 
             font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 900; 
             line-height: 0.85; text-transform: uppercase; letter-spacing: -4px;
+            margin: 20px 0;
         }
+
+        /* --- Knoppen --- */
+        .hero-nav { display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; }
+        .btn-quick {
+            text-decoration: none; background: var(--dark); color: white;
+            padding: 12px 20px; font-weight: 900; text-transform: uppercase;
+            font-size: 0.8rem; letter-spacing: 1px; transition: 0.3s;
+            border: 3px solid var(--dark);
+        }
+        .btn-quick:hover { background: var(--meemoo-blue); color: var(--dark); transform: translate(-4px, -4px); box-shadow: 4px 4px 0px var(--dark); }
 
         .section-main-title {
             font-size: 2.5rem; font-weight: 900; text-transform: uppercase;
             margin-bottom: 40px; 
         }
-        
         .section-main-title.dark { color: var(--dark); }
         .section-main-title.light { color: var(--meemoo-blue); }
 
-        /* --- DEEL 1: AUDIO COLLECTIVE --- */
-        .audio-collective-wrapper {
-            max-width: 1100px; margin: 0 auto 100px auto; padding: 0 40px;
-        }
-
-        .audio-collective-box {
-            background: var(--white);
-            border: 6px solid var(--dark);
-            box-shadow: 20px 20px 0px rgba(0,0,0,0.1);
-            padding: 60px;
-        }
-
-        .audio-part-title {
-            font-size: 1.5rem; font-weight: 900; text-transform: uppercase; 
-            margin-bottom: 30px; display: flex; align-items: center; gap: 10px;
-        }
+        /* --- DEEL 1: AUDIO --- */
+        .audio-collective-wrapper { max-width: 1100px; margin: 0 auto 100px auto; padding: 0 40px; }
+        .audio-collective-box { background: var(--white); border: 6px solid var(--dark); box-shadow: 20px 20px 0px rgba(0,0,0,0.1); padding: 60px; }
+        .audio-part-title { font-size: 1.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 30px; display: flex; align-items: center; gap: 10px; }
         .audio-part-title::before { content: '►'; color: var(--meemoo-blue); }
 
         .blob-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; }
@@ -117,42 +117,39 @@
 
         .internal-divider { border-bottom: 2px dashed #ccc; margin: 50px 0; }
 
-        /* --- DEEL 2: VISUAL & DATA (Gekartelde overgang) --- */
+        /* --- DEEL 2: VISUAL (Gekarteld) --- */
         .visual-dark-section {
-            background-color: var(--dark);
-            color: var(--white);
+            background-color: var(--dark); color: var(--white);
             width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;
             padding: 150px 0 100px 0;
-            /* De "Coolere" overgang: Gekarteld effect */
             clip-path: polygon(0 50px, 5% 0, 10% 50px, 15% 0, 20% 50px, 25% 0, 30% 50px, 35% 0, 40% 50px, 45% 0, 50% 50px, 55% 0, 60% 50px, 65% 0, 70% 50px, 75% 0, 80% 50px, 85% 0, 90% 50px, 95% 0, 100% 50px, 100% 100%, 0 100%);
             margin-top: -50px;
         }
-        
         .visual-container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
-
         .visual-grid { display: grid; gap: 80px; }
         .visual-card { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; border-bottom: 1px solid #333; padding-bottom: 40px; }
-        .visual-card:last-child { border-bottom: none; }
-        
         .video-box { position: relative; padding-bottom: 56.25%; border: 4px solid var(--meemoo-blue); background: black; }
         .video-box iframe { position: absolute; top:0; left:0; width:100%; height:100%; }
-        
         .visual-meta h3 { text-transform: uppercase; font-size: 1.8rem; margin: 10px 0; color: var(--meemoo-blue); }
         .tag { background: var(--meemoo-blue); color: var(--dark); padding: 3px 8px; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; display: inline-block; }
-
+        
         .data-visual-placeholder {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: #111;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #111;
             display: flex; flex-direction: column; justify-content: center; padding: 40px; box-sizing: border-box;
-            font-family: 'Courier New', monospace; color: var(--meemoo-blue);
-            overflow: hidden;
+            font-family: 'Courier New', monospace; color: var(--meemoo-blue); overflow: hidden;
         }
         .code-line { display: block; margin-bottom: 5px; opacity: 0.8; font-size: 0.9rem; }
 
+        /* --- DEEL 3: DIY SECTIE --- */
+        .diy-section { max-width: 1100px; margin: 100px auto; padding: 0 40px; }
+        .diy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .diy-card { border: 6px solid var(--dark); padding: 30px; background: white; transition: 0.3s; }
+        .diy-card:hover { transform: translateY(-10px); box-shadow: 15px 15px 0px var(--meemoo-blue); }
+        .diy-icon { font-size: 2rem; margin-bottom: 15px; display: block; }
+
         @media (max-width: 900px) {
             .hero-container, .visual-card, .radio-flex { grid-template-columns: 1fr; display: block; }
-            .radio-player-box { margin-top: 20px; }
-            .visual-card { display: flex; flex-direction: column; }
+            .visual-card { display: flex; flex-direction: column; margin-bottom: 40px; }
         }
     </style>
 </head>
@@ -177,11 +174,16 @@
                 <p style="font-weight: 600; font-size: 1.1rem; margin-top: 20px;">
                     Muzikant, geluidstechnicus en maker. Van het podium tot de soldeerbout: muziek staat centraal, de uitwerking is multidisciplinair. Ik bouw aan geluid, beeld en alles wat daartussenin glitcht.
                 </p>
+                <div class="hero-nav">
+                    <a href="#audio" class="btn-quick">Muziek & Sound</a>
+                    <a href="#visual" class="btn-quick">Visueel & Data</a>
+                    <a href="#diy" class="btn-quick">DIY & Knutselwerk</a>
+                </div>
             </div>
         </section>
 
-        <div class="audio-collective-wrapper">
-            <h2 class="section-main-title dark">Het Auditieve Collectief</h2>
+        <div class="audio-collective-wrapper" id="audio">
+            <h2 class="section-main-title dark">MUZIEK EN GELUID</h2>
             
             <div class="audio-collective-box">
                 <div class="audio-part">
@@ -237,9 +239,9 @@
             </div>
         </div>
 
-        <div class="visual-dark-section">
+        <div class="visual-dark-section" id="visual">
             <div class="visual-container">
-                <h2 class="section-main-title light">VISUELE VERKENNINGEN</h2>
+                <h2 class="section-main-title light">GRAFISCH</h2>
                 
                 <div class="visual-grid">
                     <div class="visual-card">
@@ -249,7 +251,7 @@
                         <div class="visual-meta">
                             <span class="tag">ACTING PERFORMANCE</span>
                             <h3>Are You Equally Weird???</h3>
-                            <p>Een verkenning van het absurde en identiteit in de videoclip <i>"Are You Equally Weird"</i>. In deze productie nam ik de rol van acteur op mij om de visuele wereld van de band te belichamen.</p>
+                            <p>Een verkenning van het absurde en identiteit in de videoclip <i>"Are You Equally Weird"</i>. In deze productie nam ik de rol van acteur op mij.</p>
                         </div>
                     </div>
 
@@ -260,7 +262,7 @@
                         <div class="visual-meta">
                             <span class="tag">ART DIRECTOR / EDITOR</span>
                             <h3>Didgeriradio Synthesis</h3>
-                            <p>Voor Baruch Williamson creëerde ik een experimentele videoclip waarbij ik de grenzen van montage en beeldvoering opzocht.</p>
+                            <p>Voor Baruch Williamson creëerde ik een experimentele videoclip waarbij ik de grenzen van montage opzocht.</p>
                             <a href="https://jouwwixsite.com/documentatie" target="_blank" style="color: var(--meemoo-blue); font-weight: 900; text-decoration: none; border-bottom: 2px solid var(--meemoo-blue);">BEKIJK DOCUMENTATIE (WIX) →</a>
                         </div>
                     </div>
@@ -272,7 +274,7 @@
                         <div class="visual-meta">
                             <span class="tag">HERITAGE & RE-ENACTMENT</span>
                             <h3>Een Eenvoudig Verhaal</h3>
-                            <p>Het vertalen van historische narratieven naar beeld. Projecten zoals de re-enactment voor de KBR en Photolit slaan de brug tussen archiefonderzoek en visuele storytelling.</p>
+                            <p>Historische narratieven naar beeld vertalen. Re-enactment projecten voor KBR en Photolit.</p>
                         </div>
                     </div>
 
@@ -283,14 +285,13 @@
                                 <span class="code-line">import networkx as nx</span>
                                 <span class="code-line">tableau.connect(erfgoed_data)</span>
                                 <span class="code-line">nodes = ["Archief", "Persoon", "Locatie"]</span>
-                                <span class="code-line">edges.draw_connections()</span>
                                 <span class="code-line" style="color:white; margin-top:10px;">>> RENDER_NETWORK_GRAPH...</span>
                             </div>
                         </div>
                         <div class="visual-meta">
                             <span class="tag">DATA VISUALISATIE</span>
                             <h3>Netwerken & Dashboards</h3>
-                            <p>Focus op het vertalen van complexe erfgoeddata naar inzichtelijke beelden. Van interactieve <b>netwerkvisualisaties</b> die relaties tussen actoren blootleggen tot analytische dashboards in <b>Tableau</b> voor collectiebeheer.</p>
+                            <p>Interactieve <b>netwerkvisualisaties</b> en analytische dashboards in <b>Tableau</b> voor erfgoedcollecties.</p>
                             <a href="https://github.com/jenskev" target="_blank" style="color: var(--meemoo-blue); font-weight: 900; text-decoration: none; border-bottom: 2px solid var(--meemoo-blue);">BEKIJK OP GITHUB →</a>
                         </div>
                     </div>
@@ -298,15 +299,36 @@
             </div>
         </div>
 
+        <section class="diy-section" id="diy">
+            <h2 class="section-main-title dark">DIY-KNUTSELWERK</h2>
+            <div class="diy-grid">
+                <div class="diy-card">
+                    <span class="diy-icon">👕</span>
+                    <h3>Bandmerch & Zeefdruk</h3>
+                    <p>Van ontwerp tot de eigenlijke druk. Ik creëer unieke T-shirts en merchandise voor bands met analoge technieken zoals zeefdrukken.</p>
+                </div>
+                <div class="diy-card">
+                    <span class="diy-icon">⚡</span>
+                    <h3>Soldeerwerk & Pedalen</h3>
+                    <p>Het bouwen van eigen effectpedalen en audio-elektronica. Analoge circuits tot leven brengen met de soldeerbout voor unieke klanken.</p>
+                </div>
+                <div class="diy-card">
+                    <span class="diy-icon">📱</span>
+                    <h3>Social Media Art</h3>
+                    <p>Creatieve visuele content voor sociale kanalen: glitches, collages en animaties die de esthetiek van de muziek versterken.</p>
+                </div>
+            </div>
+        </section>
+
         <section style="padding: 40px; text-align: center; background: var(--white); border-top: 4px solid var(--dark);">
-            <p style="font-family: 'Courier New', monospace; font-size: 0.8rem;">// Gear: Soldering gitaarpedalen // Radio: Mixcloud curatie // Visueel: Premiere Pro & DaVinci // Data: Python & Tableau //</p>
+            <p style="font-family: 'Courier New', monospace; font-size: 0.8rem;">// Gear: Soldering gitaarpedalen // Radio: Mixcloud curatie // Visueel: Premiere Pro // Data: Python & Tableau //</p>
         </section>
 
     </main>
 
     <footer>
         <div style="background: var(--dark); color: white; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; padding: 40px; text-align: center;">
-            © JENSKE VERHAMME 2026 // GEBASTELD MET CODE & CHAOS // DIY OR DIE
+            © JENSKE VERHAMME 2026 // GEBASTELD MET ESTHETIEK EN CODE
         </div>
     </footer>
 
