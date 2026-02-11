@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jenske Sampson | Denktank</title>
+    <style>
+        /* --- CORE VARIABLES --- */
+        :root {
+            --c-bg: #ffffff;
+            --c-text: #1a1a1a;
+            --c-accent: #ccff00; /* Acid Green */
+            --c-accent-dark: #b3e600;
+            --c-border: #000000;
+            --c-gray: #f4f4f4;
+            
+            --f-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --f-mono: 'Courier New', Courier, monospace;
+            
+            --border-thick: 3px solid var(--c-border);
+            --border-thin: 1px solid var(--c-border);
+            --shadow-hard: 6px 6px 0px var(--c-border);
+            --shadow-hover: 10px 10px 0px var(--c-accent);
+        }
+
+        /* --- RESET & BASE --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: var(--f-main);
+            background-color: var(--c-bg);
+            color: var(--c-text);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- HEADER --- */
+        header {
+            padding: 4rem 2rem;
+            border-bottom: var(--border-thick);
+            background: repeating-linear-gradient(
+                45deg,
+                #fff,
+                #fff 10px,
+                #fafafa 10px,
+                #fafafa 20px
+            );
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            line-height: 0.9;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: var(--c-text);
+            color: var(--c-accent);
+            padding: 0.5rem 1rem;
+            transform: skewX(-5deg);
+        }
+
+        .subtitle {
+            font-family: var(--f-mono);
+            font-size: 1rem;
+            margin-top: 1rem;
+            max-width: 800px;
+            border-left: 5px solid var(--c-accent);
+            padding-left: 1rem;
+        }
+
+        /* --- STICKY FILTER BAR --- */
+        .filter-bar {
+            position: sticky;
+            top: 0;
+            background: var(--c-bg);
+            border-bottom: var(--border-thick);
+            padding: 1rem 2rem;
+            z-index: 100;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 2px solid var(--c-border);
+            padding: 0.4rem 1rem;
+            font-family: var(--f-mono);
+            font-weight: bold;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover {
+            background: var(--c-gray);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--c-accent);
+            box-shadow: 3px 3px 0px var(--c-text);
+        }
+
+        #randomBtn {
+            margin-left: auto;
+            border-style: dashed;
+        }
+
+        /* --- GRID LAYOUT --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            padding: 3rem 2rem;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        /* --- CARD STYLE --- */
+        .card {
+            background: var(--c-bg);
+            border: var(--border-thick);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: var(--shadow-hard);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: var(--shadow-hover);
+            z-index: 10;
+        }
+
+        .card-header {
+            background: var(--c-text);
+            color: #fff;
+            padding: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--f-mono);
+            font-size: 0.75rem;
+            border-bottom: var(--border-thick);
+        }
+
+        .tag {
+            background: var(--c-accent);
+            color: var(--c-text);
+            padding: 2px 6px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            line-height: 1.2;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            padding: 1rem;
+            border-top: var(--border-thin);
+            background: var(--c-gray);
+            text-align: right;
+        }
+
+        .btn-read {
+            display: inline-block;
+            font-family: var(--f-mono);
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: var(--c-text);
+            border-bottom: 2px solid var(--c-accent);
+            transition: background 0.2s;
+        }
+
+        .btn-read:hover {
+            background: var(--c-accent);
+            color: var(--c-text);
+        }
+
+        /* --- CTA SECTION --- */
+        .cta-section {
+            background: var(--c-accent);
+            border-top: var(--border-thick);
+            border-bottom: var(--border-thick);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--c-bg);
+            border: var(--border-thick);
+            padding: 3rem;
+            box-shadow: 8px 8px 0px var(--c-text);
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .cta-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--c-text);
+            color: var(--c-accent);
+            padding: 1rem 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-family: var(--f-mono);
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            background: #000;
+            color: #fff;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--c-bg);
+            padding: 3rem 2rem;
+            text-align: center;
+            font-family: var(--f-mono);
+            border-top: 10px solid var(--c-text);
+        }
+
+        .copyright-line {
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            opacity: 0.6;
+        }
+
+        .oneliner {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- UTILS --- */
+        .hidden { display: none !important; }
+
+        @media (max-width: 768px) {
+            .filter-bar { justify-content: flex-start; overflow-x: auto; }
+            .cta-content { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Denktank</h1>
+        <div class="subtitle">
+            >_ Repository voor Filosofie, Digital Humanities, Erfgoedstudies & Psycho-analyse.<br>
+            Verzameld werk van Jenske Sampson.
+        </div>
+    </header>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">Alles</button>
+        <button class="filter-btn" data-filter="erfgoed">Erfgoed</button>
+        <button class="filter-btn" data-filter="dh">Digital Humanities</button>
+        <button class="filter-btn" data-filter="filosofie">Filosofie & Fenomenologie</button>
+        <button class="filter-btn" data-filter="culture">Cultuur & Psycho-analyse</button>
+        <button class="filter-btn" id="randomBtn">🎲 Verras me</button>
+    </div>
+
+    <div class="grid" id="publicationGrid">
+
+        <div class="card" data-category="erfgoed">
+            <div class="card-header">
+                <span class="tag">Erfgoed</span>
+                <span>Case Study</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Strategie voor de digitalisering van het volksinstrumentenmuseum</h3>
+                <p class="card-desc">Een mogelijk digitaliseringsplan voor de collectie aan erfgoed in het volksinstrumentenmuseum in gemeenschapscentrum de Cam, te Gooik.</p>
+            </div>
+            <div class="card-footer">
+                <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-read">Lees op Academia &rarr;</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="erfgoed">
+            <div class="card-header">
+                <span class="tag">Erfgoed / DH</span>
+                <span>Paper</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Van Portaal Naar Platform</h3>
+                <p class="card-desc">Digitale curatie, publicatie en participatie met Beeldbank Kusterfgoed. Reflecties over hoe participatie werkt in een digitale archiefomgeving.</p>
+            </div>
+            <div class="card-footer">
+                <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-read">Lees op Academia &rarr;</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="dh">
+            <div class="card-header">
+                <span class="tag">Digital Humanities</span>
+                <span>Research</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Virtual Rave Culture: Embodiment, identity and community in VRChat</h3>
+                <p class="card-desc">Een studie naar de virtuele ravecultuur. Waar, wat en wie is de 'virtual raver'? Over identiteit en gemeenschap in VR.</p>
+            </div>
+            <div class="card-footer">
+                <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-read">Lees op Academia &rarr;</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="dh">
+            <div class="card-header">
+                <span class="tag">DH / Fenomenologie</span>
+                <span>Paper</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Digitally Mediated Culture: Cybernetic embodiment and memory-making</h3>
+                <p class="card-desc">Over het belang van belichaming (embodiment) in digitaal bemiddelde ervaringen, met een focus op Social VR en VRChat.</p>
+            </div>
+            <div class="card-footer">
+                <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-read">Lees op Academia &rarr;</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="culture">
+            <div class="card-header">
+                <span class="tag">Cultuurstudies</span>
+                <span>Essay</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Bekentenis van Cultuur: Mythe in de Massacultuur</h3>
+                <p class="card-desc">Een analyse op basis van Roland Barthes’ <i>Mythologies</i>. Onderzoek naar de drie betekenissen van het begrip cultuur.</p>
+            </div>
+            <div class="card-footer">
+                <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-read">Lees op Academia &rarr;</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="erfgoed">
+            <div class="card-header">
+                <span class="tag">Erfgoed / Stad</span>
+                <span>Onderzoek</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Van Stelplaats tot STELPLAATS</h3>
+                <p class="card-desc">Een onderzoek naar landschap, erfgoed en identiteit te Leuven. Perspectieven op de herbestemming van stedelijke ruimtes.</p>
+            </div>
+            <div class="card-footer">
+                <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-read">Lees op Academia &rarr;</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="dh">
+            <div class="card-header">
+                <span class="tag">DH / Musicologie</span>
+                <span>Paper</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Bringing back the 'live' into the digital</h3>
+                <p class="card-desc">Semiotics on the emergence of live VR in music concerts. Een semiotische analyse van het fenomeen 'live VR muziek'.</p>
+            </div>
+            <div class="card-footer">
+                <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-read">Lees op Academia &rarr;</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="filosofie">
+            <div class="card-header">
+                <span class="tag">Fenomenologie</span>
+                <span>Paper</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Intersubjectieve Zinverwerving bij Merleau-Ponty</h3>
+                <p class="card-desc">De rol van het lichaam en de taal. Hoe we zinvolle relaties hebben met de wereld en elkaar onder normale omstandigheden.</p>
+            </div>
+            <div class="card-footer">
+                <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-read">Lees op Academia &rarr;</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="culture">
+            <div class="card-header">
+                <span class="tag">Psycho-analyse</span>
+                <span>Essay</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">De Dichter en de Psychoot</h3>
+                <p class="card-desc">Filosofisch essay over waanzin en poëzie op basis van het werk van Paul Moyaert en Gilles Deleuze.</p>
+            </div>
+            <div class="card-footer">
+                <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-read">Lees op Academia &rarr;</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="culture">
+            <div class="card-header">
+                <span class="tag">Filosofie / Medisch</span>
+                <span>Essay</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Ziekte maakt schuld, toch dokter?</h3>
+                <p class="card-desc">Een klein beetje filosofie van de waanzin in het licht van Michel Foucault en Paul Verhaeghe.</p>
+            </div>
+            <div class="card-footer">
+                <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-read">Lees op Academia &rarr;</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="filosofie">
+            <div class="card-header">
+                <span class="tag">Fenomenologie</span>
+                <span>Paper</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Literatuur en lichaam</h3>
+                <p class="card-desc">De vervlechting van taal en waarneming in de filosofie van Maurice Merleau-Ponty. Hoe tekst je blik op de wereld verandert.</p>
+            </div>
+            <div class="card-footer">
+                <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-read">Lees op Academia &rarr;</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="filosofie">
+            <div class="card-header">
+                <span class="tag">Filosofie</span>
+                <span>Essay</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Filosofische ambiguïteit en grensdenken</h3>
+                <p class="card-desc">In het mogelijk spoor van een Europese crisis en 'post-truth'. Nihilisme in navolging van Frank Chouraqui en Paul van Tongeren.</p>
+            </div>
+            <div class="card-footer">
+                <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-read">Lees op Academia &rarr;</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="filosofie">
+            <div class="card-header">
+                <span class="tag">Filosofie / Politiek</span>
+                <span>Recensie</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">De Wedergeboorte van Antigone</h3>
+                <p class="card-desc">Een klein beetje filosofie tot verzet. Een bespreking op basis van 'Het Tij Keren' van Joke Hermsen.</p>
+            </div>
+            <div class="card-footer">
+                <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-read">Lees op Academia &rarr;</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="filosofie">
+            <div class="card-header">
+                <span class="tag">Fenomenologie</span>
+                <span>Paper</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Husserlian Phenomenology: The Body At Crisis</h3>
+                <p class="card-desc">Investigation of Husserl’s concepts of the living body and embodiment in relation to the Crisis.</p>
+            </div>
+            <div class="card-footer">
+                <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-read">Lees op Academia &rarr;</a>
+            </div>
+        </div>
+
+    </div>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Gedachten nodig?</h2>
+            <p class="cta-text">
+                Deze denktank staat nooit stil. Ik ben beschikbaar voor filosofische consulten, 
+                lezingen, gastcolleges of schrijfopdrachten op maat. 
+                Of het nu gaat om digitale ethiek, fenomenologie of cultuurkritiek.
+            </p>
+            <a href="mailto:jouwemail@adres.be" class="cta-btn">Contacteer mij</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="oneliner">"Gedachten zijn vrij, maar citeren is verplicht."</div>
+        <div class="copyright-line">
+            &copy; 2024 Jenske Sampson | Kernkracht. <br>
+            Geen AI werd gekrenkt tijdens het schrijven van deze papers.
+        </div>
+    </footer>
+
+    <script>
+        // SCRIPT VOOR FILTERING & RANDOMIZER
+        const filters = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.card');
+        const randomBtn = document.getElementById('randomBtn');
+
+        // Filter Logic
+        filters.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if(btn.id === 'randomBtn') return; 
+
+                // Knoppen styling
+                filters.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                cards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category === filter || (filter === 'culture' && (category === 'culture' || category === 'dh'))) {
+                        card.classList.remove('hidden');
+                        card.style.animation = 'fadeIn 0.5s';
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Randomizer Logic
+        randomBtn.addEventListener('click', () => {
+            // Reset alles eerst naar 'alles tonen'
+            cards.forEach(c => c.classList.remove('hidden'));
+            filters.forEach(b => b.classList.remove('active'));
+            document.querySelector('[data-filter="all"]').classList.add('active');
+
+            const randomIndex = Math.floor(Math.random() * cards.length);
+            const chosenCard = cards[randomIndex];
+
+            chosenCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Visuele highlight
+            chosenCard.style.transition = '0.3s';
+            chosenCard.style.borderColor = 'var(--c-accent)';
+            chosenCard.style.transform = 'scale(1.02)';
+            
+            setTimeout(() => {
+                chosenCard.style.borderColor = 'var(--c-border)';
+                chosenCard.style.transform = 'translate(-2px, -2px)';
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
