@@ -1,3 +1,16 @@
+Hier is de volledige, gecorrigeerde code.
+
+**Wat is er aangepast:**
+
+1. **Structuur:** De pagina bestaat nu uit drie duidelijke blokken:
+* **Intro:** De Hero met de profielfoto (met de werkende hover-animatie).
+* **Het Auditieve Geheel:** Een wit blok met een dikke rand dat de **Bands**, **Radio** en **Geluidstechniek** groepeert. Deze zijn visueel verbonden maar duidelijk gescheiden door stippellijnen.
+* **Het Visuele & Data Geheel:** Een donker blok (inverted colors) dat begint na het audio-gedeelte. Hierin staan de **Video's** én de teruggeplaatste **Datavisualisaties**.
+
+
+2. **Inhoud:** Alle teksten, projecten (zoals *Een Eenvoudig Verhaal*) en de eerder vergeten Datavisualisaties zijn aanwezig.
+
+```html
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -9,7 +22,7 @@
             --meemoo-blue: #AADDDD;
             --dark: #000000;
             --white: #ffffff;
-            --gray: #f4f4f4;
+            --bg-pattern: url("https://www.transparenttextures.com/patterns/stardust.png");
         }
 
         body { 
@@ -19,14 +32,14 @@
             margin: 0; padding: 0; 
             line-height: 1.4;
             overflow-x: hidden;
-            background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+            background-image: var(--bg-pattern);
         }
 
-        /* Navigatie */
+        /* --- Navigatie --- */
         nav {
             position: sticky; top: 0; z-index: 1000;
-            background: rgba(255,255,255,0.8);
-            backdrop-filter: blur(15px);
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(5px);
             border-bottom: 4px solid var(--dark);
             padding: 20px 40px; display: flex; gap: 30px;
         }
@@ -38,24 +51,26 @@
         }
         .nav-link:hover { color: var(--meemoo-blue); }
 
-        /* Hero Sectie met Hover Fix */
+        /* --- Hero Sectie (Intro) --- */
         .hero-container {
-            max-width: 1100px; margin: 60px auto; padding: 0 40px;
+            max-width: 1100px; margin: 80px auto; padding: 0 40px;
             display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px;
             align-items: center;
         }
 
+        /* Profiel Foto Hover Effect */
         .profile-frame {
             position: relative; width: 100%; aspect-ratio: 1/1;
             background: var(--meemoo-blue); border: 6px solid var(--dark);
-            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .profile-img {
             position: absolute; top: -20px; left: -20px;
             width: 100%; height: 100%; object-fit: cover;
-            border: 6px solid var(--dark); filter: grayscale(100%) contrast(110%);
-            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 6px solid var(--dark); 
+            filter: grayscale(100%) contrast(110%);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .profile-frame:hover { transform: rotate(3deg); }
@@ -70,63 +85,85 @@
             line-height: 0.85; text-transform: uppercase; letter-spacing: -4px;
         }
 
-        /* Algemene Sectie Stijl */
-        .section-title { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 40px; border-bottom: 6px solid var(--dark); display: inline-block; }
-        section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+        /* --- DEEL 1: AUDIO COLLECTIVE (Bands/Radio/Tech) --- */
+        .audio-collective-wrapper {
+            max-width: 1100px; margin: 0 auto 100px auto; padding: 0 40px;
+        }
 
-        /* DEEL 1: HET AUDITIEVE GEHEEL (Bands, Radio, Tech) */
-        .audio-trio-wrapper { background: var(--white); position: relative; z-index: 1; }
+        .audio-collective-box {
+            background: var(--white);
+            border: 6px solid var(--dark);
+            box-shadow: 20px 20px 0px rgba(0,0,0,0.1);
+            padding: 60px;
+        }
+
+        .audio-part-title {
+            font-size: 1.5rem; font-weight: 900; text-transform: uppercase; 
+            margin-bottom: 30px; display: flex; align-items: center; gap: 10px;
+        }
         
+        .audio-part-title::before { content: '►'; color: var(--meemoo-blue); }
+
         /* 1. Bands Blobs */
-        .blob-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        .blob-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; }
         .music-blob { position: relative; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--dark); }
         .blob-shape { position: absolute; width: 100%; height: 100%; background-color: var(--meemoo-blue); background-size: cover; background-position: center; border: 4px solid var(--dark); z-index: 1; transition: all 0.4s ease; }
         .blob-1 .blob-shape { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
         .blob-2 .blob-shape { border-radius: 30% 60% 70% 30% / 50% 60% 30% 60%; }
         .blob-3 .blob-shape { border-radius: 50% 50% 20% 80% / 30% 80% 20% 70%; }
         .blob-4 .blob-shape { border-radius: 80% 20% 50% 50% / 50% 30% 70% 50%; }
-        .blob-text { position: relative; z-index: 2; font-weight: 900; text-transform: uppercase; font-size: 1.1rem; text-align: center; line-height: 1; }
+        .blob-text { position: relative; z-index: 2; font-weight: 900; text-transform: uppercase; font-size: 1rem; text-align: center; line-height: 1; }
         .music-blob:hover .blob-shape { transform: scale(1.1); background-blend-mode: multiply; background-color: #fff; }
 
         /* 2. Radio */
-        .radio-container { display: flex; gap: 40px; align-items: center; background: #eee; border: 6px solid var(--dark); padding: 30px; box-shadow: 20px 20px 0px var(--meemoo-blue); margin: 40px 0; }
-        .radio-info { flex: 1; }
-        .radio-embed { flex: 1; min-width: 300px; height: 120px; background: var(--dark); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Courier New', monospace; }
+        .radio-flex { display: flex; gap: 30px; flex-wrap: wrap; align-items: center; background: #eee; padding: 20px; border: 3px solid var(--dark); }
+        .radio-content { flex: 1; min-width: 250px; }
+        .radio-player-box { flex: 1; min-width: 250px; height: 100px; background: var(--dark); color: white; display: flex; align-items: center; justify-content: center; font-family: monospace; }
 
         /* 3. Tech */
-        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 20px; }
-        .tech-card { background: var(--white); border: 3px solid var(--dark); padding: 15px; font-weight: 900; text-transform: uppercase; text-align: center; transition: 0.3s; }
-        .tech-card:hover { background: var(--meemoo-blue); transform: translateY(-5px); box-shadow: 4px 4px 0px var(--dark); }
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 15px; }
+        .tech-tag { border: 3px solid var(--dark); padding: 10px 20px; font-weight: 900; text-transform: uppercase; background: white; transition: 0.3s; }
+        .tech-tag:hover { background: var(--meemoo-blue); transform: translateY(-3px); box-shadow: 4px 4px 0px var(--dark); }
 
-        /* DEEL 2: HET VISUELE & DATA GEHEEL (Zwart) */
-        .visual-data-wrapper { 
-            background: var(--dark); color: var(--white); 
-            padding: 100px 0; margin-top: 100px;
+        /* Separator binnen audio box */
+        .internal-divider { border-bottom: 2px dashed #ccc; margin: 50px 0; }
+
+        /* --- DEEL 2: VISUAL & DATA (Dark Mode) --- */
+        .visual-dark-section {
+            background-color: var(--dark);
+            color: var(--white);
+            width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;
+            padding: 100px 0;
             border-top: 10px solid var(--meemoo-blue);
         }
-        .visual-data-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
         
-        /* Video Items */
-        .visual-item { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; border-bottom: 1px solid #333; padding-bottom: 60px; margin-bottom: 60px; }
-        .visual-item:last-of-type { border-bottom: 2px dashed var(--meemoo-blue); padding-bottom: 80px; }
-        .video-embed-container { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border: 4px solid var(--meemoo-blue); }
-        .video-embed-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .visual-text h3 { text-transform: uppercase; font-size: 2.2rem; margin: 0 0 15px 0; color: var(--meemoo-blue); line-height: 0.9; }
-        .visual-tag { background: var(--meemoo-blue); color: var(--dark); padding: 4px 8px; font-weight: 900; font-size: 0.8rem; display: inline-block; margin-bottom: 10px; }
+        .visual-container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+        .visual-main-title { font-size: 3rem; font-weight: 900; text-transform: uppercase; color: var(--meemoo-blue); border-bottom: 4px solid var(--meemoo-blue); display: inline-block; margin-bottom: 60px; }
 
-        /* Data Viz Sectie */
-        .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 40px; }
-        .data-card { border: 2px solid #444; padding: 30px; transition: 0.3s; }
-        .data-card:hover { border-color: var(--meemoo-blue); background: #111; }
-        .data-card h4 { color: var(--meemoo-blue); text-transform: uppercase; font-size: 1.5rem; margin: 0 0 15px 0; }
-        .data-card p { font-size: 0.95rem; color: #ccc; }
+        /* Visual Items */
+        .visual-grid { display: grid; gap: 60px; }
+        .visual-card { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; border-bottom: 1px solid #333; padding-bottom: 40px; }
+        .visual-card:last-child { border-bottom: none; }
+        .video-box { position: relative; padding-bottom: 56.25%; border: 4px solid var(--meemoo-blue); background: black; }
+        .video-box iframe { position: absolute; top:0; left:0; width:100%; height:100%; }
+        .visual-meta h3 { text-transform: uppercase; font-size: 1.8rem; margin: 10px 0; color: var(--meemoo-blue); }
+        .tag { background: var(--meemoo-blue); color: var(--dark); padding: 3px 8px; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; display: inline-block; }
 
-        /* Divider */
-        .divider { height: 12px; background: var(--dark); width: 110%; margin-left: -5%; transform: rotate(-1deg); margin: 40px 0; }
+        /* Data Sectie (Binnen Dark Mode) */
+        .data-section-title { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; margin: 80px 0 40px 0; border-top: 2px dashed var(--meemoo-blue); padding-top: 60px; color: white; }
+        
+        .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .data-card { border: 2px solid #444; padding: 30px; transition: 0.3s; background: rgba(255,255,255,0.05); }
+        .data-card:hover { border-color: var(--meemoo-blue); background: black; }
+        .data-card h4 { color: var(--meemoo-blue); font-size: 1.5rem; text-transform: uppercase; margin-top: 0; }
+        .data-card p { color: #bbb; line-height: 1.5; }
 
         @media (max-width: 900px) {
-            .hero-container, .visual-item, .radio-container { grid-template-columns: 1fr; }
-            .blob-grid { grid-template-columns: 1fr 1fr; }
+            .hero-container, .visual-card, .radio-flex { grid-template-columns: 1fr; display: block; }
+            .radio-player-box { margin-top: 20px; }
+            .profile-frame { margin-bottom: 40px; }
+            .visual-card { display: flex; flex-direction: column; }
+            .video-box { width: 100%; }
         }
     </style>
 </head>
@@ -139,6 +176,7 @@
     </nav>
 
     <main>
+        
         <section class="hero-container">
             <div class="profile-frame">
                 <img src="media/cartoon-jenske.jpg" alt="Jenske Verhamme" class="profile-img">
@@ -153,12 +191,11 @@
             </div>
         </section>
 
-        <div class="audio-trio-wrapper">
-            <section id="audio-trio">
-                <h2 class="section-title">HET DRIELUIK: KLANK & TECH</h2>
+        <div class="audio-collective-wrapper">
+            <div class="audio-collective-box">
                 
-                <div style="margin-bottom: 80px;">
-                    <h3 style="text-transform: uppercase; letter-spacing: 2px; font-size: 1rem; margin-bottom: 20px;">// 01. THE BANDS</h3>
+                <div class="audio-part">
+                    <div class="audio-part-title">01. THE BANDS</div>
                     <div class="blob-grid">
                         <a href="projecten/NonaProblemo/index.html" class="music-blob blob-1">
                             <div class="blob-shape" style="background-image: url('media/nona-thumb.jpg');"></div>
@@ -179,95 +216,111 @@
                     </div>
                 </div>
 
-                <div style="margin-bottom: 80px;">
-                    <h3 style="text-transform: uppercase; letter-spacing: 2px; font-size: 1rem; margin-bottom: 20px;">// 02. RADIO VAAG</h3>
-                    <div class="radio-container">
-                        <div class="radio-info">
-                            <p style="font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.8rem;">STATUS: ON AIR</p>
-                            <h3 style="font-size: 1.8rem; margin: 10px 0;">Curating the Noise</h3>
-                            <p>Mijn radioprogramma waar ik genres negeer en focus op alles wat kraakt, piept of een ziel heeft.</p>
-                            <a href="https://www.mixcloud.com/RadioVaag/" target="_blank" style="background: var(--dark); color: white; padding: 10px 20px; text-decoration: none; font-weight: 900; display: inline-block; margin-top: 10px;">ALL EPISODES</a>
-                        </div>
-                        <div class="radio-embed">[ MIXCLOUD PLAYER ]</div>
-                    </div>
-                </div>
+                <div class="internal-divider"></div>
 
-                <div>
-                    <h3 style="text-transform: uppercase; letter-spacing: 2px; font-size: 1rem; margin-bottom: 20px;">// 03. GELUIDSTECHNIEK</h3>
-                    <p style="font-weight: 600; max-width: 600px;">Als technicus zorg ik voor de perfecte balans tussen chaos en klank op verschillende podia.</p>
-                    <div class="tech-grid">
-                        <div class="tech-card">Stelplaats</div>
-                        <div class="tech-card">Vloer1</div>
-                        <div class="tech-card">Sojo</div>
-                        <div class="tech-card">Bib Tweebronnen</div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <div class="visual-data-wrapper">
-            <div class="visual-data-inner">
-                
-                <h2 style="font-size: 3rem; text-transform: uppercase; margin-bottom: 60px; color: var(--meemoo-blue); border-bottom: 6px solid var(--meemoo-blue); display: inline-block;">VISUELE STUDIO</h2>
-                
-                <div class="visual-column-grid">
-                    <div class="visual-item">
-                        <div class="video-embed-container">
-                            <iframe src="https://www.youtube.com/embed/YOUTUBE_ID_NONA" allowfullscreen></iframe>
+                <div class="audio-part">
+                    <div class="audio-part-title">02. RADIO VAAG</div>
+                    <div class="radio-flex">
+                        <div class="radio-content">
+                            <h3 style="font-size: 1.8rem; margin: 0 0 10px 0; text-transform: uppercase;">Curating the Noise</h3>
+                            <p>Mijn radioprogramma waar ik genres negeer en focus op alles wat kraakt, piept of een ziel heeft. Maandelijkse uitzendingen.</p>
+                            <a href="https://www.mixcloud.com/RadioVaag/" target="_blank" style="text-decoration: underline; font-weight: 900; color: var(--dark);">LUISTER OP MIXCLOUD →</a>
                         </div>
-                        <div class="visual-text">
-                            <span class="visual-tag">ACTING PERFORMANCE</span>
-                            <h3>Are You Equally Weird???</h3>
-                            <p>Een verkenning van het absurde en identiteit in de videoclip <i>"Are You Equally Weird"</i>. In deze productie nam ik de rol van acteur op mij.</p>
-                        </div>
-                    </div>
-
-                    <div class="visual-item">
-                        <div class="video-embed-container">
-                            <iframe src="https://www.youtube.com/embed/YOUTUBE_ID_BARUCH" allowfullscreen></iframe>
-                        </div>
-                        <div class="visual-text">
-                            <span class="visual-tag"> ART DIRECTOR / EDITOR</span>
-                            <h3>Didgeriradio Synthesis</h3>
-                            <p>Voor Baruch Williamson creëerde ik een experimentele videoclip waarbij ik de grenzen van montage opzocht. </p>
-                            <a href="https://jouwwixsite.com/documentatie" target="_blank" style="color: var(--meemoo-blue); font-weight: 900; text-decoration: none; border-bottom: 2px solid var(--meemoo-blue);">BEKIJK DOCUMENTATIE →</a>
+                        <div class="radio-player-box">
+                            [ EMBED PLAYER ]
                         </div>
                     </div>
                 </div>
 
-                <div style="margin-top: 100px;">
-                    <h2 style="font-size: 2.5rem; text-transform: uppercase; margin-bottom: 40px; color: var(--white); border-bottom: 4px solid var(--white); display: inline-block;">DATA & ERFGOED</h2>
-                    <p style="color: #aaa; max-width: 700px; margin-bottom: 40px;">Het onzichtbare zichtbaar maken. Ik gebruik data om verhalen uit het verleden te mappen naar de technologie van vandaag.</p>
-                    
-                    <div class="data-grid">
-                        <div class="data-card">
-                            <h4>Mapping Heritage</h4>
-                            <p>Interatieve mappen die erfgoedlocaties en hun verborgen geschiedenis ontsluiten via geospatiale data.</p>
-                        </div>
-                        <div class="data-card">
-                            <h4>Linked Data Visuals</h4>
-                            <p>Het vertalen van complexe metadata naar begrijpelijke, visuele flows die verbanden leggen tussen collecties.</p>
-                        </div>
-                        <div class="data-card">
-                            <h4>Archive Dashboard</h4>
-                            <p>Design van dashboards die archiefstatistieken transformeren tot bruikbare visuele inzichten.</p>
-                        </div>
+                <div class="internal-divider"></div>
+
+                <div class="audio-part">
+                    <div class="audio-part-title">03. GELUIDSTECHNIEK</div>
+                    <p style="margin-bottom: 20px;">Het temmen van decibels en kabels. Als technicus zorg ik voor de perfecte balans tussen chaos en klank.</p>
+                    <div class="tech-tags">
+                        <div class="tech-tag">Stelplaats</div>
+                        <div class="tech-tag">Vloer1</div>
+                        <div class="tech-tag">Sojo</div>
+                        <div class="tech-tag">Bibliotheek Tweebronnen</div>
                     </div>
                 </div>
 
             </div>
         </div>
 
-        <section style="padding: 60px 40px; text-align: center; background: var(--white);">
-            <p style="font-family: 'Courier New', monospace; font-size: 0.8rem; font-weight: bold;">// GEAR: SOLDERING & SYNTHS // DATA: MAPPING & FLOWS // VISUALS: PREMIERE & VEO //</p>
+        <div class="visual-dark-section">
+            <div class="visual-container">
+                
+                <h2 class="visual-main-title">VISUELE VERKENNINGEN</h2>
+                
+                <div class="visual-grid">
+                    <div class="visual-card">
+                        <div class="video-box">
+                            <iframe src="https://www.youtube.com/embed/YOUTUBE_ID_NONA" allowfullscreen></iframe>
+                        </div>
+                        <div class="visual-meta">
+                            <span class="tag">ACTING PERFORMANCE</span>
+                            <h3>Are You Equally Weird???</h3>
+                            <p>Een verkenning van het absurde en identiteit in de videoclip <i>"Are You Equally Weird"</i>. In deze productie nam ik de rol van acteur op mij om de visuele wereld van de band te belichamen.</p>
+                        </div>
+                    </div>
+
+                    <div class="visual-card">
+                        <div class="video-box">
+                            <iframe src="https://www.youtube.com/embed/YOUTUBE_ID_BARUCH" allowfullscreen></iframe>
+                        </div>
+                        <div class="visual-meta">
+                            <span class="tag">ART DIRECTOR / EDITOR</span>
+                            <h3>Didgeriradio Synthesis</h3>
+                            <p>Voor Baruch Williamson creëerde ik een experimentele videoclip waarbij ik de grenzen van montage en beeldvoering opzocht.</p>
+                            <a href="https://jouwwixsite.com/documentatie" target="_blank" style="color: var(--meemoo-blue); font-weight: 900; text-decoration: none; border-bottom: 2px solid var(--meemoo-blue);">BEKIJK DOCUMENTATIE (WIX) →</a>
+                        </div>
+                    </div>
+
+                    <div class="visual-card">
+                        <div class="video-box" style="display: flex; align-items: center; justify-content: center; background: #222;">
+                            <span style="font-weight: 900; color: #444;">[ PHOTO NOVEL VISUAL ]</span>
+                        </div>
+                        <div class="visual-meta">
+                            <span class="tag">HERITAGE & RE-ENACTMENT</span>
+                            <h3>Een Eenvoudig Verhaal</h3>
+                            <p>Het vertalen van historische narratieven naar beeld. Projecten zoals de re-enactment voor de KBR en Photolit slaan de brug tussen archiefonderzoek en visuele storytelling.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="data-section-title">DATA & ERFGOED</h2>
+                <div class="data-grid">
+                    <div class="data-card">
+                        <h4>Mapping Heritage</h4>
+                        <p>Het ontsluiten van erfgoedlocaties via interactieve kaarten en geospatiale data. Een visuele vertaling van locatiegebonden geschiedenis.</p>
+                    </div>
+                    <div class="data-card">
+                        <h4>Linked Data Flows</h4>
+                        <p>Complexe metadata-structuren inzichtelijk maken. Visualisaties van hoe archieven, personen en gebeurtenissen met elkaar verbonden zijn.</p>
+                    </div>
+                    <div class="data-card">
+                        <h4>Archive Dashboards</h4>
+                        <p>Ontwerp van dashboards die statistieken van collecties transformeren naar bruikbare inzichten voor behoud en beheer.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <section style="padding: 40px; text-align: center; background: var(--white); border-top: 4px solid var(--dark);">
+            <p style="font-family: 'Courier New', monospace; font-size: 0.8rem;">// Gear: Soldering gitaarpedalen // Radio: Mixcloud curatie // Visueel: Premiere Pro & DaVinci // Data: Python & SPARQL //</p>
         </section>
+
     </main>
 
     <footer>
-        <div style="font-weight: 900; text-transform: uppercase; letter-spacing: 2px; padding: 40px; text-align: center; border-top: 6px solid var(--dark); background: var(--white);">
+        <div style="background: var(--dark); color: white; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; padding: 40px; text-align: center;">
             © JENSKE VERHAMME 2026 // GEBASTELD MET CODE & CHAOS // DIY OR DIE
         </div>
     </footer>
 
 </body>
 </html>
+
+```
