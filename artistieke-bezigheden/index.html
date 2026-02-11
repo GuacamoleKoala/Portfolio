@@ -45,7 +45,6 @@
             align-items: center;
         }
 
-        /* Profiel Foto Hover Effect */
         .profile-frame {
             position: relative; width: 100%; aspect-ratio: 1/1;
             background: var(--meemoo-blue); border: 6px solid var(--dark);
@@ -72,18 +71,15 @@
             line-height: 0.85; text-transform: uppercase; letter-spacing: -4px;
         }
 
-        /* Algemene Titels */
         .section-main-title {
             font-size: 2.5rem; font-weight: 900; text-transform: uppercase;
-            margin-bottom: 20px; 
-            /* Geen border-bottom meer zoals gevraagd bij visual */
+            margin-bottom: 40px; 
         }
         
         .section-main-title.dark { color: var(--dark); }
         .section-main-title.light { color: var(--meemoo-blue); }
 
-
-        /* --- DEEL 1: AUDIO COLLECTIVE (Bands/Radio/Tech) --- */
+        /* --- DEEL 1: AUDIO COLLECTIVE --- */
         .audio-collective-wrapper {
             max-width: 1100px; margin: 0 auto 100px auto; padding: 0 40px;
         }
@@ -99,10 +95,8 @@
             font-size: 1.5rem; font-weight: 900; text-transform: uppercase; 
             margin-bottom: 30px; display: flex; align-items: center; gap: 10px;
         }
-        
         .audio-part-title::before { content: '►'; color: var(--meemoo-blue); }
 
-        /* 1. Bands Blobs */
         .blob-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; }
         .music-blob { position: relative; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--dark); }
         .blob-shape { position: absolute; width: 100%; height: 100%; background-color: var(--meemoo-blue); background-size: cover; background-position: center; border: 4px solid var(--dark); z-index: 1; transition: all 0.4s ease; }
@@ -113,43 +107,39 @@
         .blob-text { position: relative; z-index: 2; font-weight: 900; text-transform: uppercase; font-size: 1rem; text-align: center; line-height: 1; }
         .music-blob:hover .blob-shape { transform: scale(1.1); background-blend-mode: multiply; background-color: #fff; }
 
-        /* 2. Radio */
         .radio-flex { display: flex; gap: 30px; flex-wrap: wrap; align-items: center; background: #eee; padding: 20px; border: 3px solid var(--dark); }
         .radio-content { flex: 1; min-width: 250px; }
         .radio-player-box { flex: 1; min-width: 250px; height: 100px; background: var(--dark); color: white; display: flex; align-items: center; justify-content: center; font-family: monospace; }
 
-        /* 3. Tech */
         .tech-tags { display: flex; flex-wrap: wrap; gap: 15px; }
         .tech-tag { border: 3px solid var(--dark); padding: 10px 20px; font-weight: 900; text-transform: uppercase; background: white; transition: 0.3s; }
         .tech-tag:hover { background: var(--meemoo-blue); transform: translateY(-3px); box-shadow: 4px 4px 0px var(--dark); }
 
-        /* Separator binnen audio box */
         .internal-divider { border-bottom: 2px dashed #ccc; margin: 50px 0; }
 
-        /* --- DEEL 2: VISUAL & DATA (Dark Mode) --- */
+        /* --- DEEL 2: VISUAL & DATA (Gekartelde overgang) --- */
         .visual-dark-section {
             background-color: var(--dark);
             color: var(--white);
             width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;
-            padding: 100px 0;
-            border-top: 10px solid var(--meemoo-blue);
+            padding: 150px 0 100px 0;
+            /* De "Coolere" overgang: Gekarteld effect */
+            clip-path: polygon(0 50px, 5% 0, 10% 50px, 15% 0, 20% 50px, 25% 0, 30% 50px, 35% 0, 40% 50px, 45% 0, 50% 50px, 55% 0, 60% 50px, 65% 0, 70% 50px, 75% 0, 80% 50px, 85% 0, 90% 50px, 95% 0, 100% 50px, 100% 100%, 0 100%);
+            margin-top: -50px;
         }
         
         .visual-container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
 
-        /* Visual Items */
-        .visual-grid { display: grid; gap: 60px; }
+        .visual-grid { display: grid; gap: 80px; }
         .visual-card { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; border-bottom: 1px solid #333; padding-bottom: 40px; }
         .visual-card:last-child { border-bottom: none; }
         
-        /* Video/Image Box Placeholder Styles */
         .video-box { position: relative; padding-bottom: 56.25%; border: 4px solid var(--meemoo-blue); background: black; }
         .video-box iframe { position: absolute; top:0; left:0; width:100%; height:100%; }
         
         .visual-meta h3 { text-transform: uppercase; font-size: 1.8rem; margin: 10px 0; color: var(--meemoo-blue); }
         .tag { background: var(--meemoo-blue); color: var(--dark); padding: 3px 8px; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; display: inline-block; }
 
-        /* Specifiek voor de Data Placeholder */
         .data-visual-placeholder {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: #111;
@@ -157,15 +147,12 @@
             font-family: 'Courier New', monospace; color: var(--meemoo-blue);
             overflow: hidden;
         }
-        .code-line { display: block; margin-bottom: 5px; opacity: 0.8; }
-        .code-line::before { content: '> '; color: white; }
+        .code-line { display: block; margin-bottom: 5px; opacity: 0.8; font-size: 0.9rem; }
 
         @media (max-width: 900px) {
             .hero-container, .visual-card, .radio-flex { grid-template-columns: 1fr; display: block; }
             .radio-player-box { margin-top: 20px; }
-            .profile-frame { margin-bottom: 40px; }
             .visual-card { display: flex; flex-direction: column; }
-            .video-box { width: 100%; }
         }
     </style>
 </head>
@@ -194,10 +181,9 @@
         </section>
 
         <div class="audio-collective-wrapper">
-            <h2 class="section-main-title dark">MUZIEK EN GELUID</h2>
+            <h2 class="section-main-title dark">Het Auditieve Collectief</h2>
             
             <div class="audio-collective-box">
-                
                 <div class="audio-part">
                     <div class="audio-part-title">01. THE BANDS</div>
                     <div class="blob-grid">
@@ -248,14 +234,12 @@
                         <div class="tech-tag">Bibliotheek Tweebronnen</div>
                     </div>
                 </div>
-
             </div>
         </div>
 
         <div class="visual-dark-section">
             <div class="visual-container">
-                
-                <h2 class="section-main-title light"> GRAFISCH </h2>
+                <h2 class="section-main-title light">VISUELE VERKENNINGEN</h2>
                 
                 <div class="visual-grid">
                     <div class="visual-card">
@@ -295,31 +279,27 @@
                     <div class="visual-card">
                         <div class="video-box">
                             <div class="data-visual-placeholder">
-                                <span class="code-line">import pandas as pd</span>
-                                <span class="code-line">import folium</span>
-                                <span class="code-line">data = load_heritage_csv()</span>
-                                <span class="code-line">map.generate(coordinates)</span>
-                                <span class="code-line" style="color:white; margin-top:10px;">>> VISUALIZING HISTORY...</span>
+                                <span class="code-line" style="color:#fff">// Data-en-ICT Portfolio</span>
+                                <span class="code-line">import networkx as nx</span>
+                                <span class="code-line">tableau.connect(erfgoed_data)</span>
+                                <span class="code-line">nodes = ["Archief", "Persoon", "Locatie"]</span>
+                                <span class="code-line">edges.draw_connections()</span>
+                                <span class="code-line" style="color:white; margin-top:10px;">>> RENDER_NETWORK_GRAPH...</span>
                             </div>
                         </div>
                         <div class="visual-meta">
-                            <span class="tag">DATA & CODE</span>
-                            <h3>Data & Erfgoed</h3>
-                            <p>Het ontsluiten van erfgoedlocaties en complexe metadata-structuren via code. Van interactieve kaarten (Mapping Heritage) tot Linked Data visualisaties en dashboards. Een technische vertaling van archieven naar bruikbare, visuele inzichten.</p>
-                            <div class="tech-tags" style="margin-top:15px; background: transparent;">
-                                <span style="border: 1px solid var(--meemoo-blue); color: var(--meemoo-blue); padding: 5px 10px; font-size: 0.8rem; margin-right: 5px;">PYTHON</span>
-                                <span style="border: 1px solid var(--meemoo-blue); color: var(--meemoo-blue); padding: 5px 10px; font-size: 0.8rem; margin-right: 5px;">SPARQL</span>
-                                <span style="border: 1px solid var(--meemoo-blue); color: var(--meemoo-blue); padding: 5px 10px; font-size: 0.8rem;">GIS</span>
-                            </div>
+                            <span class="tag">DATA VISUALISATIE</span>
+                            <h3>Netwerken & Dashboards</h3>
+                            <p>Focus op het vertalen van complexe erfgoeddata naar inzichtelijke beelden. Van interactieve <b>netwerkvisualisaties</b> die relaties tussen actoren blootleggen tot analytische dashboards in <b>Tableau</b> voor collectiebeheer.</p>
+                            <a href="https://github.com/jenskev" target="_blank" style="color: var(--meemoo-blue); font-weight: 900; text-decoration: none; border-bottom: 2px solid var(--meemoo-blue);">BEKIJK OP GITHUB →</a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
 
         <section style="padding: 40px; text-align: center; background: var(--white); border-top: 4px solid var(--dark);">
-            <p style="font-family: 'Courier New', monospace; font-size: 0.8rem;">// Gear: Soldering gitaarpedalen // Radio: Mixcloud curatie // Visueel: Premiere Pro & DaVinci // Data: Python & SPARQL //</p>
+            <p style="font-family: 'Courier New', monospace; font-size: 0.8rem;">// Gear: Soldering gitaarpedalen // Radio: Mixcloud curatie // Visueel: Premiere Pro & DaVinci // Data: Python & Tableau //</p>
         </section>
 
     </main>
