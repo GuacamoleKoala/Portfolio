@@ -7,14 +7,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* De 'Guacamole' x 'Meemoo' Palette */
-            --c-bg: #f0f0f0; /* Off-white / grijsachtig voor contrast */
+            /* HET ECHTE MEEMOO PALET */
+            --c-meemoo-green: #26d691; /* Het echte groen van meemoo.be */
+            --c-neon-accent: #ccff00;  /* De extra kleur: neongroen */
+            
+            --c-bg: #f2f2f2;           /* Lichtgrijs voor een rustige basis */
             --c-white: #ffffff;
             --c-black: #000000;
-            --c-meemoo-green: #ccff00; /* Neon Green */
-            --c-meemoo-pink: #ff69b4;  /* Hot Pink */
-            --c-meemoo-blue: #00f0ff;  /* Electric Blue */
-            --c-accent-yellow: #ffee00;
+            --c-grey-dark: #222222;
+            --c-grey-mid: #888888;
+            --c-grey-light: #dddddd;
             
             --f-header: 'Archivo Black', sans-serif;
             --f-body: 'Inter', sans-serif;
@@ -22,7 +24,8 @@
             
             --border-thick: 4px solid var(--c-black);
             --shadow-hard: 8px 8px 0px var(--c-black);
-            --shadow-hover: 12px 12px 0px var(--c-black);
+            --shadow-meemoo: 8px 8px 0px var(--c-meemoo-green);
+            --shadow-neon: 8px 8px 0px var(--c-neon-accent);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,16 +40,16 @@
             padding-bottom: 5rem;
         }
 
-        /* --- SPEELSE ACHTERGROND (PIXEL SPARKLES) --- */
+        /* --- SPEELSE ACHTERGROND (MEEMOO PIXELS) --- */
         #sparkle-canvas {
             position: fixed;
             top: 0; left: 0;
             z-index: -1;
             pointer-events: none;
-            opacity: 0.6;
+            opacity: 0.5;
         }
 
-        /* --- HEADER (Brutalist Style) --- */
+        /* --- HEADER --- */
         header {
             padding: 6rem 2rem 4rem;
             max-width: 1400px;
@@ -68,7 +71,7 @@
             display: block;
             color: var(--c-white);
             -webkit-text-stroke: 3px var(--c-black);
-            text-shadow: 8px 8px 0px var(--c-meemoo-pink);
+            text-shadow: 8px 8px 0px var(--c-meemoo-green);
         }
 
         .subtitle-box {
@@ -80,7 +83,7 @@
             font-weight: 700;
             font-size: 1.2rem;
             box-shadow: var(--shadow-hard);
-            transform: rotate(-1.5deg);
+            transform: rotate(-1deg);
             margin-top: 1rem;
         }
 
@@ -112,16 +115,20 @@
         .filter-btn:hover {
             transform: translate(-2px, -2px);
             box-shadow: 7px 7px 0px var(--c-black);
-            background: var(--c-accent-yellow);
+            background: var(--c-grey-light);
         }
 
         .filter-btn.active {
-            background: var(--c-meemoo-blue);
+            background: var(--c-meemoo-green);
+            color: var(--c-black);
             transform: translate(4px, 4px);
             box-shadow: 0px 0px 0px var(--c-black);
         }
 
-        #randomBtn { background: var(--c-meemoo-pink); color: white; }
+        #randomBtn { 
+            background: var(--c-black); 
+            color: var(--c-neon-accent); 
+        }
 
         /* --- GRID & CARDS --- */
         .grid {
@@ -146,7 +153,7 @@
 
         .card:hover {
             transform: translate(-5px, -5px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: var(--shadow-meemoo);
         }
 
         .card-cat {
@@ -158,7 +165,7 @@
             align-self: flex-start;
             padding: 4px 10px;
             border: 2px solid var(--c-black);
-            background: var(--c-accent-yellow);
+            background: var(--c-meemoo-green);
         }
 
         .card-title {
@@ -171,7 +178,7 @@
 
         .card-desc {
             font-size: 1rem;
-            color: #222;
+            color: var(--c-grey-dark);
             margin-bottom: 2.5rem;
             flex-grow: 1;
             font-weight: 500;
@@ -185,7 +192,7 @@
             text-decoration: none;
             padding: 0.5rem 1rem;
             border: 3px solid var(--c-black);
-            background: var(--c-meemoo-blue);
+            background: var(--c-white);
             box-shadow: 4px 4px 0px var(--c-black);
             transition: 0.1s;
         }
@@ -193,36 +200,41 @@
         .btn-paper:hover {
             transform: translate(-2px, -2px);
             box-shadow: 6px 6px 0px var(--c-black);
-            background: var(--c-meemoo-green);
+            background: var(--c-neon-accent);
         }
 
         /* --- CTA SECTION --- */
         .cta {
             margin: 8rem 2rem;
-            background: var(--c-accent-yellow);
+            background: var(--c-black);
+            color: var(--c-white);
             border: var(--border-thick);
             padding: 5rem 2rem;
             text-align: center;
-            box-shadow: 15px 15px 0px var(--c-black);
+            box-shadow: 15px 15px 0px var(--c-meemoo-green);
         }
 
-        .cta h2 { font-family: var(--f-header); font-size: 4rem; margin-bottom: 1.5rem; }
+        .cta h2 { font-family: var(--f-header); font-size: 4rem; margin-bottom: 1.5rem; color: var(--c-meemoo-green); }
         
         .cta-link {
             display: inline-block;
             margin-top: 2rem;
             padding: 1.5rem 3rem;
-            background: var(--c-black);
-            color: var(--c-white);
+            background: var(--c-meemoo-green);
+            color: var(--c-black);
             border: none;
             font-family: var(--f-header);
             text-decoration: none;
             font-size: 1.2rem;
-            box-shadow: 8px 8px 0px var(--c-meemoo-pink);
+            box-shadow: 8px 8px 0px var(--c-neon-accent);
             transition: 0.2s;
         }
 
-        .cta-link:hover { transform: translate(-4px, -4px); box-shadow: 12px 12px 0px var(--c-meemoo-pink); }
+        .cta-link:hover { 
+            transform: translate(-4px, -4px); 
+            box-shadow: 12px 12px 0px var(--c-neon-accent);
+            background: var(--c-neon-accent);
+        }
 
         /* --- FOOTER --- */
         footer {
@@ -236,7 +248,7 @@
         .hidden { display: none !important; }
 
         @media (max-width: 768px) {
-            h1 { font-size: 5rem; }
+            h1 { font-size: 4.5rem; }
             .grid { grid-template-columns: 1fr; }
             .cta h2 { font-size: 2.5rem; }
         }
@@ -263,98 +275,98 @@
     <div class="grid" id="publicationGrid">
         
         <div class="card" data-category="erfgoed">
-            <span class="card-cat" style="background: var(--c-meemoo-green);">Erfgoed</span>
+            <span class="card-cat">Erfgoed</span>
             <h3 class="card-title">Digitalisering volksinstrumenten</h3>
             <p class="card-desc">Strategisch plan voor de collectie in gemeenschapscentrum de Cam, te Gooik.</p>
             <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-paper">PAPER OPENEN →</a>
         </div>
 
         <div class="card" data-category="erfgoed">
-            <span class="card-cat" style="background: var(--c-meemoo-blue);">Erfgoed / DH</span>
+            <span class="card-cat">Erfgoed / DH</span>
             <h3 class="card-title">Van Portaal Naar Platform</h3>
             <p class="card-desc">Onderzoek naar digitale curatie en participatie met Beeldbank Kusterfgoed.</p>
             <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-paper">PAPER OPENEN →</a>
         </div>
 
         <div class="card" data-category="dh">
-            <span class="card-cat" style="background: var(--c-meemoo-pink); color: white;">Digital Humanities</span>
+            <span class="card-cat">Digital Humanities</span>
             <h3 class="card-title">Virtual Rave Culture</h3>
             <p class="card-desc">Embodiment en community-vorming in de virtuele werelden van VRChat.</p>
             <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-paper">PAPER OPENEN →</a>
         </div>
 
         <div class="card" data-category="dh">
-            <span class="card-cat" style="background: var(--c-meemoo-green);">DH / Fenomenologie</span>
+            <span class="card-cat">DH / Fenomenologie</span>
             <h3 class="card-title">Digitally Mediated Culture</h3>
             <p class="card-desc">Cybernetic embodiment en memory-making in Social VR omgevingen.</p>
             <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-paper">PAPER OPENEN →</a>
         </div>
 
         <div class="card" data-category="filo">
-            <span class="card-cat" style="background: var(--c-accent-yellow);">Cultuurstudies</span>
+            <span class="card-cat">Cultuurstudies</span>
             <h3 class="card-title">Bekentenis van Cultuur</h3>
             <p class="card-desc">Een deconstructie van de massacultuur op basis van Roland Barthes’ Mythologies.</p>
             <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-paper">PAPER OPENEN →</a>
         </div>
 
         <div class="card" data-category="erfgoed">
-            <span class="card-cat" style="background: var(--c-meemoo-blue);">Erfgoed / Stad</span>
+            <span class="card-cat">Erfgoed / Stad</span>
             <h3 class="card-title">Van Stelplaats tot STELPLAATS</h3>
             <p class="card-desc">Landschap, erfgoed en identiteitsvorming op een herbestemde site te Leuven.</p>
             <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-paper">PAPER OPENEN →</a>
         </div>
 
         <div class="card" data-category="dh">
-            <span class="card-cat" style="background: var(--c-meemoo-pink); color: white;">DH / Musicologie</span>
+            <span class="card-cat">DH / Musicologie</span>
             <h3 class="card-title">Bringing back the 'live'</h3>
             <p class="card-desc">De semiotiek van 'liveness' tijdens digitale VR-muziekconcerten.</p>
             <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-paper">PAPER OPENEN →</a>
         </div>
 
         <div class="card" data-category="filo">
-            <span class="card-cat" style="background: var(--c-meemoo-green);">Fenomenologie</span>
+            <span class="card-cat">Fenomenologie</span>
             <h3 class="card-title">Intersubjectieve Zinverwerving</h3>
             <p class="card-desc">Lichaam en taal als fundamenten voor betekenis bij Merleau-Ponty.</p>
             <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-paper">PAPER OPENEN →</a>
         </div>
 
         <div class="card" data-category="filo">
-            <span class="card-cat" style="background: var(--c-meemoo-blue);">Psycho-analyse</span>
+            <span class="card-cat">Psycho-analyse</span>
             <h3 class="card-title">De Dichter en de Psychoot</h3>
             <p class="card-desc">Een vergelijking tussen creativiteit en waanzin bij Deleuze en Moyaert.</p>
             <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-paper">PAPER OPENEN →</a>
         </div>
 
         <div class="card" data-category="filo">
-            <span class="card-cat" style="background: var(--c-accent-yellow);">Filosofie</span>
+            <span class="card-cat">Filosofie</span>
             <h3 class="card-title">Ziekte maakt schuld</h3>
             <p class="card-desc">Foucault en Verhaeghe over de medicalisering van onze waanzin.</p>
             <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-paper">PAPER OPENEN →</a>
         </div>
 
         <div class="card" data-category="filo">
-            <span class="card-cat" style="background: var(--c-meemoo-pink); color: white;">Fenomenologie</span>
+            <span class="card-cat">Fenomenologie</span>
             <h3 class="card-title">Literatuur en lichaam</h3>
             <p class="card-desc">Hoe taal vlees wordt: een fenomenologische analyse van de waarneming.</p>
             <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-paper">PAPER OPENEN →</a>
         </div>
 
         <div class="card" data-category="filo">
-            <span class="card-cat" style="background: var(--c-meemoo-green);">Filosofie</span>
+            <span class="card-cat">Filosofie</span>
             <h3 class="card-title">Filosofische ambiguïteit</h3>
             <p class="card-desc">Nihilisme en de noodzaak van grensdenken in de Europese crisis.</p>
             <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-paper">PAPER OPENEN →</a>
         </div>
 
         <div class="card" data-category="filo">
-            <span class="card-cat" style="background: var(--c-meemoo-blue);">Politieke Filosofie</span>
+            <span class="card-cat">Politieke Filosofie</span>
             <h3 class="card-title">Wedergeboorte van Antigone</h3>
             <p class="card-desc">Over de kracht van verzet op basis van het werk van Joke Hermsen.</p>
             <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-paper">PAPER OPENEN →</a>
         </div>
 
         <div class="card" data-category="filo">
-            <span class="card-cat" style="background: var(--c-meemoo-pink); color: white;">Fenomenologie</span>
+            <span class="card-cat">Fenomenologie</span>
             <h3 class="card-title">Husserlian Phenomenology</h3>
             <p class="card-desc">The Body At Crisis: Een diepe duik in embodiment en het levende lichaam.</p>
             <a href="https://kernkracht.academia.edu/JenskeSampson" target="_blank" class="btn-paper">PAPER OPENEN →</a>
@@ -392,10 +404,11 @@
             reset() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 8 + 2;
-                this.speedX = (Math.random() - 0.5) * 1;
-                this.speedY = (Math.random() - 0.5) * 1;
-                this.color = ['#ccff00', '#ff69b4', '#00f0ff', '#ffee00'][Math.floor(Math.random()*4)];
+                this.size = Math.random() * 6 + 2;
+                this.speedX = (Math.random() - 0.5) * 0.7;
+                this.speedY = (Math.random() - 0.5) * 0.7;
+                // Deeltjes zijn nu meemoogroen, wit of grijs
+                this.color = ['#26d691', '#ffffff', '#cccccc', '#26d691'][Math.floor(Math.random()*4)];
             }
             update() {
                 this.x += this.speedX;
@@ -406,12 +419,11 @@
             }
             draw() {
                 ctx.fillStyle = this.color;
-                // Vierkante 'pixels' zoals in de Guacamole stijl
                 ctx.fillRect(this.x, this.y, this.size, this.size);
             }
         }
 
-        for (let i = 0; i < 50; i++) particles.push(new Particle());
+        for (let i = 0; i < 45; i++) particles.push(new Particle());
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -441,13 +453,13 @@
         // RANDOM BUTTON
         document.getElementById('randomBtn').addEventListener('click', () => {
             const visible = Array.from(cards).filter(c => !c.classList.contains('hidden'));
+            if(visible.length === 0) return;
             const random = visible[Math.floor(Math.random() * visible.length)];
             random.scrollIntoView({ behavior: 'smooth', block: 'center' });
             
-            // Highlight effect
-            const originalShadow = random.style.boxShadow;
-            random.style.backgroundColor = 'var(--c-accent-yellow)';
-            random.style.transform = 'scale(1.05) rotate(2deg)';
+            // Highlight effect met Meemoo Groen
+            random.style.backgroundColor = 'var(--c-meemoo-green)';
+            random.style.transform = 'scale(1.05) rotate(1deg)';
             setTimeout(() => {
                 random.style.backgroundColor = 'white';
                 random.style.transform = '';
