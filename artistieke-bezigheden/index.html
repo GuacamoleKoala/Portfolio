@@ -37,7 +37,7 @@
         }
         .nav-link:hover { color: var(--meemoo-blue); }
 
-        /* Hero Sectie */
+        /* Hero Sectie met gefixte Hover */
         .hero-container {
             max-width: 1100px; margin: 60px auto; padding: 0 40px;
             display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px;
@@ -49,6 +49,7 @@
             width: 100%; aspect-ratio: 1/1;
             background: var(--meemoo-blue);
             border: 6px solid var(--dark);
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .profile-img {
@@ -58,7 +59,18 @@
             object-fit: cover;
             border: 6px solid var(--dark);
             filter: grayscale(100%) contrast(110%);
-            transition: 0.5s;
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* De gevraagde hover-fix */
+        .profile-frame:hover {
+            transform: rotate(3deg);
+        }
+
+        .profile-frame:hover .profile-img {
+            filter: grayscale(0%) contrast(100%);
+            transform: translate(15px, 15px) rotate(-5deg);
+            box-shadow: -15px -15px 0px var(--dark);
         }
 
         .header-content h1 { 
@@ -276,7 +288,7 @@
 
     <footer>
         <div style="font-weight: 900; text-transform: uppercase; letter-spacing: 2px; padding: 40px; text-align: center; border-top: 6px solid var(--dark);">
-            © JENSKE VERHAMME 2026 // GEBASTELD MET ESTETHIEK EN CHAOTISCHE CODE
+            © JENSKE VERHAMME 2026 // GEBASTELD MET CODE & CHAOS // DIY OR DIE
         </div>
     </footer>
 
