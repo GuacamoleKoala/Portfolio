@@ -86,7 +86,7 @@
 
         .section-main-title {
             font-size: 2.5rem; font-weight: 900; text-transform: uppercase;
-            margin-bottom: 40px; 
+            margin-bottom: 20px; 
         }
         .section-main-title.dark { color: var(--dark); }
         .section-main-title.light { color: var(--meemoo-blue); }
@@ -140,12 +140,25 @@
         }
         .code-line { display: block; margin-bottom: 5px; opacity: 0.8; font-size: 0.9rem; }
 
-        /* --- DEEL 3: DIY SECTIE --- */
-        .diy-section { max-width: 1100px; margin: 100px auto; padding: 0 40px; }
-        .diy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .diy-card { border: 6px solid var(--dark); padding: 30px; background: white; transition: 0.3s; }
-        .diy-card:hover { transform: translateY(-10px); box-shadow: 15px 15px 0px var(--meemoo-blue); }
-        .diy-icon { font-size: 2rem; margin-bottom: 15px; display: block; }
+        /* --- DEEL 3: DIY SECTIE (Gekarteld overgang) --- */
+        .diy-wrapper {
+            background-color: var(--white);
+            width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;
+            padding: 120px 0;
+            clip-path: polygon(0 50px, 5% 0, 10% 50px, 15% 0, 20% 50px, 25% 0, 30% 50px, 35% 0, 40% 50px, 45% 0, 50% 50px, 55% 0, 60% 50px, 65% 0, 70% 50px, 75% 0, 80% 50px, 85% 0, 90% 50px, 95% 0, 100% 50px, 100% 100%, 0 100%);
+            margin-top: -50px;
+        }
+
+        .diy-container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+        .diy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        
+        .diy-card { 
+            background: var(--white); border: 5px solid var(--dark); padding: 40px; 
+            position: relative; transition: 0.3s ease;
+        }
+        .diy-card:hover { transform: translate(-8px, -8px); box-shadow: 12px 12px 0px var(--meemoo-blue); }
+        .diy-card h3 { text-transform: uppercase; font-weight: 900; margin-top: 0; font-size: 1.4rem; display: flex; align-items: center; gap: 10px; }
+        .diy-card h3::before { content: ''; width: 12px; height: 12px; background: var(--meemoo-blue); border: 2px solid var(--dark); }
 
         @media (max-width: 900px) {
             .hero-container, .visual-card, .radio-flex { grid-template-columns: 1fr; display: block; }
@@ -228,7 +241,7 @@
 
                 <div class="audio-part">
                     <div class="audio-part-title">03. GELUIDSTECHNIEK</div>
-                    <p style="margin-bottom: 20px;">Het temmen van decibels en kabels. Als technicus zorg ik voor de perfecte balans tussen chaos en klank.</p>
+                    <p style="margin-bottom: 20px;">Het temmen van decibels en kabels. Als technicus zorg ik voor de perfecte balans tussen chaos en klank in zalen als Stelplaats en Vloer1.</p>
                     <div class="tech-tags">
                         <div class="tech-tag">Stelplaats</div>
                         <div class="tech-tag">Vloer1</div>
@@ -241,7 +254,7 @@
 
         <div class="visual-dark-section" id="visual">
             <div class="visual-container">
-                <h2 class="section-main-title light">GRAFISCH</h2>
+                <h2 class="section-main-title light">VISUELE VERKENNINGEN</h2>
                 
                 <div class="visual-grid">
                     <div class="visual-card">
@@ -251,7 +264,7 @@
                         <div class="visual-meta">
                             <span class="tag">ACTING PERFORMANCE</span>
                             <h3>Are You Equally Weird???</h3>
-                            <p>Een verkenning van het absurde en identiteit in de videoclip <i>"Are You Equally Weird"</i>. In deze productie nam ik de rol van acteur op mij.</p>
+                            <p>Een verkenning van het absurde en identiteit in de videoclip <i>"Are You Equally Weird"</i>. In deze productie nam ik de rol van acteur op mij om de visuele wereld van de band te belichamen.</p>
                         </div>
                     </div>
 
@@ -262,7 +275,7 @@
                         <div class="visual-meta">
                             <span class="tag">ART DIRECTOR / EDITOR</span>
                             <h3>Didgeriradio Synthesis</h3>
-                            <p>Voor Baruch Williamson creëerde ik een experimentele videoclip waarbij ik de grenzen van montage opzocht.</p>
+                            <p>Voor Baruch Williamson creëerde ik een experimentele videoclip waarbij ik de grenzen van montage en beeldvoering opzocht.</p>
                             <a href="https://jouwwixsite.com/documentatie" target="_blank" style="color: var(--meemoo-blue); font-weight: 900; text-decoration: none; border-bottom: 2px solid var(--meemoo-blue);">BEKIJK DOCUMENTATIE (WIX) →</a>
                         </div>
                     </div>
@@ -274,7 +287,7 @@
                         <div class="visual-meta">
                             <span class="tag">HERITAGE & RE-ENACTMENT</span>
                             <h3>Een Eenvoudig Verhaal</h3>
-                            <p>Historische narratieven naar beeld vertalen. Re-enactment projecten voor KBR en Photolit.</p>
+                            <p>Het vertalen van historische narratieven naar beeld. Projecten zoals de re-enactment voor de KBR slaan de brug tussen archiefonderzoek en visuele storytelling.</p>
                         </div>
                     </div>
 
@@ -291,7 +304,7 @@
                         <div class="visual-meta">
                             <span class="tag">DATA VISUALISATIE</span>
                             <h3>Netwerken & Dashboards</h3>
-                            <p>Interactieve <b>netwerkvisualisaties</b> en analytische dashboards in <b>Tableau</b> voor erfgoedcollecties.</p>
+                            <p>Focus op het vertalen van complexe erfgoeddata naar inzichtelijke beelden via <b>netwerkvisualisaties</b> en analytische dashboards in <b>Tableau</b>.</p>
                             <a href="https://github.com/jenskev" target="_blank" style="color: var(--meemoo-blue); font-weight: 900; text-decoration: none; border-bottom: 2px solid var(--meemoo-blue);">BEKIJK OP GITHUB →</a>
                         </div>
                     </div>
@@ -299,30 +312,29 @@
             </div>
         </div>
 
-        <section class="diy-section" id="diy">
-            <h2 class="section-main-title dark">DIY-KNUTSELWERK</h2>
-            <div class="diy-grid">
-                <div class="diy-card">
-                    <span class="diy-icon">👕</span>
-                    <h3>Bandmerch & Zeefdruk</h3>
-                    <p>Van ontwerp tot de eigenlijke druk. Ik creëer unieke T-shirts en merchandise voor bands met analoge technieken zoals zeefdrukken.</p>
-                </div>
-                <div class="diy-card">
-                    <span class="diy-icon">⚡</span>
-                    <h3>Soldeerwerk & Pedalen</h3>
-                    <p>Het bouwen van eigen effectpedalen en audio-elektronica. Analoge circuits tot leven brengen met de soldeerbout voor unieke klanken.</p>
-                </div>
-                <div class="diy-card">
-                    <span class="diy-icon">📱</span>
-                    <h3>Social Media Art</h3>
-                    <p>Creatieve visuele content voor sociale kanalen: glitches, collages en animaties die de esthetiek van de muziek versterken.</p>
+        <div class="diy-wrapper" id="diy">
+            <div class="diy-container">
+                <h2 class="section-main-title dark">DIY & MAAKWERK</h2>
+                <p style="font-weight: 600; max-width: 700px; margin-bottom: 40px;">
+                    Naast geluid en beeld ben ik altijd bezig met tastbare creatie. Of het nu gaat om het fysiek drukken van merchandise of het assembleren van elektronica: ik geloof in de kracht van het zelf doen en blijf constant experimenteren met nieuwe technieken.
+                </p>
+
+                <div class="diy-grid">
+                    <div class="diy-card">
+                        <h3>Bandmerch & Zeefdruk</h3>
+                        <p>Van ontwerp tot de eigenlijke druk. Ik creëer unieke T-shirts en merchandise voor bands met analoge technieken zoals zeefdrukken op textiel.</p>
+                    </div>
+                    <div class="diy-card">
+                        <h3>Soldeerwerk & Pedalen</h3>
+                        <p>Het bouwen van eigen effectpedalen en audio-elektronica. Analoge circuits tot leven brengen met de soldeerbout voor die ene specifieke klank.</p>
+                    </div>
+                    <div class="diy-card">
+                        <h3>Social Media Art</h3>
+                        <p>Digitale content die breekt met de standaard. Ik maak glitches en grafische collages voor sociale media die de visuele identiteit van projecten versterken.</p>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <section style="padding: 40px; text-align: center; background: var(--white); border-top: 4px solid var(--dark);">
-            <p style="font-family: 'Courier New', monospace; font-size: 0.8rem;">// Gear: Soldering gitaarpedalen // Radio: Mixcloud curatie // Visueel: Premiere Pro // Data: Python & Tableau //</p>
-        </section>
+        </div>
 
     </main>
 
