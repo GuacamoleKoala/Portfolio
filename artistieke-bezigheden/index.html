@@ -66,7 +66,7 @@
             line-height: 0.85; text-transform: uppercase; letter-spacing: -4px;
         }
 
-        /* Band Blobs - Kleiner gemaakt */
+        /* Band Blobs */
         .muziek-section { padding: 60px 40px; max-width: 1100px; margin: 0 auto; }
         .section-title { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 40px; border-bottom: 6px solid var(--dark); display: inline-block; }
 
@@ -103,16 +103,26 @@
 
         .music-blob:hover .blob-shape { transform: scale(1.1); background-blend-mode: multiply; background-color: #fff; }
 
-        /* Videoclip Sectie */
+        /* Visuele Sectie (Scenische Synthese) */
         .video-section { background: var(--dark); color: var(--white); padding: 80px 40px; }
-        .video-grid { 
-            display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; 
+        .visual-column-grid { 
+            display: grid; grid-template-columns: 1fr; gap: 60px; 
             max-width: 1100px; margin: 0 auto; 
         }
 
-        .video-card { border: 4px solid var(--white); padding: 20px; position: relative; }
-        .video-card h3 { text-transform: uppercase; font-size: 1.8rem; margin: 10px 0; }
-        .video-tag { background: var(--meemoo-blue); color: var(--dark); padding: 4px 8px; font-weight: 900; font-size: 0.8rem; display: inline-block; }
+        .visual-item { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; border-bottom: 1px solid #444; padding-bottom: 40px; }
+        .visual-item:last-child { border-bottom: none; }
+
+        .video-embed-container {
+            position: relative; width: 100%; padding-bottom: 56.25%; /* 16:9 ratio */
+            height: 0; border: 4px solid var(--meemoo-blue);
+        }
+        .video-embed-container iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
+        }
+
+        .visual-text h3 { text-transform: uppercase; font-size: 2rem; margin: 0 0 15px 0; color: var(--meemoo-blue); }
+        .visual-tag { background: var(--meemoo-blue); color: var(--dark); padding: 4px 8px; font-weight: 900; font-size: 0.8rem; display: inline-block; margin-bottom: 10px; }
 
         /* Radio Vaag Sectie */
         .radio-section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
@@ -129,7 +139,7 @@
         .divider { height: 12px; background: var(--dark); width: 110%; margin-left: -5%; transform: rotate(-1deg); margin: 40px 0; }
 
         @media (max-width: 900px) {
-            .hero-container, .blob-grid, .video-grid, .radio-container { grid-template-columns: 1fr; flex-direction: column; }
+            .hero-container, .blob-grid, .visual-item, .radio-container { grid-template-columns: 1fr; }
             .blob-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
@@ -152,7 +162,7 @@
                 <h1>Herrie &<br>Maakwerk</h1>
                 <div class="tagline">MUZIEK / TECH / VISUEEL</div>
                 <p style="font-weight: 600; font-size: 1.1rem; margin-top: 20px;">
-                    Ik ben muzikant, geluidstechnicus en maker. Als ik niet op een podium sta, experimenteer ik met synths of soldeer ik gitaareffectenpedalen in elkaar. Mijn werk is een constante wisselwerking tussen de techniek van geluid en de kracht van het beeld.
+                    Muzikant, geluidstechnicus en maker. Van het podium tot de soldeerbout: muziek staat centraal, de uitwerking is multidisciplinair. Ik bouw aan geluid, beeld en alles wat daartussenin glitcht.
                 </p>
             </div>
         </section>
@@ -181,20 +191,45 @@
 
         <section class="video-section">
             <div style="max-width: 1100px; margin: 0 auto;">
-                <h2 style="font-size: 2.5rem; text-transform: uppercase; margin-bottom: 40px; color: var(--meemoo-blue);">VISUEEL GEWELD</h2>
-                <div class="video-grid">
-                    <div class="video-card">
-                        <span class="video-tag">DIRECTOR / EDITOR</span>
-                        <h3>Baruch Williamson</h3>
-                        <p>Visuele ondersteuning en videoproductie voor Baruch Williamson. Rauw, artistiek en experimenteel.</p>
-                        <a href="#" style="color: var(--meemoo-blue); font-weight: 900; text-decoration: none;">WATCH CLIP →</a>
+                <h2 style="font-size: 2.5rem; text-transform: uppercase; margin-bottom: 60px; color: var(--meemoo-blue);">SCENISCHE SYNTHESE</h2>
+                
+                <div class="visual-column-grid">
+                    
+                    <div class="visual-item">
+                        <div class="video-embed-container">
+                            <iframe src="https://www.youtube.com/embed/YOUTUBE_ID_NONA" allowfullscreen></iframe>
+                        </div>
+                        <div class="visual-text">
+                            <span class="visual-tag">ACTING PERFORMANCE</span>
+                            <h3>Nona Problemo</h3>
+                            <p>Een verkenning van het absurde en identiteit in de videoclip <i>"Are You Equally Weird"</i>. In deze productie nam ik de rol van acteur op mij om de visuele wereld van de band te belichamen.</p>
+                        </div>
                     </div>
-                    <div class="video-card">
-                        <span class="video-tag">ACTING</span>
-                        <h3>Nona Problemo</h3>
-                        <p>Acting performance in de videoclip <i>"Are You Equally Weird"</i>. Een verkenning van identiteit en het absurde.</p>
-                        <a href="https://www.youtube.com/watch?v=yourlink" target="_blank" style="color: var(--meemoo-blue); font-weight: 900; text-decoration: none;">GO WEIRD →</a>
+
+                    <div class="visual-item">
+                        <div class="video-embed-container">
+                            <iframe src="https://www.youtube.com/embed/YOUTUBE_ID_BARUCH" allowfullscreen></iframe>
+                        </div>
+                        <div class="visual-text">
+                            <span class="visual-tag">DIRECTOR / EDITOR</span>
+                            <h3>Baruch Williamson</h3>
+                            <p>Voor Baruch Williamson creëerde ik een experimentele videoclip waarbij ik de grenzen van montage en beeldvoering opzocht. </p>
+                            <a href="https://jouwwixsite.com/documentatie" target="_blank" style="color: var(--meemoo-blue); font-weight: 900; text-decoration: none; border-bottom: 2px solid var(--meemoo-blue);">BEKIJK DE DOCUMENTATIE (WIX) →</a>
+                        </div>
                     </div>
+
+                    <div class="visual-item">
+                        <div style="background: #222; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; border: 4px solid var(--meemoo-blue);">
+                             <span style="font-weight: 900; color: #444;">[ PHOTO NOVEL VISUAL ]</span>
+                        </div>
+                        <div class="visual-text">
+                            <span class="visual-tag">HERITAGE & RE-ENACTMENT</span>
+                            <h3>Photo Novels</h3>
+                            <p>Het vertalen van historische narratieven naar beeld. Projecten zoals de re-enactment voor de KBR en Photolit slaan de brug tussen archiefonderzoek en visuele storytelling.</p>
+                            <a href="../data-ict/index.html" style="color: var(--meemoo-blue); font-weight: 900; text-decoration: none; border-bottom: 2px solid var(--meemoo-blue);">BEKIJK DATA & ICT PROJECTEN →</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
